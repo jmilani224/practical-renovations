@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex, Text, Divider } from '@chakra-ui/core'
 import { Link } from 'gatsby'
+import theme from '../../themes/theme.js'
 
 const LoginSignUp = () => {
     return (
@@ -8,9 +9,11 @@ const LoginSignUp = () => {
         h={6}
         m={4}
         >
-            <Link to="/"><Text>Login</Text></Link>
-            <Divider orientation="vertical" />
-            <Link to="/"><Text>Commercial Servies</Text></Link>
+            <Link to="/">
+                <Text fontFamily="'Roboto Mono', monospace">Login</Text></Link>
+            <Divider orientation="vertical" borderColor={theme.mainColor} />
+            <Link to="/">
+                <Text fontFamily="'Roboto Mono', monospace">Commercial Servies</Text></Link>
         </Flex>
     )
 }

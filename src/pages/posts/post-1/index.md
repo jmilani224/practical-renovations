@@ -1,10 +1,10 @@
 ---
 path: /blog/test-post-1
-title: Post One
-main-image: ../../../images/gatsby-astronaut.png
+title: How to Build a Deck
+main_image: ./post-1-image.jpg
 author: Jesse Carter
 date: 5/13/2020
-desc: This is blog post one
+desc: Learn how to build your own deck using only popcicle sticks.
 ---
 
 # Post One

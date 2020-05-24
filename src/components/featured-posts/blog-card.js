@@ -1,43 +1,50 @@
 import React from 'react'
-import { Flex, Heading, Text } from '@chakra-ui/core'
+import { Flex, Heading, Text, Box } from '@chakra-ui/core'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
 const BlogCard = ({ image, title, desc, href }) => {
-    console.log(image)
     return (
         <Flex
         direction="column"
         w="40vw"
         h="20rem"
-        px={10}
         ml={8}
         mb={8}
         rounded="10px"
-        borderTop="8px solid"
-        borderColor="#fff"
         backgroundColor="#fff"
         >
-            <img src={image} />
-            <Heading
-            as="h4"
-            fontSize="2xl"
-            mb={2}
+            <Img
+            style={{borderRadius: '10px 10px 0 0'}}
+            fluid={image}
+            />
+            
+            <Box
+            ml={4}
+            mr={2}
             >
-                {title}
-            </Heading>
-            <Text
-            color="gray.500"
-            mb={1}
-            >
-                {desc}
-            </Text>
-            <Link to={href}>
-                <Text
-                textDecoration="underline"
+                <Heading
+                as="h4"
+                fontSize="2xl"
+                my={3}
                 >
-                    Read More
+                    {title}
+                </Heading>
+                <Text
+                color="gray.500"
+                my={1}
+                >
+                    {desc}
                 </Text>
-            </Link>
+                <Link to={href}>
+                    <Text
+                    textDecoration="underline"
+                    mb={3}
+                    >
+                        Read More
+                    </Text>
+                </Link>
+            </Box>
         </Flex>
     )
 }

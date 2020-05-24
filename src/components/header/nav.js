@@ -61,7 +61,7 @@ import Section from './section.js'
     justifyContent="center"
     >
         <List
-        backgroundColor={theme.mainLight}
+        backgroundColor={theme.mainGray}
         w="100%"
         pl={8}
         >

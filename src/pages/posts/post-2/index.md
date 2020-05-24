@@ -1,10 +1,10 @@
 ---
 path: /blog/test-post-2
-title: Post Two
-main-image: ../../../images/gatsby-astronaut.png
+title: Step-By-Step Flooring Tearout and Install
+main_image: ./post-2-image.jpg
 author: Jesse Carter
 date: 5/13/2020
-desc: This is blog post two
+desc: Out with the old, in with the new.
 ---
 
 # Post Two

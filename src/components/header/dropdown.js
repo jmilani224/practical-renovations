@@ -1,7 +1,8 @@
 import React from 'react'
 import {
     Text,
-    Flex
+    Flex,
+    PseudoBox
  } from '@chakra-ui/core'
  import { Link } from 'gatsby'
 
@@ -12,13 +13,16 @@ const Dropdown = ({ menuItems }) => {
         <Flex
         direction="column"
         position="absolute"
-        p={3}
-        backgroundColor={theme.mainLight}
+        backgroundColor={theme.mainGray}
         zIndex="2"
         >
             {menuItems.map(item => (
                 <Link to={item.href}>
-                    <Text p={2}>{item.page}</Text>
+                    <PseudoBox
+                    _hover={{bg: theme.mainLight}}
+                    >
+                        <Text px={4} py={2}>{item.page}</Text>
+                    </PseudoBox>
                 </Link>
             ))}
         </Flex>

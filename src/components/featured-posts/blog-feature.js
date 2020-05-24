@@ -16,6 +16,13 @@ const BlogFeature = () => {
               path
               title
               desc
+              main_image {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -23,13 +30,13 @@ const BlogFeature = () => {
     }
   `)
 
-  const blogPost1 = data.allMarkdownRemark.edges[0].node
-  const blogPost2 = data.allMarkdownRemark.edges[1].node
+  const blogPost1 = data.allMarkdownRemark.edges[0].node.frontmatter
+  const blogPost2 = data.allMarkdownRemark.edges[1].node.frontmatter
   return (
     <>
     <Stack>
-      <BlogCard title={blogPost1.frontmatter.title} desc={blogPost1.frontmatter.desc} href={blogPost1.frontmatter.href} />
-      <BlogCard title={blogPost2.frontmatter.title} desc={blogPost2.frontmatter.desc} href={blogPost2.frontmatter.href} />
+      <BlogCard image={blogPost1.main_image.childImageSharp.fluid} title={blogPost1.title} desc={blogPost1.desc} href={blogPost1.href} />
+      <BlogCard image={blogPost2.main_image.childImageSharp.fluid} title={blogPost2.title} desc={blogPost2.desc} href={blogPost2.href} />
     </Stack>
     </>
   )

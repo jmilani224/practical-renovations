@@ -11,12 +11,12 @@ const Layout = ({ children }) => {
         <Box
         backgroundColor={theme.backgroundColor}
         >
-      <Header />
+          <Header />
 
-        <main>{children}</main>
-        <footer>
-          
-        </footer>
+          <main>{children}</main>
+          <footer>
+            
+          </footer>
         </Box>
     </>
   )
