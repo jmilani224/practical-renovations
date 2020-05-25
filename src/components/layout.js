@@ -1,9 +1,11 @@
 import React from "react"
 
-import Header from "./header/header.js"
 import { Box } from "@chakra-ui/core"
 
+import Header from "./header/header.js"
 import theme from '../themes/theme.js'
+import Footer from "./footer.js"
+
 const Layout = ({ children }) => {
 
   return (
@@ -14,9 +16,9 @@ const Layout = ({ children }) => {
           <Header />
 
           <main>{children}</main>
-          <footer>
-            
-          </footer>
+
+          <Footer />
+          
         </Box>
     </>
   )

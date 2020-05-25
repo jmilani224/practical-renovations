@@ -5,55 +5,56 @@ import theme from '../../themes/theme.js'
 
 import Section from './section.js'
 
-  const Nav = () => {
-    const navArr = [
+export const navArr = [
+    {
+      name: "Services",
+      href: "/services",
+      menuItems: [
         {
-          name: "Services",
-          href: "/services",
-          menuItems: [
-            {
-              page: "Paint",
-              href: "/services/paint"
-            },
-            {
-              page: "Drywall",
-              href: "/services/drywall"
-            },
-            {
-              page: "Kitchen & Bath",
-              href: "/services/kitchen-bath"
-            },
-            {
-              page: "Electric & Plumbing",
-              href: "/services/electric-plumbing"
-            },
-            {
-              page: "Decks",
-              href: "/services/decks"
-            }
-          ]
+          page: "Paint",
+          href: "/services/paint"
         },
         {
-          name: "Gallery",
-          href: "/gallery",
-          menuItems: []
+          page: "Drywall",
+          href: "/services/drywall"
         },
         {
-          name: "About",
-          href: "/about",
-          menuItems: []
+          page: "Kitchen & Bath",
+          href: "/services/kitchen-bath"
         },
         {
-          name: "Contact",
-          href: "/contact",
-          menuItems: []
+          page: "Electric & Plumbing",
+          href: "/services/electric-plumbing"
         },
         {
-          name: "Blog",
-          href: "/blog",
-          menuItems: []
+          page: "Decks",
+          href: "/services/decks"
         }
       ]
+    },
+    {
+      name: "Gallery",
+      href: "/gallery",
+      menuItems: []
+    },
+    {
+      name: "About",
+      href: "/about",
+      menuItems: []
+    },
+    {
+      name: "Contact",
+      href: "/contact",
+      menuItems: []
+    },
+    {
+      name: "Blog",
+      href: "/blog",
+      menuItems: []
+    }
+  ]
+  
+  const Nav = () => {
 
     return (
     <Flex
