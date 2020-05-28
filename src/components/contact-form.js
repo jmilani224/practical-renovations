@@ -18,7 +18,6 @@ const ContactForm = () => {
         w="50vw"
         h="39rem"
         px={10}
-        rounded="10px"
         borderTop="8px solid"
         borderColor="#fff"
         borderTopColor={theme.mainColor}

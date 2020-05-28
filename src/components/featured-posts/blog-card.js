@@ -3,7 +3,8 @@ import { Flex, Heading, Text, Box } from '@chakra-ui/core'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
-const BlogCard = ({ image, title, desc, href }) => {
+const BlogCard = ({ data }) => {
+    console.log(data)
     return (
         <Flex
         direction="column"
@@ -11,12 +12,10 @@ const BlogCard = ({ image, title, desc, href }) => {
         h="20rem"
         ml={8}
         mb={8}
-        rounded="10px"
         backgroundColor="#fff"
         >
             <Img
-            style={{borderRadius: '10px 10px 0 0'}}
-            fluid={image}
+            fluid={data.main_image.childImageSharp.fluid}
             />
             
             <Box
@@ -28,15 +27,15 @@ const BlogCard = ({ image, title, desc, href }) => {
                 fontSize="2xl"
                 my={3}
                 >
-                    {title}
+                    {data.title}
                 </Heading>
                 <Text
                 color="gray.500"
                 my={1}
                 >
-                    {desc}
+                    {data.desc}
                 </Text>
-                <Link to={href}>
+                <Link to={data.href}>
                     <Text
                     textDecoration="underline"
                     mb={3}

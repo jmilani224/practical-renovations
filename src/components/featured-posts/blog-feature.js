@@ -35,8 +35,8 @@ const BlogFeature = () => {
   return (
     <>
     <Stack>
-      <BlogCard image={blogPost1.main_image.childImageSharp.fluid} title={blogPost1.title} desc={blogPost1.desc} href={blogPost1.href} />
-      <BlogCard image={blogPost2.main_image.childImageSharp.fluid} title={blogPost2.title} desc={blogPost2.desc} href={blogPost2.href} />
+      <BlogCard data={blogPost1} />
+      <BlogCard data={blogPost2} />
     </Stack>
     </>
   )
