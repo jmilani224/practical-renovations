@@ -4,14 +4,11 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 const BlogCard = ({ data }) => {
-    console.log(data)
     return (
         <Flex
         direction="column"
-        w="40vw"
+        w="27vw"
         h="20rem"
-        ml={8}
-        mb={8}
         backgroundColor="#fff"
         >
             <Img

@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Stack } from "@chakra-ui/core"
+import { Flex, Heading } from "@chakra-ui/core"
 import BlogCard from "./blog-card"
 
 const BlogFeature = () => {
@@ -32,12 +32,27 @@ const BlogFeature = () => {
 
   const blogPost1 = data.allMarkdownRemark.edges[0].node.frontmatter
   const blogPost2 = data.allMarkdownRemark.edges[1].node.frontmatter
+  const blogPost3 = data.allMarkdownRemark.edges[2].node.frontmatter
   return (
     <>
-    <Stack>
+    <Heading
+    as="h2"
+    fontSize="4xl"
+    textAlign="center"
+    mt={6}
+    >
+      Featured Blog Posts
+    </Heading>
+    <Flex
+    my={10}
+    mx={4}
+    justifyContent="space-evenly"
+    alignItems="center"
+    >
       <BlogCard data={blogPost1} />
       <BlogCard data={blogPost2} />
-    </Stack>
+      <BlogCard data={blogPost3} />
+    </Flex>
     </>
   )
 }

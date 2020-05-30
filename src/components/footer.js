@@ -23,19 +23,19 @@ const Footer = () => {
                 ml={12}
                 >
                     {navArr.map((item, i, arr) => (
-                        <Link
-                        to={item.href}
-                        display='inline-block'
-                        >
-                            <PseudoBox
+                        <PseudoBox
                             as="span"
                             color="#fff"
                             fontWeight="500"
                             _after={i < arr.length - 1 && {content: "'•'", display: "inline-block", margin: "0 9px"}}
                             >
-                                {item.name}
-                            </PseudoBox>
-                        </Link>
+                                <Link
+                                to={item.href}
+                                display='inline-block'
+                                >
+                                    {item.name}
+                                </Link>
+                        </PseudoBox>
                     ))}
                   </Box>    
               </Flex>

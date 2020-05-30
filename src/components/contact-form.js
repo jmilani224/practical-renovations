@@ -15,7 +15,8 @@ const ContactForm = () => {
     return (
         <Flex
         direction="column"
-        w="50vw"
+        w="30rem"
+        minW="30rem"
         h="39rem"
         px={10}
         borderTop="8px solid"
@@ -27,6 +28,7 @@ const ContactForm = () => {
             as="h3"
             my={6}
             mx={3}
+            fontSize="3xl"
             >
                 Get a FREE Estimate
             </Heading>
