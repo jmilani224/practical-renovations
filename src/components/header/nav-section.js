@@ -35,7 +35,6 @@ export const MobileNavSection = ({ name, href, menuItems }) => {
   return (
     <ListItem
             display="block"
-            fontWeight="600"
             fontSize="xl"
             py={4}
             px={12}
@@ -46,7 +45,6 @@ export const MobileNavSection = ({ name, href, menuItems }) => {
                 {menuItems[0] && menuItems.map(item => (
                   <ListItem
                   display="block"
-                  fontWeight="400"
                   py={4}
                   px={4}
                   >

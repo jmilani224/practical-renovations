@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { Box } from "@chakra-ui/core"
 
@@ -8,12 +8,19 @@ import Footer from "./footer.js"
 
 const Layout = ({ children }) => {
 
+  const [navOpen, isNavOpen] = useState(false)
+
+  const handleNavOpen = () => {
+    isNavOpen(!navOpen);
+  }
+
   return (
     <>
         <Box
+        position={navOpen ? "fixed" : "static"}
         backgroundColor={theme.backgroundColor}
         >
-          <Header />
+          <Header navOpen={navOpen} handleNavOpen={handleNavOpen} />
 
           <main>{children}</main>
 

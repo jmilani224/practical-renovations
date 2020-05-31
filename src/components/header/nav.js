@@ -54,7 +54,7 @@ export const navArr = [
     }
   ]
   
-  const Nav = () => {
+const Nav = () => {
 
     return (
     <Flex

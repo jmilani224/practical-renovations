@@ -7,14 +7,9 @@ import { Flex } from "@chakra-ui/core"
 import theme from "../../themes/theme.js"
 import { MobileMenuIcon } from "./mobile-menu-icon.js"
 
-const Header = () => {
-  
-  const [navOpen, isNavOpen] = useState(false)
+const Header = ({ navOpen, handleNavOpen }) => {
 
-  const handleNavOpen = () => {
-    isNavOpen(!navOpen);
-  }
-console.log(navOpen)
+
   return (
     
     <header>

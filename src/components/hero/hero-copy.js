@@ -9,7 +9,7 @@ const HeroCopy = () => {
         p={10}
         px={{base: 10, md: 20}}
         w={{base: "100vw", lg: "auto"}}
-        minW="30rem"
+        minW={{base: "100vw", lg: "30rem"}}
         maxW={{base: "100vw", lg: "35rem"}}
         mr={{base: 0, lg: 4}}
         mb={{base: 0, md: 4, lg: 0}}
