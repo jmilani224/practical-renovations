@@ -113,7 +113,11 @@ const Nav = () => {
         </Box>
         
         <List
-
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        w="100%"
         >
           {navArr.map(item => (
             <MobileNavSection name={item.name} href={item.href} menuItems={item.menuItems} />

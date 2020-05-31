@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { ListItem, PseudoBox } from '@chakra-ui/core';
+import { ListItem } from '@chakra-ui/core';
 import { Link } from 'gatsby'
 
 import Dropdown from './dropdown.js'
 import MenuArrow from './menu-arrow.js';
+
+import theme from '../../themes/theme.js'
 
 const NavSection = ({ name, href, menuItems}) => {
     const [drop, setDrop] = useState(false)
@@ -34,26 +36,27 @@ export const MobileNavSection = ({ name, href, menuItems }) => {
 
   return (
     <ListItem
-            display="block"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
             fontSize="xl"
-            py={4}
-            px={12}
+            mb={6}
             >
               <Link to={href}>
                   {name}
               </Link>
-                {menuItems[0] && menuItems.map(item => (
+                {menuItems[0] && menuItems.map((item, i, arr) => (
                   <ListItem
-                  display="block"
-                  py={4}
-                  px={4}
+                  display="flex"
+                  justifyContent="center"
+                  w="100%"
+                  fontSize="lg"
+                  m={3}
+                  mb={i == arr.length - 1 && 3}
+                  color={theme.darkGray}
                   >
                     <Link to={item.href}>
-                      <PseudoBox
-                      _before={{content: "'-'", margin: "0 8px"}}
-                      >
                           {item.page}
-                      </PseudoBox>
                     </Link>
           
                   </ListItem>
