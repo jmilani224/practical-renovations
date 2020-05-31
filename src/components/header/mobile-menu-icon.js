@@ -17,6 +17,7 @@ export const MobileMenuIcon = ({ handleNavOpen }) => {
         dangerouslySetInnerHTML={{__html: icon}}
         cursor="pointer"
         onClick={handleNavOpen}
+        focusable="true"
         />
     )
 }

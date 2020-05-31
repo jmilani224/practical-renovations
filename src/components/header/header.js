@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 import Nav, { MobileNav } from './nav.js'
 import Logo from './logo.js'
