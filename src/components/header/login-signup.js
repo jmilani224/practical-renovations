@@ -8,6 +8,7 @@ const LoginSignUp = () => {
         <Flex
         h={6}
         m={4}
+        display={{base: "none", md: "flex"}}
         >
             <Link to="/">
                 <Text fontFamily="'Roboto Mono', monospace">Login</Text></Link>

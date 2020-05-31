@@ -35,7 +35,7 @@ const Hero = () => {
                 h={{base: "auto", lg: "100vh"}}
                 w="100vw"
                 pt={{base: 0, lg: 16}}
-                pb={{base: 0, lg: 4}}
+                pb={{base: 0, md: 4}}
                 px={{base: 0, lg: 4}}
                 direction={{base: "column", lg: "row"}}
                 alignItems={{base: "center", lg: "start"}}

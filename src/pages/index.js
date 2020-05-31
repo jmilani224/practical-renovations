@@ -9,12 +9,17 @@ import { Flex } from "@chakra-ui/core"
 
 const IndexPage = () => (
   <Layout>
+
     <Flex
     direction="column"
     >
+
       <Hero />
+
       <BlogFeature />
+
     </Flex>
+    
   </Layout>
 )
 

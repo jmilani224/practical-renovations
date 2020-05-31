@@ -24,7 +24,7 @@ const BlogCard = ({ data }) => {
             </Box>
             
             <Box
-            ml={4}
+            ml={{base: 8, md: 6, lg: 4}}
             mr={{base: 0, lg: 2}}
             minH={{base: "auto", lg: "9rem"}}
             >
