@@ -15,7 +15,7 @@ const ContactForm = () => {
     return (
         <Flex
         direction="column"
-        w="30rem"
+        w={{base: "100vw", md: "37rem", lg: "30rem"}}
         minW="30rem"
         h="39rem"
         px={10}

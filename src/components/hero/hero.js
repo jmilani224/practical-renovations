@@ -7,8 +7,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import ContactForm from '../contact-form'
 import HeroCopy from './hero-copy.js'
 
-  
-
 const Hero = () => {
     const bgImage = useStaticQuery(graphql`
     {
@@ -26,18 +24,21 @@ const Hero = () => {
       }
     }
   `)
-const fluidImage = bgImage.file.childImageSharp.fluid  
-    return (
+  const fluidImage = bgImage.file.childImageSharp.fluid
 
+  return (
             <BackgroundImage
             Tag="div"
             fluid={fluidImage}
             >
                 <Flex
-                h="100vh"
+                h={{base: "auto", lg: "100vh"}}
                 w="100vw"
-                py={16}
-                alignItems="start"
+                pt={{base: 0, lg: 16}}
+                pb={{base: 0, lg: 4}}
+                px={{base: 0, lg: 4}}
+                direction={{base: "column", lg: "row"}}
+                alignItems={{base: "center", lg: "start"}}
                 justifyContent="space-evenly"
                 >
                     <HeroCopy />

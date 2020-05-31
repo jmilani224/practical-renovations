@@ -30,9 +30,11 @@ const BlogFeature = () => {
     }
   `)
 
-  const blogPost1 = data.allMarkdownRemark.edges[0].node.frontmatter
-  const blogPost2 = data.allMarkdownRemark.edges[1].node.frontmatter
-  const blogPost3 = data.allMarkdownRemark.edges[2].node.frontmatter
+  const arrLength = data.allMarkdownRemark.edges.length
+  const blogPost1 = data.allMarkdownRemark.edges[arrLength - 3].node.frontmatter
+  const blogPost2 = data.allMarkdownRemark.edges[arrLength - 2].node.frontmatter
+  const blogPost3 = data.allMarkdownRemark.edges[arrLength - 1].node.frontmatter
+
   return (
     <>
     <Heading
@@ -44,14 +46,15 @@ const BlogFeature = () => {
       Featured Blog Posts
     </Heading>
     <Flex
-    my={10}
+    my={{base: 6, lg: 10}}
     mx={4}
-    justifyContent="space-evenly"
+    justifyContent="center"
     alignItems="center"
+    direction={{base: "column", lg: "row"}}
     >
-      <BlogCard data={blogPost1} />
-      <BlogCard data={blogPost2} />
       <BlogCard data={blogPost3} />
+      <BlogCard data={blogPost2} />
+      <BlogCard data={blogPost1} />
     </Flex>
     </>
   )

@@ -5,11 +5,14 @@ const HeroCopy = () => {
     return (
         <Flex
         direction="column"
-        backgroundColor="#e8e6e687"
+        backgroundColor={{base: "#e8e6e6", md: "#e8e6e687"}}
         p={10}
+        px={{base: 10, md: 20}}
+        w={{base: "100vw", lg: "auto"}}
         minW="30rem"
-        maxW="35rem"
-        mr={4}
+        maxW={{base: "100vw", lg: "35rem"}}
+        mr={{base: 0, lg: 4}}
+        mb={{base: 0, md: 4, lg: 0}}
         >
             <Heading
             as="h1"

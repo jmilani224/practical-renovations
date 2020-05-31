@@ -6,18 +6,27 @@ import Img from 'gatsby-image'
 const BlogCard = ({ data }) => {
     return (
         <Flex
-        direction="column"
-        w="27vw"
-        h="20rem"
+        direction={{base: "column", md: "row", lg: "column"}}
+        w={{base: "100vw", md: "40rem", lg: "22rem"}}
+        h={{base: "25rem", md: "10rem", lg: "22rem"}}
+        mx={4}
+        my={{base: 4, lg: 0}}
         backgroundColor="#fff"
         >
-            <Img
-            fluid={data.main_image.childImageSharp.fluid}
-            />
+            <Box
+            w={{base: "auto", md: "15rem", lg: "auto"}}
+            h={{base: "auto", md: "10rem", lg: "auto"}}
+            overflow="hidden"
+            >
+                <Img
+                fluid={data.main_image.childImageSharp.fluid}
+                />
+            </Box>
             
             <Box
             ml={4}
-            mr={2}
+            mr={{base: 0, lg: 2}}
+            minH={{base: "auto", lg: "9rem"}}
             >
                 <Heading
                 as="h4"
