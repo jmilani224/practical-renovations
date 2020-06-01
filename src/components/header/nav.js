@@ -4,6 +4,7 @@ import { Flex, List, CloseButton, Box } from '@chakra-ui/core';
 import theme from '../../themes/theme.js'
 
 import NavSection, { MobileNavSection } from './nav-section.js'
+import LoginSignUp from './login-signup.js'
 
 export const navArr = [
     {
@@ -65,7 +66,7 @@ const Nav = () => {
         <List
         backgroundColor={theme.mainGray}
         w="100%"
-        pl={8}
+        pl={4}
         >
           {navArr.map(item => (
             <NavSection name={item.name} href={item.href} menuItems={item.menuItems} />
@@ -89,6 +90,8 @@ const Nav = () => {
     return (
       <Flex
       justifyContent="start"
+      direction="column"
+      alignItems="center"
       display={toggleNav ? {base: "flex", md: "none"} : "none"}
       backgroundColor={theme.mainGray}
       w="100vw"
@@ -97,7 +100,6 @@ const Nav = () => {
       top="0"
       zIndex="1"
       pt={12}
-      overflow="scroll"
       >
         <Box
         position="absolute"
@@ -122,6 +124,8 @@ const Nav = () => {
             <MobileNavSection name={item.name} href={item.href} menuItems={item.menuItems} />
           ))}
         </List>
+        
+        <LoginSignUp display="flex"/>
     </Flex>
     )
   }

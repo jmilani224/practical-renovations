@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ListItem } from '@chakra-ui/core';
+import { ListItem, List } from '@chakra-ui/core';
 import { Link } from 'gatsby'
 
 import Dropdown from './dropdown.js'
@@ -45,22 +45,24 @@ export const MobileNavSection = ({ name, href, menuItems }) => {
               <Link to={href}>
                   {name}
               </Link>
-                {menuItems[0] && menuItems.map((item, i, arr) => (
-                  <ListItem
-                  as="div"
-                  display="flex"
-                  justifyContent="center"
-                  w="100%"
-                  fontSize="xl"
-                  mt={3}
-                  color={theme.darkGray}
-                  >
-                    <Link to={item.href}>
-                          {item.page}
-                    </Link>
-          
-                  </ListItem>
-                ))}
+              <List>
+                  {menuItems[0] && menuItems.map((item) => (
+                    
+                    <ListItem
+                    display="flex"
+                    justifyContent="center"
+                    w="100%"
+                    fontSize="xl"
+                    mt={3}
+                    color={theme.darkGray}
+                    >
+                      <Link to={item.href}>
+                            {item.page}
+                      </Link>
+            
+                    </ListItem>
+                  ))}
+                </List>
             </ListItem>
   )
 }

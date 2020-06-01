@@ -17,10 +17,17 @@ const Footer = () => {
               <Flex
               direction="column"
               justifyContent="center"
+              alignItems={{base: "center", md: "start"}}
               >
-                <Logo cls="footer" color="#fff" />
                 <Box
-                ml={12}
+                mt={6}
+                mb={3}
+                ml={8}
+                >
+                    <Logo cls="footer" color="#fff" />
+                </Box>
+                <Box
+                ml={{base: 0, md: 12}}
                 >
                     {navArr.map((item, i, arr) => (
                         <PseudoBox
@@ -45,11 +52,11 @@ const Footer = () => {
               <Divider mb={4} w="100vw" borderColor="#fff"/>
               <Text
               color="#fff"
-              textAlign="right"
+              textAlign={{base: "center", md: "right"}}
               fontSize="sm"
-              mr={5}
+              mr={{base: 0, md: 5}}
               >
-                  Copyright 2020 Practical Renovations, LLC. All Rights Reserved.
+                  Copyright &#169; 2020 Practical Renovations, LLC. All Rights Reserved.
               </Text>
               </Stack>
             </Flex>

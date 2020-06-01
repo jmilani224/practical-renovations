@@ -9,9 +9,6 @@ const Logo = ({ cls, color }) => {
     return (
         <Link to="/">
             <Box
-            pl={10}
-            pt={8}
-            pb={3}
             display="inline-block"
             >
                 <Box 
