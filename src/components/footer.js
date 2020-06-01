@@ -22,7 +22,7 @@ const Footer = () => {
                 <Box
                 mt={6}
                 mb={3}
-                ml={8}
+                ml={{base: 0, md: 8}}
                 >
                     <LogoV2 color="#fff"/>
                 </Box>
