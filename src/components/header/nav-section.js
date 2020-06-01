@@ -39,7 +39,7 @@ export const MobileNavSection = ({ name, href, menuItems }) => {
             display="flex"
             flexDirection="column"
             alignItems="center"
-            fontSize="xl"
+            fontSize="2xl"
             mb={6}
             >
               <Link to={href}>
@@ -47,12 +47,12 @@ export const MobileNavSection = ({ name, href, menuItems }) => {
               </Link>
                 {menuItems[0] && menuItems.map((item, i, arr) => (
                   <ListItem
+                  as="div"
                   display="flex"
                   justifyContent="center"
                   w="100%"
-                  fontSize="lg"
-                  m={3}
-                  mb={i == arr.length - 1 && 3}
+                  fontSize="xl"
+                  mt={3}
                   color={theme.darkGray}
                   >
                     <Link to={item.href}>

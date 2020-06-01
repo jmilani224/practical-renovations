@@ -93,7 +93,6 @@ const Nav = () => {
       backgroundColor={theme.mainGray}
       w="100vw"
       h="100vh"
-      pl={8}
       position="fixed"
       top="0"
       zIndex="1"
@@ -115,9 +114,9 @@ const Nav = () => {
         <List
         display="flex"
         flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
+        justifyContent="start"
         w="100%"
+        pt={8}
         >
           {navArr.map(item => (
             <MobileNavSection name={item.name} href={item.href} menuItems={item.menuItems} />
