@@ -41,7 +41,7 @@ const Header = ({ navOpen, handleNavOpen }) => {
           >
         
             <Flex
-              pl={10}
+              pl={{base: 0, md: 10}}
               pt={8}
               pb={3}
               w="100vw"
