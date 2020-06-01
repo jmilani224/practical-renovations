@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from "./header/logo.js"
+import { LogoV2 } from "./header/logo.js"
 import { navArr } from './header/nav.js'
 import { Box, Flex, PseudoBox, Divider, Text, Stack } from "@chakra-ui/core"
 import { Link } from "gatsby"
@@ -24,7 +24,7 @@ const Footer = () => {
                 mb={3}
                 ml={8}
                 >
-                    <Logo cls="footer" color="#fff" />
+                    <LogoV2 color="#fff"/>
                 </Box>
                 <Box
                 ml={{base: 0, md: 12}}

@@ -32,7 +32,7 @@ const Hero = () => {
             fluid={fluidImage}
             >
                 <Flex
-                h={{base: "auto", lg: "100vh"}}
+                h="auto"
                 w="100vw"
                 pt={{base: 0, lg: 16}}
                 pb={{base: 0, md: 4}}

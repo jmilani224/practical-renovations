@@ -19,7 +19,7 @@ const HeroCopy = () => {
             fontSize="4xl"
             mb={4}
             >
-                Rebuilding Communities, <br />One Home at a Time
+                Rebuilding Communities <br />One Home at a Time
             </Heading>
             <Heading
             as="h3"

@@ -9,6 +9,7 @@ export const MobileMenuIcon = ({ handleNavOpen }) => {
     const icon = mobileMenuIcon(theme.textColor)
     return (
         <Box
+        as="button"
         display={{base: "block", md: "none"}}
         position="absolute"
         top={4}

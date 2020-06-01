@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Box, Text } from '@chakra-ui/core'
 
-import { homeSVG } from '../../images/svg.js'
+import { homeSVG, newLogo } from '../../images/svg.js'
 
-const Logo = ({ cls, color }) => {
+export const Logo = ({ cls, color }) => {
     let home = homeSVG(cls, color)
     return (
         <Link to="/">
@@ -24,11 +24,21 @@ const Logo = ({ cls, color }) => {
                 color={color}
                 display="inline-block"
                 >
-                    Practical<br />Renovations
+                    Practical<br />Renovations, LLC
                 </Text>
             </Box>
         </Link>
     )
 }
 
-export default Logo
+export const LogoV2 = ({ color }) => {
+    const logo = newLogo(color)
+
+    return (
+        <Box
+        dangerouslySetInnerHTML={{__html: logo}}
+        w="18rem"
+        display="inline-block"
+        />
+    )
+}
