@@ -19,6 +19,5 @@ export const mobileMenuIcon = (color) => {
 export const newLogo = (color) => {
     const cls1 = "cls-" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     const cls2 = "cls-" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    console.log(cls1, cls2)
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290.68 91.15"><defs><style>.${cls1}{font-size:36px;font-family:HelveticaNeue-Bold, Helvetica Neue;letter-spacing:0.1em;}.${cls1},.${cls2}{fill:${color};font-weight:700;}.${cls2}{font-size:10px;font-family:HelveticaNeue-CondensedBold, Helvetica Neue;letter-spacing:0.7em;}</style></defs><title>[Practical Renovations]</title><g id="Layer_2" data-name="Layer 2"><g id="Logo_7" data-name="Logo 7"><g id="_Your_Text_Here_" data-name="[Practical Renovations]"><text class="${cls1}" transform="translate(54.98 30.85)">Practical<tspan x="-34.65" y="36">Renovations</tspan></text><text class="${cls2}" transform="translate(130.67 86.29)">LLC</text></g></g></g></svg>`
 }

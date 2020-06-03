@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Nav, { MobileNav } from './nav.js'
+import { Nav, MobileNav } from './nav.js'
 import { LogoV2 } from './logo.js'
 import LoginSignUp from "./login-signup.js"
 import { Flex, Box } from "@chakra-ui/core"
