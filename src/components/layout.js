@@ -20,7 +20,10 @@ const Layout = ({ children }) => {
         position={navOpen ? "fixed" : "static"}
         backgroundColor={theme.backgroundColor}
         >
-          <Header navOpen={navOpen} handleNavOpen={handleNavOpen} />
+          <Header
+          navOpen={navOpen}
+          handleNavOpen={handleNavOpen}
+          />
 
           <main>{children}</main>
 
