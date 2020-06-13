@@ -34,7 +34,7 @@ export const navArr = [
         },
         {
           page: "Electric & Plumbing",
-          href: "/services/electric-plumbing"
+          href: "/services/plumbing-electrical"
         },
         {
           page: "Decks",
