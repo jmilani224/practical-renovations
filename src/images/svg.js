@@ -22,3 +22,18 @@ export const newLogo = (color) => {
     const cls2 = "cls-" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290.68 91.15"><defs><style>.${cls1}{font-size:36px;font-family:HelveticaNeue-Bold, Helvetica Neue;letter-spacing:0.1em;}.${cls1},.${cls2}{fill:${color};font-weight:700;}.${cls2}{font-size:10px;font-family:HelveticaNeue-CondensedBold, Helvetica Neue;letter-spacing:0.7em;}</style></defs><title>[Practical Renovations]</title><g id="Layer_2" data-name="Layer 2"><g id="Logo_7" data-name="Logo 7"><g id="_Your_Text_Here_" data-name="[Practical Renovations]"><text class="${cls1}" transform="translate(54.98 30.85)">Practical<tspan x="-34.65" y="36">Renovations</tspan></text><text class="${cls2}" transform="translate(130.67 86.29)">LLC</text></g></g></g></svg>`
 }
+
+export const logoV3 = (color) => {
+    
+    const createRandomClassName = () => {
+        return "cls-" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+    
+    const cls1 = createRandomClassName()
+    const cls2 = createRandomClassName()
+    const cls3 = createRandomClassName()
+    const cls4 = createRandomClassName()
+    const cls5 = createRandomClassName()
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290.68 91.15"><defs><style>.${cls1}{font-size:36px;font-family:HelveticaNeue-Bold, Helvetica Neue;letter-spacing:0.1em;}.${cls1},.${cls5}{fill:${color};font-weight:700;}.${cls2},.${cls3},.${cls4}{font-size:30px;}.${cls2}{letter-spacing:0.1em;}.${cls3}{letter-spacing:0.05em;}.${cls4}{letter-spacing:0.01em;}.${cls5}{font-size:10px;font-family:HelveticaNeue-CondensedBold, Helvetica Neue;letter-spacing:0.7em;}</style></defs><title>Asset 3</title><g id="Layer_2" data-name="Layer 2"><g id="Logo_7" data-name="Logo 7"><g id="_Your_Text_Here_" data-name="[Your Text Here]"><text class=${cls1} transform="translate(44.94 30.85)">P<tspan class=${cls2} x="27.61" y="0">RACTICAL</tspan><tspan x="-24.17" y="36">R</tspan><tspan class=${cls2} x="5.43" y="36">ENOVATIONS</tspan></text><text class=${cls5} transform="translate(130.67 86.29)">LLC</text></g></g></g></svg>`
+}

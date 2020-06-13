@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Box, Text } from '@chakra-ui/core'
 
-import { homeSVG, newLogo } from '../../images/svg.js'
+import { homeSVG, logoV3 } from '../../images/svg.js'
 
 export const Logo = ({ cls, color }) => {
     let home = homeSVG(cls, color)
@@ -32,7 +32,7 @@ export const Logo = ({ cls, color }) => {
 }
 
 export const LogoV2 = ({ color }) => {
-    const logo = newLogo(color)
+    const logo = logoV3(color)
 
     return (
         <Box

@@ -1,7 +1,38 @@
 import React from 'react'
+import { useStaticQuery, graphql } from "gatsby"
+import { RichText } from 'prismic-reactjs'
+
 import { Flex, Heading, Text } from '@chakra-ui/core'
 
 const HeroCopy = () => {
+    const data = useStaticQuery(graphql`
+    {
+      prismic {
+        allHomepages {
+          edges {
+            node {
+              body_copy
+              hero_imageSharp {
+                childImageSharp {
+                  fluid {
+                    base64
+                    tracedSVG
+                    srcWebp
+                    srcSetWebp
+                    originalImg
+                    originalName
+                  }
+                }
+              }
+              main_headline
+              sub_headline
+            }
+          }
+        }
+      }
+    }
+  `)
+    const content = data.prismic.allHomepages.edges[0]
     return (
         <Flex
         direction="column"
@@ -17,20 +48,22 @@ const HeroCopy = () => {
             <Heading
             as="h1"
             fontSize="4xl"
+            fontWeight="500"
             mb={4}
             >
-                Rebuilding Communities <br />One Home at a Time
+                {RichText.render(content.node.main_headline)}
             </Heading>
             <Heading
             as="h3"
             fontSize="xl"
             fontStyle="italic"
+            fontWeight="500"
             mb={2}
             >
-                Licensed, Bonded &amp; Insured
+                {content.node.sub_headline[0].text}
             </Heading>
             <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                {RichText.render(content.node.body_copy)}
             </Text>
         </Flex>
     )

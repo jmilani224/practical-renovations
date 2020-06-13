@@ -32,6 +32,7 @@ const BlogCard = ({ data }) => {
                 as="h4"
                 fontSize="2xl"
                 my={3}
+                fontWeight="500"
                 >
                     {data.title}
                 </Heading>
