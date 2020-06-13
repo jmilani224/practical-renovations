@@ -12,45 +12,20 @@ const ServicesTemplate = () => {
 
   const data = useStaticQuery(graphql`
   query ServicesPageQuery($uid: String) {
-      prismic {
-        allServices_pages(uid: $uid) {
-          edges {
-            node {
-              headline
-              hero_background_imageSharp {
-                childImageSharp {
-                  fluid {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    originalImg
-                    originalName
-                  }
-                }
-              }
-              section_intro
-              services_details {
-                services_detail_body
-                services_detail_heading
-                services_detail_image
-                services_detail_imageSharp {
-                  childImageSharp {
-                    fluid {
-                      base64
-                      tracedSVG
-                      srcWebp
-                      srcSetWebp
-                      originalImg
-                      originalName
-                    }
-                  }
-                }
-              }
+    prismic {
+      allServices_pages(uid: $uid) {
+        edges {
+          node {
+            headline
+            section_intro
+            services_details {
+              services_detail_body
+              services_detail_heading
             }
           }
         }
       }
+    }
     }
   `)
 
@@ -135,7 +110,7 @@ const ServicesDetail = ({ fluid, heading, body, i }) => {
         flexDirection={i % 2 !== 0 ? {base: "column", lg: "row-reverse"} : {base: "column", lg:"row"}} // alternates image and copy
         >
             <Box
-            w="20rem"
+            w="30rem"
             h="20rem"
             backgroundColor={theme.mainColor}
             flexShrink="2"
