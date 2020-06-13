@@ -62,13 +62,13 @@ const ServicesTemplate = () => {
     return (
         <Layout>
         
-            <ServicesHero heading={doc.node.headline} fluidImage={null} />
+            <ServicesHero heading={doc.node.headline} />
 
             <ServicesIntro intro={doc.node.section_intro} />
 
             {servicesArr.map((item, i) => (
                 <ServicesDetail
-                fluid={item.services_detail_imageSharp.childImageSharp.fluid}
+                fluid={null}
                 heading={RichText.render(item.services_detail_heading)}
                 body={RichText.render(item.services_detail_body)}
                 i={i}
@@ -134,10 +134,10 @@ const ServicesDetail = ({ fluid, heading, body, i }) => {
         alignItems="center"
         flexDirection={i % 2 !== 0 ? {base: "column", lg: "row-reverse"} : {base: "column", lg:"row"}} // alternates image and copy
         >
-            <Img
+            <Box
             w="20rem"
             h="20rem"
-            fluid={fluid}
+            backgroundColor={theme.mainColor}
             flexShrink="2"
             />
             
