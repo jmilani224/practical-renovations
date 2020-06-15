@@ -71,7 +71,10 @@ module.exports = {
             sharpKeys: [
               /image|photo|picture/, // (default)
               'services',
-              'detail'
+              'detail',
+              'services_detail',
+              'services_details',
+              'services_details_'
             ],
       },
     },
