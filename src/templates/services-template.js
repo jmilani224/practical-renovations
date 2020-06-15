@@ -9,19 +9,19 @@ import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
 
 const ServicesTemplate = ({ data }) => {
-  const doc = data.prismic.allServices_pages.edges[0].node;
+  const doc = data.prismic.allServices_pages.edges[0];
   if (!doc) return null
-  const servicesArr = doc.services_details
+  const servicesArr = doc.node.services_details
     return (
       <Layout>
       
           <ServicesHero
-          headline={doc.headline}
-          fluidImage={doc.hero_background_imageSharp.childImageSharp.fluid}
-          fallbackImage={doc.hero_background_image.url}
+          headline={doc.node.headline}
+          fluidImage={doc.node.hero_background_imageSharp.childImageSharp.fluid}
+          fallbackImage={doc.node.hero_background_image.url}
           />
 
-          <ServicesIntro intro={doc.section_intro} />
+          <ServicesIntro intro={doc.node.section_intro} />
 
           {servicesArr.map((item, i, arr) => (
               <ServicesDetail
@@ -35,7 +35,7 @@ const ServicesTemplate = ({ data }) => {
           
 
       </Layout>
-  )
+    )
     
 }
 
