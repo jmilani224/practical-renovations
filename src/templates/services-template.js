@@ -7,7 +7,6 @@ import { Heading, Flex, Box, Text, Divider } from '@chakra-ui/core'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
-import { array } from 'prop-types'
 
 const ServicesTemplate = ({ data }) => {
 
