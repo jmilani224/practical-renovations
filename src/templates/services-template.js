@@ -12,6 +12,7 @@ const ServicesTemplate = ({ data }) => {
 
   const doc = data.prismic.allServices_pages.edges[0].node;
   const servicesArr = doc.services_details
+  console.log(doc.hero_background_image.url)
 
     return (
         <Layout>
@@ -19,7 +20,7 @@ const ServicesTemplate = ({ data }) => {
             <ServicesHero
             headline={doc.headline}
             fluidImage={doc.hero_background_imageSharp.childImageSharp.fluid}
-            fallbackImage={doc.hero_background_image}
+            fallbackImage={doc.hero_background_image.url}
             />
 
             <ServicesIntro intro={doc.section_intro} />
@@ -71,7 +72,7 @@ const ServicesHero = ({ headline, fluidImage, fallbackImage }) => {
 }
 
 const BackgroundImageHandler = ({ children, fluidImage, fallbackImage }) => {
-  
+    const bgImageURL = `url('${fallbackImage}')`
     return fluidImage ? (
       <BackgroundImage
       Tag="div"
@@ -80,9 +81,10 @@ const BackgroundImageHandler = ({ children, fluidImage, fallbackImage }) => {
         {children}
       </BackgroundImage>
     ) : (
-      <Box bgImage={fallbackImage}
+      <Box bgImage={bgImageURL}
       bgPos="center"
-      bgRepeat="no-repeat">
+      bgRepeat="no-repeat"
+      >
         {children}
       </Box>
     );
