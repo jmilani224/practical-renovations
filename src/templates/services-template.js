@@ -9,9 +9,9 @@ import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
 
 const ServicesTemplate = ({ data }) => {
-  if (data.prismic.allServices_pages.edges[0].node) {
-    const doc = data.prismic.allServices_pages.edges[0].node;
-    const servicesArr = doc.services_details
+  const doc = data.prismic.allServices_pages.edges[0].node;
+  if (!doc) return null
+  const servicesArr = doc.services_details
     return (
       <Layout>
       
@@ -36,9 +36,6 @@ const ServicesTemplate = ({ data }) => {
 
       </Layout>
   )
-  } else {
-    return
-  }
     
 }
 
