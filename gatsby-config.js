@@ -59,8 +59,6 @@ module.exports = {
         options: {
           repositoryName: 'practical-renovations', // (REQUIRED, replace with your own)
           accessToken: 'MC5YdU1LVkJBQUFDSUFZUXEx.Vh4N77-977-977-9Snnvv73vv71P77-977-977-977-9EO-_vUDvv70077-977-9Fe-_ve-_ve-_vWxO77-9NO-_vWY', // (optional API access token)
-          path: '/preview', // (optional preview path. Default: /preview)
-          previews: false, // (optional, activated Previews. Default: false)
           pages: [
             { // (optional, builds pages dynamically)
             type: 'Services_page',         // TypeName from prismic - capitalize
