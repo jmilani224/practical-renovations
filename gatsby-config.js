@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Practical Renovation LLC`,
     description: `Description goes here.`,
-    author: `Joel Milani`,
+    author: `Jesse Carter`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
