@@ -71,7 +71,7 @@ module.exports = {
       },
       sharpKeys: [
         /image|photo|picture/, // (default)
-        'services_detail_',
+        'services_detail'
       ],
     },
     "prismic-reactjs"
