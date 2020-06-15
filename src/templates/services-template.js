@@ -1,52 +1,37 @@
 import React from 'react'
 import BackgroundImage from 'gatsby-background-image'
 import Img from 'gatsby-image'
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
-import { Heading, Flex, Box, Text } from '@chakra-ui/core'
+import { Heading, Flex, Box, Text, Divider } from '@chakra-ui/core'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
+import { array } from 'prop-types'
 
-const ServicesTemplate = () => {
+const ServicesTemplate = ({ data }) => {
 
-  const data = useStaticQuery(graphql`
-  query ServicesPageQuery($uid: String) {
-    prismic {
-      allServices_pages(uid: $uid) {
-        edges {
-          node {
-            headline
-            section_intro
-            services_details {
-              services_detail_body
-              services_detail_heading
-            }
-          }
-        }
-      }
-    }
-    }
-  `)
-
-  const doc = data.prismic.allServices_pages.edges.slice(0,1).pop();
-  console.log(data)
-  const servicesArr = doc.node.services_details
-  console.log(doc)
+  const doc = data.prismic.allServices_pages.edges[0].node;
+  const servicesArr = doc.services_details
 
     return (
         <Layout>
         
-            <ServicesHero heading={doc.node.headline} />
+            <ServicesHero
+            headline={doc.headline}
+            fluidImage={doc.hero_background_imageSharp.childImageSharp.fluid}
+            fallbackImage={doc.hero_background_image}
+            />
 
-            <ServicesIntro intro={doc.node.section_intro} />
+            <ServicesIntro intro={doc.section_intro} />
 
-            {servicesArr.map((item, i) => (
+            {servicesArr.map((item, i, arr) => (
                 <ServicesDetail
-                fluid={null}
+                fluid={item.services_detail_imageSharp.childImageSharp.fluid}
                 heading={RichText.render(item.services_detail_heading)}
                 body={RichText.render(item.services_detail_body)}
                 i={i}
+                arr={arr}
                 />
             ))}
             
@@ -57,14 +42,15 @@ const ServicesTemplate = () => {
 
 export default ServicesTemplate
 
-const ServicesHero = ({ headline, fluidImage }) => {
+const ServicesHero = ({ headline, fluidImage, fallbackImage }) => {
     
     return (
         <>
-        <BackgroundImage
-        Tag="div"
-        fluid={null}
+        <BackgroundImageHandler
+        fluidImage={fluidImage}
+        fallbackImage={fallbackImage}
         >
+
             <Flex
             h={64}
             alignItems="center"
@@ -79,10 +65,28 @@ const ServicesHero = ({ headline, fluidImage }) => {
                     {RichText.render(headline)}
                 </Heading>
             </Flex>
-        </BackgroundImage>
+            </BackgroundImageHandler>
         </>
 
     )
+}
+
+const BackgroundImageHandler = ({ children, fluidImage, fallbackImage }) => {
+  
+    return fluidImage ? (
+      <BackgroundImage
+      Tag="div"
+      fluid={fluidImage}
+      >
+        {children}
+      </BackgroundImage>
+    ) : (
+      <Box bgImage={fallbackImage}
+      bgPos="center"
+      bgRepeat="no-repeat">
+        {children}
+      </Box>
+    );
 }
 
 const ServicesIntro = ({ intro }) => {
@@ -101,8 +105,9 @@ const ServicesIntro = ({ intro }) => {
     )
 }
 
-const ServicesDetail = ({ fluid, heading, body, i }) => {
+const ServicesDetail = ({ fluid, heading, body, i, arr }) => {
     return (
+      <>
         <Flex
         my={24}
         justifyContent="center"
@@ -110,15 +115,16 @@ const ServicesDetail = ({ fluid, heading, body, i }) => {
         flexDirection={i % 2 !== 0 ? {base: "column", lg: "row-reverse"} : {base: "column", lg:"row"}} // alternates image and copy
         >
             <Box
-            w="30rem"
+            w={{base: "100vw", md: "30rem"}}
             h="20rem"
-            backgroundColor={theme.mainColor}
-            flexShrink="2"
-            />
-            
+            >
+              <Img
+              fluid={fluid}
+              style={{height:"100%"}}
+              />
+            </Box>
             <Box
             mx={10}
-            flexShrink="1"
             maxW="30rem"
             >
                 <Heading
@@ -140,5 +146,55 @@ const ServicesDetail = ({ fluid, heading, body, i }) => {
                 </Text>
             </Box>
         </Flex>
+            {i < arr.length - 1 && <Divider w="100vw" />}
+            </>
     )
 }
+
+export const query = graphql`
+query ServicesPageQuery($uid: String) {
+  prismic {
+    allServices_pages(uid: $uid) {
+      edges {
+        node {
+          headline
+          section_intro
+          services_details {
+            services_detail_body
+            services_detail_heading
+            services_detail_image
+            services_detail_imageSharp {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                  originalImg
+                  originalName
+                }
+              }
+            }
+          }
+          hero_background_imageSharp {
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+                originalImg
+                originalName
+              }
+            }
+          }
+          _meta {
+            uid
+          }
+          hero_background_image
+        }
+      }
+    }
+  }
+}
+`

@@ -35,10 +35,12 @@ export const LogoV2 = ({ color }) => {
     const logo = logoV3(color)
 
     return (
-        <Box
-        dangerouslySetInnerHTML={{__html: logo}}
-        w="18rem"
-        display="inline-block"
-        />
+        <Link to="/">
+            <Box
+            dangerouslySetInnerHTML={{__html: logo}}
+            w="18rem"
+            display="inline-block"
+            />
+        </Link>
     )
 }
