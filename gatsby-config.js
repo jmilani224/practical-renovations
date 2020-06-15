@@ -67,9 +67,12 @@ module.exports = {
             match: '/services/:uid',  // Pages will be generated under this pattern
             path: '/services',        // Placeholder page for unpublished documents
             component: require.resolve('./src/templates/services-template.js'),
-            }
+            }],
+      },
+      sharpKeys: [
+        /image|photo|picture/, // (default)
+        'services_detail_',
       ],
-      }
     },
     "prismic-reactjs"
     // this (optional) plugin enables Progressive Web App + Offline functionality
