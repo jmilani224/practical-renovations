@@ -24,10 +24,10 @@ export const BackgroundImageHandler = ({ children, fluid, fallbackImage }) => {
 
 export const ImageHandler = ({ fluid, fallbackImage, alt, style }) => {
     return fluid ? (
-      <Img
-      fluid={fluid}
-      style={style}
-      />
+        <Img
+        fluid={fluid}
+        style={style}
+        />
       ) : (
         <Image
         src={fallbackImage}

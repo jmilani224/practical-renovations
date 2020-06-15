@@ -16,7 +16,7 @@ const ServicesTemplate = ({ data }) => {
       
           <ServicesHero
           headline={doc.node.headline}
-          fluid={doc.node.hero_background_imageSharp.childImageSharp.fluid}
+          fluid={doc.node.hero_background_imageSharp.childImageSharp.fluid ? doc.node.hero_background_imageSharp.childImageSharp.fluid : null}
           fallbackImage={doc.node.hero_background_image.url}
           />
 
@@ -24,7 +24,7 @@ const ServicesTemplate = ({ data }) => {
 
           {servicesArr.map((item, i, arr) => (
               <ServicesDetail
-              fluid={item.services_detail_imageSharp.childImageSharp.fluid}
+              fluid={item.services_detail_imageSharp.childImageSharp.fluid ? item.services_detail_imageSharp.childImageSharp.fluid : null}
               fallbackImage={item.services_detail_image.url}
               heading={RichText.render(item.services_detail_heading)}
               body={RichText.render(item.services_detail_body)}
