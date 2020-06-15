@@ -68,12 +68,12 @@ module.exports = {
             path: '/services',        // Placeholder page for unpublished documents
             component: require.resolve('./src/templates/services-template.js'),
             }],
+          sharpKeys: [
+            /image|photo|picture/, // (default)
+            'services',
+            'detail'
+          ],
       },
-      sharpKeys: [
-        /image|photo|picture/, // (default)
-        'services',
-        'detail'
-      ],
     },
     "prismic-reactjs"
     // this (optional) plugin enables Progressive Web App + Offline functionality
