@@ -9,35 +9,37 @@ import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
 
 const ServicesTemplate = ({ data }) => {
-
-  const doc = data.prismic.allServices_pages.edges[0].node;
-  const servicesArr = doc.services_details
-  console.log(doc.hero_background_image.url)
-
+  if (data.prismic.allServices_pages.edges[0].node) {
+    const doc = data.prismic.allServices_pages.edges[0].node;
+    const servicesArr = doc.services_details
     return (
-        <Layout>
-        
-            <ServicesHero
-            headline={doc.headline}
-            fluidImage={doc.hero_background_imageSharp.childImageSharp.fluid}
-            fallbackImage={doc.hero_background_image.url}
-            />
+      <Layout>
+      
+          <ServicesHero
+          headline={doc.headline}
+          fluidImage={doc.hero_background_imageSharp.childImageSharp.fluid}
+          fallbackImage={doc.hero_background_image.url}
+          />
 
-            <ServicesIntro intro={doc.section_intro} />
+          <ServicesIntro intro={doc.section_intro} />
 
-            {servicesArr.map((item, i, arr) => (
-                <ServicesDetail
-                fluid={item.services_detail_imageSharp.childImageSharp.fluid}
-                heading={RichText.render(item.services_detail_heading)}
-                body={RichText.render(item.services_detail_body)}
-                i={i}
-                arr={arr}
-                />
-            ))}
-            
+          {servicesArr.map((item, i, arr) => (
+              <ServicesDetail
+              fluid={item.services_detail_imageSharp.childImageSharp.fluid}
+              heading={RichText.render(item.services_detail_heading)}
+              body={RichText.render(item.services_detail_body)}
+              i={i}
+              arr={arr}
+              />
+          ))}
+          
 
-        </Layout>
-    )
+      </Layout>
+  )
+  } else {
+    return
+  }
+    
 }
 
 export default ServicesTemplate
