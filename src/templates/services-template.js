@@ -148,13 +148,8 @@ query ServicesPageQuery($uid: String) {
             services_detail_image
             services_detail_imageSharp {
               childImageSharp {
-                fluid {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                  originalImg
-                  originalName
+                fluid(quality: 100) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -165,13 +160,8 @@ query ServicesPageQuery($uid: String) {
           hero_background_image
           hero_background_imageSharp {
             childImageSharp {
-              fluid {
-                base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
-                originalImg
-                originalName
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
