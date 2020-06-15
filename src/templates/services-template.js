@@ -1,9 +1,8 @@
 import React from 'react'
-import BackgroundImage from 'gatsby-background-image'
-import Img from 'gatsby-image'
 import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import { Heading, Flex, Box, Text, Divider } from '@chakra-ui/core'
+import { BackgroundImageHandler, ImageHandler } from '../utils/imageHandlers.js'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
@@ -17,7 +16,7 @@ const ServicesTemplate = ({ data }) => {
       
           <ServicesHero
           headline={doc.node.headline}
-          fluidImage={doc.node.hero_background_imageSharp.childImageSharp.fluid}
+          fluid={doc.node.hero_background_imageSharp.childImageSharp.fluid}
           fallbackImage={doc.node.hero_background_image.url}
           />
 
@@ -26,10 +25,12 @@ const ServicesTemplate = ({ data }) => {
           {servicesArr.map((item, i, arr) => (
               <ServicesDetail
               fluid={item.services_detail_imageSharp.childImageSharp.fluid}
+              fallbackImage={item.services_detail_image.url}
               heading={RichText.render(item.services_detail_heading)}
               body={RichText.render(item.services_detail_body)}
               i={i}
               arr={arr}
+
               />
           ))}
           
@@ -41,12 +42,12 @@ const ServicesTemplate = ({ data }) => {
 
 export default ServicesTemplate
 
-const ServicesHero = ({ headline, fluidImage, fallbackImage }) => {
+const ServicesHero = ({ headline, fluid, fallbackImage }) => {
     
     return (
         <>
         <BackgroundImageHandler
-        fluidImage={fluidImage}
+        fluid={fluid}
         fallbackImage={fallbackImage}
         >
 
@@ -70,25 +71,6 @@ const ServicesHero = ({ headline, fluidImage, fallbackImage }) => {
     )
 }
 
-const BackgroundImageHandler = ({ children, fluidImage, fallbackImage }) => {
-    const bgImageURL = `url('${fallbackImage}')`
-    return fluidImage ? (
-      <BackgroundImage
-      Tag="div"
-      fluid={fluidImage}
-      >
-        {children}
-      </BackgroundImage>
-    ) : (
-      <Box bgImage={bgImageURL}
-      bgPos="center"
-      bgRepeat="no-repeat"
-      >
-        {children}
-      </Box>
-    );
-}
-
 const ServicesIntro = ({ intro }) => {
     return (
         <Box
@@ -105,7 +87,7 @@ const ServicesIntro = ({ intro }) => {
     )
 }
 
-const ServicesDetail = ({ fluid, heading, body, i, arr }) => {
+const ServicesDetail = ({ fluid, fallbackImage, heading, body, i, arr }) => {
     return (
       <>
         <Flex
@@ -118,9 +100,10 @@ const ServicesDetail = ({ fluid, heading, body, i, arr }) => {
             w={{base: "100vw", md: "30rem"}}
             h="20rem"
             >
-              <Img
+              <ImageHandler
               fluid={fluid}
               style={{height:"100%"}}
+              fallbackImage={fallbackImage} //add alt prop below
               />
             </Box>
             <Box
