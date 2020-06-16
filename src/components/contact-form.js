@@ -15,7 +15,7 @@ const ContactForm = () => {
     return (
         <Flex
         direction="column"
-        w={{base: "100vw", md: "35rem", lg: "25rem"}}
+        w={{base: "100vw", md: "35rem", lg: "28rem"}}
         h="37rem"
         px={10}
         borderTop="8px solid"
@@ -30,7 +30,7 @@ const ContactForm = () => {
             fontSize="3xl"
             fontWeight="500"
             >
-                Get an Estimate
+                Start Your Next Project
             </Heading>
             <FormControl m={3} isRequired>
                 <FormLabel htmlFor="fname">First Name</FormLabel>

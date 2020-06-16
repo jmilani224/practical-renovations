@@ -14,7 +14,7 @@ const LoginSignUp = ({ display }) => {
                 <Text fontFamily="'Roboto Mono', monospace">Login</Text></Link>
             <Divider orientation="vertical" borderColor={theme.mainColor} />
             <Link to="/">
-                <Text fontFamily="'Roboto Mono', monospace">Commercial Servies</Text></Link>
+                <Text fontFamily="'Roboto Mono', monospace">Commercial Services</Text></Link>
         </Flex>
     )
 }
