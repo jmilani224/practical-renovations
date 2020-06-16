@@ -32,7 +32,6 @@ const ServicesTemplate = ({ data }) => {
               body={RichText.render(item.services_detail_body)}
               i={i}
               arr={arr}
-
               />
           ))}
           
@@ -99,8 +98,9 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
         flexDirection={i % 2 !== 0 ? {base: "column", lg: "row-reverse"} : {base: "column", lg:"row"}} // alternates image and copy
         >
             <Box
-            w={{base: "100vw", md: "30rem"}}
-            h="20rem"
+            w={{base: "100vw", md: "35rem"}}
+            h="25rem"
+            overflow="hidden"
             >
               <FluidImageHandler
               fluid={fluid}
@@ -150,7 +150,7 @@ query ServicesPageQuery($uid: String) {
             services_detail_image
             services_detail_imageSharp {
               childImageSharp {
-                fluid {
+                fluid(quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }

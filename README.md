@@ -9,7 +9,7 @@
 * Gallery page - collections: https://www.reliefproperties.com/portfolio 
 * Contact page
 * Blog
-  * Blog template
+  * Blog template - look at AV club for format - catagories???. ugh, maybe in v2
   * Blog roll
   * Programmatically generated w/ Prismic
 * Hook up form
