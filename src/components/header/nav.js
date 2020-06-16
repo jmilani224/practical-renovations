@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { graphql, useStaticQuery } from "gatsby"
 import { 
   Flex,
   List,
@@ -19,28 +20,7 @@ export const navArr = [
     {
       name: "Services",
       href: "/services",
-      menuItems: [
-        {
-          page: "Paint",
-          href: "/services/paint"
-        },
-        {
-          page: "Drywall",
-          href: "/services/drywall"
-        },
-        {
-          page: "Kitchen & Bath",
-          href: "/services/kitchen-bath"
-        },
-        {
-          page: "Electric & Plumbing",
-          href: "/services/plumbing-electrical"
-        },
-        {
-          page: "Decks",
-          href: "/services/decks"
-        }
-      ]
+      menuItems: []
     },
     {
       name: "Gallery",
@@ -65,6 +45,34 @@ export const navArr = [
   ]
   
 export const Nav = () => {
+  const data = useStaticQuery(graphql`
+    {
+      prismic {
+        allServices_pages {
+          edges {
+            node {
+              page_name
+              _meta {
+                uid
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  
+  //Map through Services pages, create an array for the nav dropdown, and append it to navArr > Services > menuItems above
+  const servicesNavArr = data.prismic.allServices_pages.edges.map(item => {
+    class NavConstructor {
+      constructor(name, href) {
+        this.name = name;
+        this.href = href;
+      }
+    }
+  return new NavConstructor(item.node.page_name[0].text,`/services/${item.node._meta.uid}`)
+  })
+  navArr[0].menuItems = servicesNavArr
 
     return (
     <Flex
@@ -189,7 +197,7 @@ const MobileNavSection = ({ name, href, menuItems }) => {
                     color={theme.darkGray}
                     >
                       <Link to={item.href}>
-                            {item.page}
+                            {item.name}
                       </Link>
             
                     </ListItem>
@@ -212,7 +220,7 @@ const Dropdown = ({ menuItems }) => {
                     <PseudoBox
                     _hover={{bg: theme.mainLight}}
                     >
-                        <Text px={4} py={2}>{item.page}</Text>
+                        <Text px={4} py={2}>{item.name}</Text>
                     </PseudoBox>
                 </Link>
             ))}

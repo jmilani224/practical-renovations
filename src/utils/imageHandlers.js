@@ -22,17 +22,16 @@ export const BackgroundImageHandler = ({ children, fluid, fallbackImage }) => {
     );
 }
 
-export const ImageHandler = ({ fluid, fallbackImage, alt, style }) => {
+export const FluidImageHandler = ({ fluid, fallbackImage, alt }) => {
     return fluid ? (
         <Img
         fluid={fluid}
-        style={style}
+        alt={alt}
         />
       ) : (
         <Image
         src={fallbackImage}
         alt={alt}
-        style={style}
         />
     );
 }

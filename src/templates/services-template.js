@@ -2,22 +2,22 @@ import React from 'react'
 import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import { Heading, Flex, Box, Text, Divider } from '@chakra-ui/core'
-import { BackgroundImageHandler, ImageHandler } from '../utils/imageHandlers.js'
+import { BackgroundImageHandler, FluidImageHandler } from '../utils/imageHandlers.js'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
 
 const ServicesTemplate = ({ data }) => {
-  if (!data) return null
+  if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
   const doc = data.prismic.allServices_pages.edges.slice(0, 1).pop();
-  if (!doc) return null
+  if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
   const servicesArr = doc.node.services_details
     return (
       <Layout>
       
           <ServicesHero
           headline={doc.node.headline}
-          fluid={doc.node.hero_background_imageSharp ? doc.node.hero_background_imageSharp.childImageSharp.fluid : null}
+          fluid={doc.node.hero_background_imageSharp ? doc.node.hero_background_imageSharp.childImageSharp.fluid : null} //Gatsby image GraphQL query validation
           fallbackImage={doc.node.hero_background_image.url}
           />
 
@@ -25,8 +25,9 @@ const ServicesTemplate = ({ data }) => {
 
           {servicesArr.map((item, i, arr) => (
               <ServicesDetail
-              fluid={item.services_detail_imageSharp ? item.services_detail_imageSharp.childImageSharp.fluid : null}
+              fluid={item.services_detail_imageSharp ? item.services_detail_imageSharp.childImageSharp.fluid : null} //Gatsby image GraphQL query validation
               fallbackImage={item.services_detail_image.url}
+              alt={item.services_detail_image.alt}
               heading={RichText.render(item.services_detail_heading)}
               body={RichText.render(item.services_detail_body)}
               i={i}
@@ -88,7 +89,7 @@ const ServicesIntro = ({ intro }) => {
     )
 }
 
-const ServicesDetail = ({ fluid, fallbackImage, heading, body, i, arr }) => {
+const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) => {
     return (
       <>
         <Flex
@@ -101,10 +102,10 @@ const ServicesDetail = ({ fluid, fallbackImage, heading, body, i, arr }) => {
             w={{base: "100vw", md: "30rem"}}
             h="20rem"
             >
-              <ImageHandler
+              <FluidImageHandler
               fluid={fluid}
-              style={{height:"100%"}}
-              fallbackImage={fallbackImage} //add alt prop below
+              fallbackImage={fallbackImage}
+              alt={alt}
               />
             </Box>
             <Box
@@ -149,13 +150,8 @@ query ServicesPageQuery($uid: String) {
             services_detail_image
             services_detail_imageSharp {
               childImageSharp {
-                fluid(quality: 100) {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                  originalImg
-                  originalName
+                fluid {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
