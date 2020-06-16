@@ -8,8 +8,8 @@ import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
 
 const ServicesTemplate = ({ data }) => {
+  if (!data) return null
   const doc = data.prismic.allServices_pages.edges.slice(0, 1).pop();
-  if (!doc) return null
   const servicesArr = doc.node.services_details
     return (
       <Layout>
