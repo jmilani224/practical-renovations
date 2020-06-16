@@ -147,14 +147,36 @@ query ServicesPageQuery($uid: String) {
             services_detail_body
             services_detail_heading
             services_detail_image
-            
+            services_detail_imageSharp {
+              childImageSharp {
+                fluid(quality: 100) {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                  originalImg
+                  originalName
+                }
+              }
+            }
           }
           
           _meta {
             uid
           }
           hero_background_image
-          
+          hero_background_imageSharp {
+            childImageSharp {
+              fluid(quality: 100) {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+                originalImg
+                originalName
+              }
+            }
+          }
         }
       }
     }
