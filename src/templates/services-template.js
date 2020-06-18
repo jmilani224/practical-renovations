@@ -68,7 +68,7 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
     return (
       <>
         <Flex
-        my={24}
+        my={12}
         justifyContent="center"
         alignItems="center"
         flexDirection={i % 2 !== 0 ? {base: "column", lg: "row-reverse"} : {base: "column", lg:"row"}} // alternates image and copy
