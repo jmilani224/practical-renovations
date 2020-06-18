@@ -56,6 +56,10 @@ const Gallery = () => {
         <Layout>
             <Heading
             as="h1"
+            fontSize="3.3rem"
+            textAlign="center"
+            fontWeight="400"
+            my={6}
             >
                 Photo Gallery
             </Heading>
@@ -66,7 +70,9 @@ const Gallery = () => {
             >
             {data.prismic.allGallerys.edges.map(item => (
                 <>
-                        <AccordionItem>
+                        <AccordionItem
+                        border="none"
+                        >
                             <AccordionHeader
                             px="0"
                             py={4}
@@ -75,7 +81,7 @@ const Gallery = () => {
                             >
                                 <HeadlineOnFullWidthImage
                                 headline={item.node.banner_headline}
-                                fontSize="2.7rem"
+                                fontSize="2.2rem"
                                 headingTag="h2"
                                 fluid={item.node.banner_imageSharp ? item.node.banner_imageSharp.childImageSharp.fluid : null}
                                 fallbackImage={item.node.banner_image}

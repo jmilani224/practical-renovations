@@ -41,7 +41,7 @@ const BlogFeature = () => {
     as="h2"
     fontSize="4xl"
     textAlign="center"
-    fontWeight="500"
+    fontWeight="00"
     mt={6}
     >
       Featured Blog Posts
