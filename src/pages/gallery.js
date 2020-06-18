@@ -52,6 +52,7 @@ const Gallery = () => {
 
 
     const accordianIconProp = (<AccordionIcon />)
+    if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     return (
         <Layout>
             <Heading
