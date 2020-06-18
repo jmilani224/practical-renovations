@@ -23,18 +23,7 @@ const Gallery = () => {
           edges {
             node {
               banner_image
-              banner_imageSharp {
-                childImageSharp {
-                  fluid {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    originalImg
-                    originalName
-                  }
-                }
-              }
+            
               service_gallery {
                 gallery_image
                 aspect_ratio
@@ -52,7 +41,6 @@ const Gallery = () => {
 
 
     const accordianIconProp = (<AccordionIcon />)
-    if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     return (
         <Layout>
             <Heading
@@ -78,7 +66,7 @@ const Gallery = () => {
                                 headline={item.node.banner_headline}
                                 fontSize="2.7rem"
                                 headingTag="h2"
-                                fluid={item.node.banner_imageSharp ? item.node.banner_imageSharp.childImageSharp.fluid : null}
+                                fluid={null}
                                 fallbackImage={item.node.banner_image}
                                 height="300px"
                                 accordianIconProp={accordianIconProp}
