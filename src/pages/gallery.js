@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import {
     Heading,
-    Box,
     Accordion,
     AccordionItem,
     AccordionHeader,
@@ -56,9 +55,9 @@ const Gallery = () => {
       <Layout>
             <Heading
             as="h1"
-            fontSize="3.3rem"
+            fontSize="2.25rem"
             textAlign="center"
-            fontWeight="400"
+            fontWeight="500"
             my={6}
             >
                 Photo Gallery
@@ -97,16 +96,16 @@ const Gallery = () => {
                         height = 1
                     }
                     
-                    class NavConstructor {
+                    class GalleryConstructor {
                         constructor(src, width, height) {
                             this.src = src;
                             this.width = width;
                             this.height = height;
                         }
                     }
-                return new NavConstructor(src, width, height)
+                    return new GalleryConstructor(src, width, height)
                 })
-                console.log(galleryArr)
+
                 return (
                 <>
                         <AccordionItem
