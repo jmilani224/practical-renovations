@@ -18,3 +18,6 @@
 ## Odds and ends
 * Ensure alt text is in image attribues
 * Add helmet, include titles and metas
+
+
+known caching issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/162#issuecomment-600641723

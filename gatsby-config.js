@@ -73,7 +73,8 @@ module.exports = {
             sharpKeys: [
               /image|photo|picture/, // (default)
               'services_detail_image',
-              'hero_background_image'
+              'hero_background_image',
+              'banner_image'
             ],
       },
     },

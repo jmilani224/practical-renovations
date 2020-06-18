@@ -1,6 +1,6 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
-import { Heading, Flex, Box } from '@chakra-ui/core'
+import { Heading, Flex } from '@chakra-ui/core'
 import { BackgroundImageHandler } from '../utils/imageHandlers.js'
 
 const HeadlineOnFullWidthImage = ({ headline, fontSize, headingTag, fluid, fallbackImage, height, accordianIconProp }) => {

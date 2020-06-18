@@ -75,7 +75,6 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
         >
             <Box
             w={{base: "100vw", md: "35rem"}}
-            h="25rem"
             overflow="hidden"
             >
               <FluidImageHandler

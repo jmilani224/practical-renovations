@@ -50,10 +50,10 @@ const Gallery = () => {
     }
   `)
 
-
-    const accordianIconProp = (<AccordionIcon />)
-    return (
-        <Layout>
+  const accordianIconProp = (<AccordionIcon />)
+  
+  return (
+      <Layout>
             <Heading
             as="h1"
             fontSize="3.3rem"
@@ -68,9 +68,49 @@ const Gallery = () => {
             allowMultiple="false"
             w="100vw"
             >
-            {data.prismic.allGallerys.edges.map(item => (
+            {data.prismic.allGallerys.edges.map(item => {
+                
+                const galleryArr = item.node.service_gallery.map(section => {
+                    let src
+                    let width
+                    let height
+
+                    switch (section.aspect_ratio) {
+                    case '4:3':
+                        src = section.gallery_image["4:3"].url;
+                        width = 4
+                        height = 3
+                        break;
+                    case '3:4':
+                        src = section.gallery_image["3:4"].url;
+                        width = 3
+                        height = 4
+                        break;
+                    case 'square':
+                        src = section.gallery_image.Square.url;
+                        width = 1
+                        height = 1
+                        break;
+                    default:
+                        src = section.gallery_image.Square.url;
+                        width = 1
+                        height = 1
+                    }
+                    
+                    class NavConstructor {
+                        constructor(src, width, height) {
+                            this.src = src;
+                            this.width = width;
+                            this.height = height;
+                        }
+                    }
+                return new NavConstructor(src, width, height)
+                })
+                console.log(galleryArr)
+                return (
                 <>
                         <AccordionItem
+                        id={item.node._meta.id}
                         border="none"
                         >
                             <AccordionHeader
@@ -90,11 +130,11 @@ const Gallery = () => {
                                 />
                             </AccordionHeader>
                             <AccordionPanel p="0">
-                                <ImgGallery />
+                                <ImgGallery data={galleryArr} />
                             </AccordionPanel>
                         </AccordionItem>
                 </>
-            ))}
+            )})}
             </Accordion>
             
             
