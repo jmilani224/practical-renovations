@@ -23,7 +23,18 @@ const Gallery = () => {
           edges {
             node {
               banner_image
-            
+              banner_imageSharp {
+                childImageSharp {
+                  fluid {
+                    base64
+                    tracedSVG
+                    srcWebp
+                    srcSetWebp
+                    originalImg
+                    originalName
+                  }
+                }
+              }
               service_gallery {
                 gallery_image
                 aspect_ratio
@@ -66,7 +77,7 @@ const Gallery = () => {
                                 headline={item.node.banner_headline}
                                 fontSize="2.7rem"
                                 headingTag="h2"
-                                fluid={null}
+                                fluid={item.node.banner_imageSharp ? item.node.banner_imageSharp.childImageSharp.fluid : null}
                                 fallbackImage={item.node.banner_image}
                                 height="300px"
                                 accordianIconProp={accordianIconProp}
