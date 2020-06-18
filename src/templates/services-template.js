@@ -18,9 +18,11 @@ const ServicesTemplate = ({ data }) => {
 
           <HeadlineOnFullWidthImage
           headline={doc.node.headline}
+          headingTag="h1"
+          fontSize="3.3rem"
           fluid={doc.node.hero_background_imageSharp ? doc.node.hero_background_imageSharp.childImageSharp.fluid : null} //Gatsby image GraphQL query validation
           fallbackImage={doc.node.hero_background_image.url}
-          h={64}
+          height={64}
           />
 
 

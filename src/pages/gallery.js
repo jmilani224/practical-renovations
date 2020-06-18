@@ -51,7 +51,7 @@ const Gallery = () => {
   `)
 
 
-    
+    const accordianIconProp = (<AccordionIcon />)
     return (
         <Layout>
             <Heading
@@ -63,20 +63,27 @@ const Gallery = () => {
             <Accordion
             allowMultiple="false"
             w="100vw"
-            focusBorderColor="#000"
             >
             {data.prismic.allGallerys.edges.map(item => (
                 <>
-                        <AccordionItem focusBorderColor="#000">
-                            <AccordionHeader focusBorderColor="#000">
+                        <AccordionItem>
+                            <AccordionHeader
+                            px="0"
+                            py={4}
+                            _focus={{ bg: "none", borderColor: "none" }}
+                            _hover={{ bg: "none", borderColor: "none" }}
+                            >
                                 <HeadlineOnFullWidthImage
                                 headline={item.node.banner_headline}
+                                fontSize="2.7rem"
+                                headingTag="h2"
                                 fluid={item.node.banner_imageSharp.childImageSharp.fluid}
                                 fallbackImage={item.node.banner_image}
-                                h="400px"
+                                height="300px"
+                                accordianIconProp={accordianIconProp}
                                 />
                             </AccordionHeader>
-                            <AccordionPanel>
+                            <AccordionPanel p="0">
                                 <ImgGallery />
                             </AccordionPanel>
                         </AccordionItem>
