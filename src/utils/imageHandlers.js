@@ -3,12 +3,15 @@ import BackgroundImage from 'gatsby-background-image'
 import Img from 'gatsby-image'
 import { Box, Image } from '@chakra-ui/core'
 
+import theme from '../themes/theme.js'
+
 export const BackgroundImageHandler = ({ children, fluid, fallbackImage }) => {
     const bgImageURL = `url('${fallbackImage}')`
     return fluid ? (
       <BackgroundImage
       Tag="div"
       fluid={fluid}
+      backgroundColor={theme.mainColor}
       >
         {children}
       </BackgroundImage>

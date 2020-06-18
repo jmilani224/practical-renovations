@@ -2,7 +2,8 @@ import React from 'react'
 import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import { Heading, Flex, Box, Text, Divider } from '@chakra-ui/core'
-import { BackgroundImageHandler, FluidImageHandler } from '../utils/imageHandlers.js'
+import { FluidImageHandler } from '../utils/imageHandlers.js'
+import HeadlineOnFullWidthImage from '../components/headline-on-full-width-image.js'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
@@ -14,12 +15,14 @@ const ServicesTemplate = ({ data }) => {
   const servicesArr = doc.node.services_details
     return (
       <Layout>
-      
-          <ServicesHero
+
+          <HeadlineOnFullWidthImage
           headline={doc.node.headline}
           fluid={doc.node.hero_background_imageSharp ? doc.node.hero_background_imageSharp.childImageSharp.fluid : null} //Gatsby image GraphQL query validation
           fallbackImage={doc.node.hero_background_image.url}
+          h={64}
           />
+
 
           <ServicesIntro intro={doc.node.section_intro} />
 
@@ -42,35 +45,6 @@ const ServicesTemplate = ({ data }) => {
 }
 
 export default ServicesTemplate
-
-const ServicesHero = ({ headline, fluid, fallbackImage }) => {
-    
-    return (
-        <>
-        <BackgroundImageHandler
-        fluid={fluid}
-        fallbackImage={fallbackImage}
-        >
-
-            <Flex
-            h={64}
-            alignItems="center"
-            justifyContent="center"
-            color="#fff"
-            >
-                <Heading
-                as="h1"
-                fontSize="3.3rem"
-                fontWeight="400"
-                >
-                    {RichText.render(headline)}
-                </Heading>
-            </Flex>
-            </BackgroundImageHandler>
-        </>
-
-    )
-}
 
 const ServicesIntro = ({ intro }) => {
     return (
@@ -165,7 +139,6 @@ query ServicesPageQuery($uid: String) {
             childImageSharp {
               fluid(quality: 100) {
                 base64
-                tracedSVG
                 srcWebp
                 srcSetWebp
                 originalImg

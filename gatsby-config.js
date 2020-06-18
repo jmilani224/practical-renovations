@@ -26,6 +26,8 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-image`,
     `gatsby-background-image`,
+    `react-images`,
+    `react-photo-gallery`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
