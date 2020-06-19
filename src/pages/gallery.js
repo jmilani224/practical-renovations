@@ -10,6 +10,7 @@ import {
     AccordionIcon,
 } from '@chakra-ui/core'
 
+
 import Layout from '../components/layout'
 import HeadlineOnFullWidthImage from '../components/headline-on-full-width-image'
 import ImgGallery from '../components/imggallery.js'
@@ -17,42 +18,42 @@ import ImgGallery from '../components/imggallery.js'
 const Gallery = () => {
     const data = useStaticQuery(graphql`
     {
-      prismic {
-        allGallerys {
-          edges {
-            node {
-              banner_image
-              banner_imageSharp {
-                childImageSharp {
-                  fluid {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    originalImg
-                    originalName
-                  }
+        prismic {
+            allGallerys {
+                edges {
+                    node {
+                        banner_image
+                        banner_imageSharp {
+                            childImageSharp {
+                                fluid(grayscale:true) {
+                                    base64
+                                    tracedSVG
+                                    srcWebp
+                                    srcSetWebp
+                                    originalImg
+                                    originalName
+                                }
+                            }
+                        }
+                        service_gallery {
+                            gallery_image
+                            aspect_ratio
+                        }
+                        banner_headline
+                        _meta {
+                            id
+                        }
+                    }
                 }
-              }
-              service_gallery {
-                gallery_image
-                aspect_ratio
-              }
-              banner_headline
-              _meta {
-                id
-              }
             }
-          }
         }
-      }
     }
-  `)
-
-  const accordianIconProp = (<AccordionIcon />)
-  
-  return (
-      <Layout>
+    `)
+    
+    const accordianIconProp = (<AccordionIcon />)
+    
+    return (
+        <Layout>
             <Heading
             as="h1"
             fontSize="2.25rem"
@@ -68,7 +69,7 @@ const Gallery = () => {
             w="100vw"
             >
             {data.prismic.allGallerys.edges.map(item => {
-                
+                //map through gallery sections, determine user's aspect ratio preference via switch and grab corresponding dimensions and image url
                 const galleryArr = item.node.service_gallery.map(section => {
                     let src
                     let width
@@ -95,7 +96,7 @@ const Gallery = () => {
                         width = 1
                         height = 1
                     }
-                    
+                    //output an array of objects that contain image info to be ingested by gallery component
                     class GalleryConstructor {
                         constructor(src, width, height) {
                             this.src = src;

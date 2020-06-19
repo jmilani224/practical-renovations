@@ -79,6 +79,7 @@ export const Nav = () => {
     alignItems="center"
     justifyContent="center"
     display={{base: "none", md: "flex"}}
+    borderTop={`3px solid ${theme.buttonColor}`}
     >
         <List
         backgroundColor={theme.mainGray}
@@ -157,7 +158,7 @@ const NavSection = ({ name, href, menuItems}) => {
         <ListItem
             display="inline-block"
             fontWeight="500"
-            py={4}
+            py={3}
             px={12}
             onMouseEnter={toggleDrop}
             onMouseLeave={toggleDrop}

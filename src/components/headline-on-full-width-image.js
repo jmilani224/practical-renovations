@@ -18,6 +18,7 @@ const HeadlineOnFullWidthImage = ({ headline, fontSize, headingTag, fluid, fallb
             justifyContent="center"
             color="#fff"
             w="100vw"
+            backgroundColor="#627a6f90"
             >
                 <Heading
                 as={headingTag}

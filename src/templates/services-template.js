@@ -138,7 +138,7 @@ query ServicesPageQuery($uid: String) {
           hero_background_image
           hero_background_imageSharp {
             childImageSharp {
-              fluid(quality: 100) {
+              fluid(quality: 100, grayscale: true) {
                 base64
                 srcWebp
                 srcSetWebp
