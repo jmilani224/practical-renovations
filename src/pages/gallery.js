@@ -125,7 +125,7 @@ const Gallery = () => {
                                 headingTag="h2"
                                 fluid={item.node.banner_imageSharp ? item.node.banner_imageSharp.childImageSharp.fluid : null}
                                 fallbackImage={item.node.banner_image}
-                                height="300px"
+                                height="170px"
                                 accordianIconProp={accordianIconProp}
                                 />
                             </AccordionHeader>
