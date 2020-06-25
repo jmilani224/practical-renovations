@@ -8,7 +8,7 @@ import theme from '../themes/theme.js'
 
 
 const Services = () => {
-    const data = useStaticQuery(graphql`
+    /*const data = useStaticQuery(graphql`
         {
         prismic {
             allServices_pages {
@@ -20,12 +20,9 @@ const Services = () => {
             }
         }
         }
-    `)
+    `)*/
     return (
         <Layout>
-            <Box h={500} w={500}>
-            <img style={{fill:theme.mainColor}} src={data.prismic.allServices_pages.edges[5].node.icon.url} />
-            </Box>
 
         </Layout>
     )

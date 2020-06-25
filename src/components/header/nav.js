@@ -73,6 +73,7 @@ export const Nav = () => {
   return new NavConstructor(item.node.page_name[0].text,`/services/${item.node._meta.uid}`)
   })
   navArr[0].menuItems = servicesNavArr
+  
 
     return (
     <Flex

@@ -11,6 +11,7 @@ import {
     Drawer,
     DrawerOverlay,
     DrawerContent,
+    DrawerCloseButton,
     useDisclosure
 } from "@chakra-ui/core"
 import { Link } from "gatsby"
@@ -108,6 +109,7 @@ export const EstimateFormButton = () => {
                     <DrawerContent
                     alignItems="center"
                     >
+                    <DrawerCloseButton />
                             <ContactForm />
                     </DrawerContent>
                 </Drawer>
