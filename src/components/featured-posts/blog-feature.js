@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Flex, Heading } from "@chakra-ui/core"
 import BlogCard from "./blog-card"
+import theme from '../../themes/theme.js'
 
 const BlogFeature = () => {
   const data = useStaticQuery(graphql`
@@ -43,6 +44,7 @@ const BlogFeature = () => {
     textAlign="center"
     fontWeight="00"
     mt={6}
+    color={theme.darkGray}
     >
       Featured Blog Posts
     </Heading>

@@ -6,6 +6,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from "gatsby"
 import ContactForm from '../contact-form'
 import HeroCopy from './hero-copy.js'
+import theme from '../../themes/theme.js'
 
 const Hero = () => {
     const bgImage = useStaticQuery(graphql`
@@ -42,8 +43,17 @@ const Hero = () => {
                 justifyContent="space-evenly"
                 >
                     <HeroCopy />
-
-                    <ContactForm />
+                    <Flex
+                    w={{base: "100vw", md: "35rem", lg: "28rem"}}
+                    h="40rem"
+                    borderTop="8px solid"
+                    borderColor="#fff"
+                    borderTopColor={theme.mainColor}
+                    backgroundColor="#fff"
+                    justifyContent="center"
+                    >
+                      <ContactForm />
+                    </Flex>
                 </Flex>
 
             </BackgroundImage>

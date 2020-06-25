@@ -25,7 +25,9 @@ const Layout = ({ children }) => {
           handleNavOpen={handleNavOpen}
           />
 
-          <main>{children}</main>
+          <main>
+            {children}
+          </main>
 
           <Footer />
           

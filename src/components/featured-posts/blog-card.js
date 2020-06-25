@@ -1,9 +1,7 @@
 import React from 'react'
-import { Flex, Heading, Text, Box, PseudoBox } from '@chakra-ui/core'
+import { Flex, Heading, Text, Box } from '@chakra-ui/core'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-
-import theme from '../../themes/theme.js'
 
 const BlogCard = ({ data }) => {
     return (

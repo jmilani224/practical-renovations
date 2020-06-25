@@ -1,16 +1,29 @@
 import React from 'react'
 import { LogoV2 } from "./header/logo.js"
 import { navArr } from './header/nav.js'
-import { Box, Flex, PseudoBox, Divider, Text, Stack } from "@chakra-ui/core"
+import { 
+    Box,
+    Flex,
+    PseudoBox,
+    Divider,
+    Text,
+    Stack,
+    Drawer,
+    DrawerOverlay,
+    DrawerContent,
+    useDisclosure
+} from "@chakra-ui/core"
 import { Link } from "gatsby"
 import theme from '../themes/theme.js'
+import { PrimaryButton } from './ui-elements.js'
+import ContactForm from './contact-form.js'
 
 const Footer = () => {
+    
     return (
         <footer>
             <Flex
             bg={theme.mainColor}
-            h={64}
             direction="column"
             justifyContent="space-between"
             >
@@ -48,6 +61,7 @@ const Footer = () => {
                             </PseudoBox>
                         ))}
                     </Box>
+                    <EstimateFormButton />
                 </Flex> 
              </Flex>
               <Stack
@@ -64,8 +78,39 @@ const Footer = () => {
               </Text>
               </Stack>
             </Flex>
+           
           </footer>
     )
 }
 
 export default Footer
+
+
+export const EstimateFormButton = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const btnRef = React.useRef();
+    return (
+        <Box>
+                <PrimaryButton
+                CTA="Get an Estimate"
+                ref={btnRef}
+                onClick={onOpen}
+                />
+
+                <Drawer
+                    isOpen={isOpen}
+                    placement="right"
+                    onClose={onClose}
+                    finalFocusRef={btnRef}
+                    size="md"
+                >
+                    <DrawerOverlay />
+                    <DrawerContent
+                    alignItems="center"
+                    >
+                            <ContactForm />
+                    </DrawerContent>
+                </Drawer>
+            </Box>
+    )
+}

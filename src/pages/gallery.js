@@ -12,7 +12,7 @@ import {
 
 
 import Layout from '../components/layout'
-import HeadlineOnFullWidthImage from '../components/headline-on-full-width-image'
+import FullWidthImage from '../components/full-width-image'
 import ImgGallery from '../components/imggallery.js'
 
 const Gallery = () => {
@@ -25,7 +25,7 @@ const Gallery = () => {
                         banner_image
                         banner_imageSharp {
                             childImageSharp {
-                                fluid(grayscale:true) {
+                                fluid(quality:100) {
                                     base64
                                     tracedSVG
                                     srcWebp
@@ -69,7 +69,7 @@ const Gallery = () => {
             w="100vw"
             >
             {data.prismic.allGallerys.edges.map(item => {
-                //map through gallery sections, determine user's aspect ratio preference via switch and grab corresponding dimensions and image url
+                //map through gallery sections, determine admin's aspect ratio preference via switch and grab corresponding dimensions and image url
                 const galleryArr = item.node.service_gallery.map(section => {
                     let src
                     let width
@@ -119,7 +119,7 @@ const Gallery = () => {
                             _focus={{ bg: "none", borderColor: "none" }}
                             _hover={{ bg: "none", borderColor: "none" }}
                             >
-                                <HeadlineOnFullWidthImage
+                                <FullWidthImage
                                 headline={item.node.banner_headline}
                                 fontSize="2.2rem"
                                 headingTag="h2"

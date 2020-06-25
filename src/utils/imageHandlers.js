@@ -5,13 +5,14 @@ import { Box, Image } from '@chakra-ui/core'
 
 import theme from '../themes/theme.js'
 
-export const BackgroundImageHandler = ({ children, fluid, fallbackImage }) => {
+export const BackgroundImageHandler = ({ children, fluid, fallbackImage, style }) => {
     const bgImageURL = `url('${fallbackImage}')`
     return fluid ? (
       <BackgroundImage
       Tag="div"
       fluid={fluid}
       backgroundColor={theme.mainColor}
+      style={style}
       >
         {children}
       </BackgroundImage>

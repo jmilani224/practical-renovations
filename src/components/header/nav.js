@@ -79,7 +79,6 @@ export const Nav = () => {
     alignItems="center"
     justifyContent="center"
     display={{base: "none", md: "flex"}}
-    borderTop={`3px solid ${theme.buttonColor}`}
     >
         <List
         backgroundColor={theme.mainGray}

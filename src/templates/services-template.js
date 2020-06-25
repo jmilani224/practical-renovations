@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import { Heading, Flex, Box, Text, Divider } from '@chakra-ui/core'
 import { FluidImageHandler } from '../utils/imageHandlers.js'
-import HeadlineOnFullWidthImage from '../components/headline-on-full-width-image.js'
+import FullWidthImage from '../components/full-width-image.js'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
@@ -16,16 +16,24 @@ const ServicesTemplate = ({ data }) => {
     return (
       <Layout>
 
-          <HeadlineOnFullWidthImage
-          headline={doc.node.headline}
+          <FullWidthImage
           headingTag="h1"
           fontSize="3.3rem"
           fluid={doc.node.hero_background_imageSharp ? doc.node.hero_background_imageSharp.childImageSharp.fluid : null} //Gatsby image GraphQL query validation
           fallbackImage={doc.node.hero_background_image.url}
-          height={64}
+          height="20rem"
           />
 
-
+          <Heading
+          as="h1"
+          fontWeight="400"
+          fontSize="3.3rem"
+          textAlign="center"
+          color={theme.darkGray}
+          mt={4}
+          >
+          {RichText.asText(doc.node.headline)}
+          </Heading>
           <ServicesIntro intro={doc.node.section_intro} />
 
           {servicesArr.map((item, i, arr) => (
@@ -68,13 +76,13 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
     return (
       <>
         <Flex
-        my={12}
+        my={10}
         justifyContent="center"
         alignItems="center"
         flexDirection={i % 2 !== 0 ? {base: "column", lg: "row-reverse"} : {base: "column", lg:"row"}} // alternates image and copy
         >
             <Box
-            w={{base: "100vw", md: "35rem"}}
+            w={{base: "100vw", md: "38rem"}}
             overflow="hidden"
             >
               <FluidImageHandler
@@ -84,7 +92,7 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
               />
             </Box>
             <Box
-            mx={10}
+            mx={16}
             maxW="30rem"
             >
                 <Heading
@@ -106,7 +114,6 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
                 </Text>
             </Box>
         </Flex>
-            {i < arr.length - 1 && <Divider w="100vw" />}
             </>
     )
 }
@@ -138,7 +145,7 @@ query ServicesPageQuery($uid: String) {
           hero_background_image
           hero_background_imageSharp {
             childImageSharp {
-              fluid(quality: 100, grayscale: true) {
+              fluid(quality: 100) {
                 base64
                 srcWebp
                 srcSetWebp

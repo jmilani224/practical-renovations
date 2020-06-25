@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs'
 import { Heading, Flex } from '@chakra-ui/core'
 import { BackgroundImageHandler } from '../utils/imageHandlers.js'
 
-const HeadlineOnFullWidthImage = ({ headline, fontSize, headingTag, fluid, fallbackImage, height, accordianIconProp }) => {
+const FullWidthImage = ({ headline, fontSize, headingTag, fluid, fallbackImage, height, accordianIconProp }) => {
     
     return (
         <>
@@ -18,14 +18,13 @@ const HeadlineOnFullWidthImage = ({ headline, fontSize, headingTag, fluid, fallb
             justifyContent="center"
             color="#fff"
             w="100vw"
-            backgroundColor="#4c5f5673"
             >
                 <Heading
                 as={headingTag}
                 fontSize={fontSize}
                 fontWeight="400"
                 >
-                    {RichText.asText(headline)}
+                    {headline && RichText.asText(headline)}
                         {accordianIconProp}
                 </Heading>
             </Flex>
@@ -35,4 +34,4 @@ const HeadlineOnFullWidthImage = ({ headline, fontSize, headingTag, fluid, fallb
     )
 }
 
-export default HeadlineOnFullWidthImage
+export default FullWidthImage
