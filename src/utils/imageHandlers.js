@@ -18,7 +18,7 @@ export const BackgroundImageHandler = ({ children, fluid, fallbackImage, style }
       </BackgroundImage>
     ) : (
       <Box bgImage={bgImageURL}
-      bgPos="center"
+      bgPos="cover"
       bgRepeat="no-repeat"
       >
         {children}

@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
-import { Heading, Flex, Box, Text, Divider } from '@chakra-ui/core'
+import { Heading, Flex, Box, Text } from '@chakra-ui/core'
 import { FluidImageHandler } from '../utils/imageHandlers.js'
-import FullWidthImage from '../components/full-width-image.js'
+import { Heading1, FullWidthImage } from '../components/elements.js'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
@@ -24,16 +24,9 @@ const ServicesTemplate = ({ data }) => {
           height="20rem"
           />
 
-          <Heading
-          as="h1"
-          fontWeight="400"
-          fontSize="3.3rem"
-          textAlign="center"
-          color={theme.darkGray}
-          mt={4}
-          >
-          {RichText.asText(doc.node.headline)}
-          </Heading>
+          <Heading1>
+            {RichText.asText(doc.node.headline)}
+          </Heading1>
           <ServicesIntro intro={doc.node.section_intro} />
 
           {servicesArr.map((item, i, arr) => (

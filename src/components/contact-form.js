@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/core'
 
 import theme from '../themes/theme.js'
-import { PrimaryButton } from './ui-elements.js'
+import { PrimaryButton } from './elements.js'
 
 const ContactForm = () => {
     return (

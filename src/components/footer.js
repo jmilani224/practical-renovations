@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/core"
 import { Link } from "gatsby"
 import theme from '../themes/theme.js'
-import { PrimaryButton } from './ui-elements.js'
+import { PrimaryButton } from './elements.js'
 import ContactForm from './contact-form.js'
 
 const Footer = () => {
