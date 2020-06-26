@@ -14,28 +14,28 @@ const DrawerForm = () => {
     const btnRef = React.useRef();
     return (
         <>
-                <PrimaryButton
-                CTA="Get an Estimate"
-                ref={btnRef}
-                onClick={onOpen}
-                />
+            <PrimaryButton
+            CTA="Get an Estimate"
+            ref={btnRef}
+            onClick={onOpen}
+            />
 
-                <Drawer
-                    isOpen={isOpen}
-                    placement="right"
-                    onClose={onClose}
-                    finalFocusRef={btnRef}
-                    size="md"
+            <Drawer
+                isOpen={isOpen}
+                placement="right"
+                onClose={onClose}
+                finalFocusRef={btnRef}
+                size="md"
+            >
+                <DrawerOverlay />
+                <DrawerContent
+                alignItems="center"
                 >
-                    <DrawerOverlay />
-                    <DrawerContent
-                    alignItems="center"
-                    >
-                    <DrawerCloseButton />
-                            <ContactForm />
-                    </DrawerContent>
-                </Drawer>
-            </>
+                <DrawerCloseButton />
+                        <ContactForm />
+                </DrawerContent>
+            </Drawer>
+        </>
     )
 }
 
