@@ -28,6 +28,7 @@ const ServicesTemplate = ({ data }) => {
           <Flex
           direction="column"
           alignItems="center"
+          mb={10}
           >
             <Heading1>
               {RichText.asText(doc.node.headline)}
@@ -72,17 +73,15 @@ const ServicesIntro = ({ intro }) => {
     )
 }
 
-const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) => {
+const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i }) => {
     return (
       <>
         <Flex
-        my={10}
-        justifyContent="center"
         alignItems="center"
         flexDirection={i % 2 !== 0 ? {base: "column", lg: "row-reverse"} : {base: "column", lg:"row"}} // alternates image and copy
         >
             <Box
-            w={{base: "100vw", md: "38rem"}}
+            w={{base: "100vw", lg: "50vw"}}
             overflow="hidden"
             >
               <FluidImageHandler
@@ -92,8 +91,9 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
               />
             </Box>
             <Box
-            mx={16}
-            maxW="30rem"
+            px={16}
+            w={{base: "100vw", lg: "50vw"}}
+            minH={64}
             >
                 <Heading
                 as="h2"
@@ -114,7 +114,7 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i, arr }) =>
                 </Text>
             </Box>
         </Flex>
-            </>
+      </>
     )
 }
 
