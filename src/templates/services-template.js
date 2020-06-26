@@ -4,6 +4,7 @@ import { RichText } from 'prismic-reactjs'
 import { Heading, Flex, Box, Text } from '@chakra-ui/core'
 import { FluidImageHandler } from '../utils/imageHandlers.js'
 import { Heading1, FullWidthImage } from '../components/elements.js'
+import DrawerForm from '../components/drawer-form.js'
 
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
@@ -24,10 +25,16 @@ const ServicesTemplate = ({ data }) => {
           height="20rem"
           />
 
-          <Heading1>
-            {RichText.asText(doc.node.headline)}
-          </Heading1>
-          <ServicesIntro intro={doc.node.section_intro} />
+          <Flex
+          direction="column"
+          alignItems="center"
+          >
+            <Heading1>
+              {RichText.asText(doc.node.headline)}
+            </Heading1>
+            <ServicesIntro intro={doc.node.section_intro} />
+            <DrawerForm />
+          </Flex>
 
           {servicesArr.map((item, i, arr) => (
               <ServicesDetail

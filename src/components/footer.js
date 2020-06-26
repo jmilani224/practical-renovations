@@ -7,17 +7,11 @@ import {
     PseudoBox,
     Divider,
     Text,
-    Stack,
-    Drawer,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    useDisclosure
+    Stack
 } from "@chakra-ui/core"
 import { Link } from "gatsby"
 import theme from '../themes/theme.js'
-import { PrimaryButton } from './elements.js'
-import ContactForm from './contact-form.js'
+import DrawerForm from '../components/drawer-form.js'
 
 const Footer = () => {
     
@@ -62,7 +56,7 @@ const Footer = () => {
                             </PseudoBox>
                         ))}
                     </Box>
-                    <EstimateFormButton />
+                    <DrawerForm />
                 </Flex> 
              </Flex>
               <Stack
@@ -85,34 +79,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-
-export const EstimateFormButton = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef();
-    return (
-        <Box>
-                <PrimaryButton
-                CTA="Get an Estimate"
-                ref={btnRef}
-                onClick={onOpen}
-                />
-
-                <Drawer
-                    isOpen={isOpen}
-                    placement="right"
-                    onClose={onClose}
-                    finalFocusRef={btnRef}
-                    size="md"
-                >
-                    <DrawerOverlay />
-                    <DrawerContent
-                    alignItems="center"
-                    >
-                    <DrawerCloseButton />
-                            <ContactForm />
-                    </DrawerContent>
-                </Drawer>
-            </Box>
-    )
-}
