@@ -7,6 +7,7 @@ import {
     AccordionHeader,
     AccordionPanel,
     AccordionIcon,
+    Box
 } from '@chakra-ui/core'
 
 import Layout from '../components/layout'
@@ -122,7 +123,9 @@ const Gallery = () => {
                                 />
                             </AccordionHeader>
                             <AccordionPanel p="0">
-                                <ImgGallery data={galleryArr} />
+                                <Box className="gallery">
+                                    <ImgGallery data={galleryArr} />
+                                </Box>
                             </AccordionPanel>
                         </AccordionItem>
                 </>

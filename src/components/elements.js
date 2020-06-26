@@ -29,7 +29,7 @@ export const Heading1 = ({ children }) => {
           fontSize="3.3rem"
           textAlign="center"
           color={theme.darkGray}
-          mt={4}
+          mt={6}
           >
           {children}
           </Heading>
