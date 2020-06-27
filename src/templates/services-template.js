@@ -40,7 +40,7 @@ const ServicesTemplate = ({ data }) => {
           {servicesArr.map((item, i, arr) => (
               <ServicesDetail
               fluid={item.services_detail_imageSharp ? item.services_detail_imageSharp.childImageSharp.fluid : null} //Gatsby image GraphQL query validation
-              fallbackImage={item.services_detail_image.url}
+              fallbackImage={item.services_detail_image.url ? item.services_detail_image.url : null}
               alt={item.services_detail_image.alt}
               heading={RichText.render(item.services_detail_heading)}
               body={RichText.render(item.services_detail_body)}
@@ -92,6 +92,7 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i }) => {
             </Box>
             <Box
             px={16}
+            pb={4}
             w={{base: "100vw", lg: "50vw"}}
             minH={64}
             >
