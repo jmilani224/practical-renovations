@@ -2,6 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 .gallery img {
-    object-fit: contain;
+    object-fit: cover;
     overflow: hidden;
 }
