@@ -110,7 +110,6 @@ const Gallery = () => {
                             px="0"
                             py={4}
                             _focus={{ bg: "none", borderColor: "none" }}
-                            _hover={{ bg: "none", borderColor: "none" }}
                             >
                                 <FullWidthImage
                                 headline={item.node.banner_headline}
