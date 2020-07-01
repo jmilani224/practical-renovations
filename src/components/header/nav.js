@@ -14,7 +14,7 @@ import { Animate } from 'react-simple-animate';
 
 import theme from '../../themes/theme.js'
 
-import LoginSignUp from './login-signup.js'
+import Phone from './phone.js'
 
 export const navArr = [
     {
@@ -105,7 +105,7 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       }
     }, [navOpen])
 
-    return (
+    return (    
       <Flex
       justifyContent="start"
       direction="column"
@@ -113,8 +113,10 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       display={toggleNav ? {base: "flex", md: "none"} : "none"}
       backgroundColor={theme.mainGray}
       w="100vw"
-      h="100vh"
+      h="100%"
       position="fixed"
+      overflowY="scroll"
+      overflowX="hidden"
       top="0"
       zIndex="1"
       pt={12}
@@ -130,20 +132,19 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
           onClick={handleNavOpen}
           />
         </Box>
-        
-        <List
-        display="flex"
-        flexDirection="column"
-        justifyContent="start"
-        w="100%"
-        pt={8}
-        >
-          {navArr.map(item => (
-            <MobileNavSection name={item.name} href={item.href} menuItems={item.menuItems} />
-          ))}
-        </List>
-        
-        <LoginSignUp display="flex"/>
+        <Phone display="flex" />
+          <List
+          display="flex"
+          flexDirection="column"
+          justifyContent="start"
+          w="100%"
+          pt={8}
+          >
+            {navArr.map(item => (
+              <MobileNavSection name={item.name} href={item.href} menuItems={item.menuItems} />
+            ))}
+          </List>
+          
     </Flex>
     )
   }

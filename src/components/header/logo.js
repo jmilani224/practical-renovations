@@ -5,6 +5,7 @@ import { Box, Text } from '@chakra-ui/core'
 import { homeSVG, logoV3 } from '../../images/svg.js'
 
 export const Logo = ({ cls, color }) => {
+    //THIS IS NOT BEING USED
     let home = homeSVG(cls, color)
     return (
         <Link to="/">

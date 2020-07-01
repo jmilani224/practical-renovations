@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Nav, MobileNav } from './nav.js'
 import { LogoV2 } from './logo.js'
-import LoginSignUp from "./login-signup.js"
+import Phone from "./phone.js"
 import { Flex, Box } from "@chakra-ui/core"
 import theme from "../../themes/theme.js"
 import { MobileMenuIcon } from "./mobile-menu-icon.js"
@@ -53,7 +53,7 @@ const Header = ({ navOpen, handleNavOpen }) => {
                 mt={{base: 0, md: "-2rem"}}
                 mr={{base: 0, md: "1rem"}}
                 >
-                  <LoginSignUp display={{base: "none", md: "flex"}}/>
+                  <Phone display={{base: "none", md: "flex"}} />
                 </Box>
                 <MobileMenuIcon handleNavOpen={handleNavOpen} />
 
