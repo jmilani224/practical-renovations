@@ -11,10 +11,9 @@ import {
   } from '@chakra-ui/core';
 import { Link } from 'gatsby'
 import { Animate } from 'react-simple-animate';
-
 import theme from '../../themes/theme.js'
-
 import Phone from './phone.js'
+import { instagramIcon, facebookIcon, youtubeIcon } from '../../images/svg.js';
 
 export const navArr = [
     {
@@ -78,18 +77,27 @@ export const Nav = () => {
     return (
     <Flex
     alignItems="center"
-    justifyContent="center"
+    justifyContent="flex-start"
     display={{base: "none", md: "flex"}}
+    backgroundColor={theme.mainGray}
+    w="100%"
+    pl={4}
+    position="relative"
     >
         <List
-        backgroundColor={theme.mainGray}
-        w="100%"
-        pl={4}
+        
         >
           {navArr.map(item => (
-            <NavSection name={item.name} href={item.href} menuItems={item.menuItems} />
+            <NavSection key={item.href} name={item.name} href={item.href} menuItems={item.menuItems} />
           ))}
         </List>
+        <Box
+        position="absolute"
+        right={20}
+        display={{base: "none", lg: "block"}}
+        >
+          <SocialIcons color={theme.textColor}/>
+        </Box>
     </Flex>
     )
   }
@@ -120,6 +128,7 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       top="0"
       zIndex="1"
       pt={12}
+      pb={6}
       >
         <Box
         position="absolute"
@@ -133,17 +142,18 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
           />
         </Box>
         <Phone display="flex" />
-          <List
-          display="flex"
-          flexDirection="column"
-          justifyContent="start"
-          w="100%"
-          pt={8}
-          >
-            {navArr.map(item => (
-              <MobileNavSection name={item.name} href={item.href} menuItems={item.menuItems} />
-            ))}
-          </List>
+        <List
+        display="flex"
+        flexDirection="column"
+        justifyContent="start"
+        w="100%"
+        pt={8}
+        >
+          {navArr.map(item => (
+            <MobileNavSection key={item.href} name={item.name} href={item.href} menuItems={item.menuItems} />
+          ))}
+        </List>
+        <SocialIcons color={theme.textColor} />
           
     </Flex>
     )
@@ -191,6 +201,7 @@ const MobileNavSection = ({ name, href, menuItems }) => {
                   {menuItems[0] && menuItems.map((item) => (
                     
                     <ListItem
+                    key={item.href}
                     display="flex"
                     justifyContent="center"
                     w="100%"
@@ -218,7 +229,7 @@ const Dropdown = ({ menuItems }) => {
         zIndex="2"
         >
             {menuItems.map(item => (
-                <Link to={item.href}>
+                <Link key={item.href} to={item.href}>
                     <PseudoBox
                     _hover={{bg: theme.mainLight}}
                     >
@@ -263,4 +274,30 @@ const MenuArrow = ({ drop }) => {
             </Animate>
         </Flex>
     )
+}
+
+export const SocialIcons = ({color}) => {
+
+  const insta = instagramIcon(color)
+  const fb = facebookIcon(color)
+  const youtube = youtubeIcon(color)
+  const socialArr = [
+    { name: insta, url: "#" },
+    { name: fb, url: "#" },
+    { name: youtube, url: "#" },
+  ]
+  return (
+    <Flex
+    direction="row"
+    >
+      {socialArr.map(item => (
+        <a href={item.url}>
+          <Box
+          dangerouslySetInnerHTML={{__html: item.name}}
+          padding={2}
+          />
+        </a>
+      ))}
+    </Flex>
+  )
 }

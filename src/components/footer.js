@@ -1,6 +1,6 @@
 import React from 'react'
 import { LogoV2 } from "./header/logo.js"
-import { navArr } from './header/nav.js'
+import { navArr, SocialIcons } from './header/nav.js'
 import { 
     Box,
     Flex,
@@ -56,6 +56,7 @@ const Footer = () => {
                             </PseudoBox>
                         ))}
                     </Box>
+                    <SocialIcons color="white" />
                     <DrawerForm />
                 </Flex> 
              </Flex>

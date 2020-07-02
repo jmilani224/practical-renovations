@@ -1,6 +1,5 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
-
 import {
     Accordion,
     AccordionItem,
@@ -9,10 +8,10 @@ import {
     AccordionIcon,
     Box
 } from '@chakra-ui/core'
-
 import Layout from '../components/layout'
 import { FullWidthImage, Heading1 } from '../components/elements.js'
 import ImgGallery from '../components/imggallery.js'
+import theme from '../themes/theme'
 
 const Gallery = () => {
     const data = useStaticQuery(graphql`
@@ -109,7 +108,7 @@ const Gallery = () => {
                             <AccordionHeader
                             px="0"
                             py={4}
-                            _focus={{ bg: "none", borderColor: "none" }}
+                            _focus={{ borderColor: theme.darkGray }}
                             >
                                 <FullWidthImage
                                 headline={item.node.banner_headline}

@@ -42,3 +42,83 @@ export const logoV3 = (color) => {
 
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290.68 91.15"><defs><style>.${cls1}{font-size:36px;font-family:HelveticaNeue-Bold, Helvetica Neue;letter-spacing:0.1em;}.${cls1},.${cls5}{fill:${color};font-weight:700;}.${cls2},.${cls3},.${cls4}{font-size:30px;}.${cls2}{letter-spacing:0.1em;}.${cls3}{letter-spacing:0.05em;}.${cls4}{letter-spacing:0.01em;}.${cls5}{font-size:10px;font-family:HelveticaNeue-CondensedBold, Helvetica Neue;letter-spacing:0.7em;}</style></defs><title>Asset 3</title><g id="Layer_2" data-name="Layer 2"><g id="Logo_7" data-name="Logo 7"><g id="_Your_Text_Here_" data-name="[Your Text Here]"><text class=${cls1} transform="translate(44.94 30.85)">P<tspan class=${cls2} x="27.61" y="0">RACTICAL</tspan><tspan x="-24.17" y="36">R</tspan><tspan class=${cls2} x="5.43" y="36">ENOVATIONS</tspan></text><text class=${cls5} transform="translate(130.67 86.29)">LLC</text></g></g></g></svg>`
 }
+
+//Instagram
+
+export const instagramIcon = (color) => {
+
+    return `
+    
+        <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12Z"
+                fill="${color}"
+            />
+            <path
+                d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                fill="${color}"
+            />
+            <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
+                fill="${color}"
+            />
+        </svg>
+    
+    `
+}
+
+//Facebook
+
+export const facebookIcon = (color) => {
+
+    return `
+    
+        <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+            d="M9.19795 21.5H13.198V13.4901H16.8021L17.198 9.50977H13.198V7.5C13.198 6.94772 13.6457 6.5 14.198 6.5H17.198V2.5H14.198C11.4365 2.5 9.19795 4.73858 9.19795 7.5V9.50977H7.19795L6.80206 13.4901H9.19795V21.5Z"
+            fill="${color}"
+            />
+        </svg>
+    
+    `
+}
+
+//YouTube
+
+export const youtubeIcon = (color) => {
+
+    return `
+   
+    <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M5 7H19C19.5523 7 20 7.44771 20 8V16C20 16.5523 19.5523 17 19 17H5C4.44772 17 4 16.5523 4 16V8C4 7.44772 4.44772 7 5 7ZM2 8C2 6.34315 3.34315 5 5 5H19C20.6569 5 22 6.34315 22 8V16C22 17.6569 20.6569 19 19 19H5C3.34315 19 2 17.6569 2 16V8ZM10 9L14 12L10 15V9Z"
+        fill="${color}"
+        />
+    </svg>
+    
+    `
+}

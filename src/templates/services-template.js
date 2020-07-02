@@ -39,6 +39,7 @@ const ServicesTemplate = ({ data }) => {
 
           {servicesArr.map((item, i, arr) => (
               <ServicesDetail
+              key={i}
               fluid={item.services_detail_imageSharp ? item.services_detail_imageSharp.childImageSharp.fluid : null} //Gatsby image GraphQL query validation
               fallbackImage={item.services_detail_image ? item.services_detail_image.url : null}
               alt={item.services_detail_image ? item.services_detail_image.alt : null}
