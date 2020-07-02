@@ -39,6 +39,7 @@ const Footer = () => {
                         <LogoV2 color="#fff"/>
                     </Box>
                     <Box
+                    mb={4}
                     >
                         {navArr.map((item, i, arr) => (
                             <PseudoBox
