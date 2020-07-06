@@ -18,8 +18,10 @@
 ## Odds and ends
 * Ensure alt text is in image attribues
 * Add helmet, include titles and metas
+* Add link handler to rich text areas (about, blog, services descriptions, etc)
 * Make sure mobile menu scrolls
 * Make sure full width background images load on mobile
+* Look into paragraph spacing on about page vs phone number in header
 
 
 known caching issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/162#issuecomment-600641723

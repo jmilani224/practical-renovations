@@ -9,12 +9,18 @@ const Phone = ({ display }) => {
         direction="column"
         alignItems="flex-end"
         >
-            <Text fontFamily="'Roboto Mono', monospace">Emergency Service Line</Text>
-            <a href="tel:xxx-xxx-xxxx">
+            <Text
+            fontFamily="'Roboto Mono', monospace"
+            >
+                Emergency Service Line
+            </Text>
+            <a href="tel:4404657570">
                 <Text
                 fontFamily="'Roboto Mono', monospace"
-                fontSize="1.8em"
-                >xxx-xxx-xxxx</Text>
+                fontSize="1.7rem"
+                >
+                    (440)465-7570
+                </Text>
             </a>
         </Flex>
     )

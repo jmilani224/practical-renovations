@@ -64,6 +64,7 @@ const About = () => {
                 </Box>
                 <Text
                 lineHeight={2}
+                className="about"
                 >
                     {RichText.render(content.page_content)}
                 </Text>

@@ -74,7 +74,7 @@ export const SocialIcons = ({color}) => {
     const fb = facebookIcon(color)
     const socialArr = [
       { name: insta, url: "#" },
-      { name: fb, url: "#" }
+      { name: fb, url: "https://www.facebook.com/practicalrenovationsllc/" }
     ]
     return (
       <Flex
