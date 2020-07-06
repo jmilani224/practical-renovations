@@ -4,3 +4,7 @@
 .gallery img {
     align-self: flex-start;
 }
+
+p {
+    padding-bottom: 1.5rem;
+}

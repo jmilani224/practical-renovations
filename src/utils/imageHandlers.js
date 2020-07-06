@@ -39,3 +39,20 @@ export const FluidImageHandler = ({ fluid, fallbackImage, alt }) => {
         />
     );
 }
+
+export const FixedImageHandler = ({ fixed, fallbackImage, alt }) => {
+  return fixed ? (
+      <Img
+      fixed={fixed}
+      alt={alt}
+      style={{height: "100%", width: "100%"}}
+      />
+    ) : (
+      <Image
+      h="100%"
+      w="100%"
+      src={fallbackImage}
+      alt={alt}
+      />
+  );
+}
