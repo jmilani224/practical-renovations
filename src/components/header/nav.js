@@ -125,7 +125,7 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       w="100vw"
       h="100%"
       position="fixed"
-      overflow="auto"
+      overflowY="auto !important"
       top="0"
       zIndex="2"
       pt={12}
