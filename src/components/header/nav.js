@@ -116,47 +116,50 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
     }, [navOpen])
 
     return (    
-      <Flex
-      justifyContent="start"
-      direction="column"
-      alignItems="center"
-      display={toggleNav ? {base: "flex", md: "none"} : "none"}
+      <Box
+      display={toggleNav ? {base: "block", md: "none"} : "none"}
       backgroundColor={theme.mainGray}
       w="100vw"
       h="100%"
       position="fixed"
-      overflowY="auto !important"
       top="0"
       zIndex="2"
       pt={12}
       pb={6}
       >
-        <Box
-        position="absolute"
-        top={4}
-        right={4}
-        w={10}
-        >
-          <CloseButton
-          size="lg"
-          onClick={handleNavOpen}
-          />
-        </Box>
-        <Phone display="flex" />
-        <List
-        display="flex"
-        flexDirection="column"
+        <Flex
+        direction="column"
+        h="100%"
+        overflowY="scroll"
         justifyContent="start"
-        w="100%"
-        pt={8}
+        alignItems="center"
         >
-          {navArr.map(item => (
-            <MobileNavSection key={item.href} name={item.name} href={item.href} menuItems={item.menuItems} />
-          ))}
-        </List>
-        <SocialIcons color={theme.textColor} />
-          
-    </Flex>
+          <Box
+          position="absolute"
+          top={4}
+          right={4}
+          w={10}
+          >
+            <CloseButton
+            size="lg"
+            onClick={handleNavOpen}
+            />
+          </Box>
+          <Phone display="flex" />
+          <List
+          display="flex"
+          flexDirection="column"
+          justifyContent="start"
+          w="100%"
+          pt={8}
+          >
+            {navArr.map(item => (
+              <MobileNavSection key={item.href} name={item.name} href={item.href} menuItems={item.menuItems} />
+            ))}
+          </List>
+          <SocialIcons color={theme.textColor} />
+        </Flex> 
+    </Box>
     )
   }
 
