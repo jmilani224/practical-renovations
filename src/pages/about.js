@@ -53,7 +53,7 @@ const About = () => {
                 float="left"
                 h="500px"
                 w="440px"
-                m={4}
+                m={8}
                 display={{base: "none", md: "block"}}
                 >
                     <FixedImageHandler

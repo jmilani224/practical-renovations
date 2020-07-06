@@ -124,11 +124,8 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       backgroundColor={theme.mainGray}
       w="100vw"
       h="100%"
-      minH="100vh"
-      maxH="1000vh"
       position="fixed"
-      overflowY="scroll"
-      overflowX="hidden"
+      overflow="auto"
       top="0"
       zIndex="2"
       pt={12}
