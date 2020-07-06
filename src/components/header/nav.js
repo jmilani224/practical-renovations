@@ -13,7 +13,7 @@ import { Link } from 'gatsby'
 import { Animate } from 'react-simple-animate';
 import theme from '../../themes/theme.js'
 import Phone from './phone.js'
-import { instagramIcon, facebookIcon, youtubeIcon } from '../../images/svg.js';
+import { SocialIcons } from '../elements.js'
 
 export const navArr = [
     {
@@ -94,6 +94,8 @@ export const Nav = () => {
         <Box
         position="absolute"
         right={20}
+        h={10}
+        w={10}
         display={{base: "none", lg: "block"}}
         >
           <SocialIcons color={theme.textColor}/>
@@ -122,11 +124,13 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       backgroundColor={theme.mainGray}
       w="100vw"
       h="100%"
+      minH="100vh"
+      maxH="1000vh"
       position="fixed"
       overflowY="scroll"
       overflowX="hidden"
       top="0"
-      zIndex="1"
+      zIndex="2"
       pt={12}
       pb={6}
       >
@@ -276,28 +280,4 @@ const MenuArrow = ({ drop }) => {
     )
 }
 
-export const SocialIcons = ({color}) => {
 
-  const insta = instagramIcon(color)
-  const fb = facebookIcon(color)
-  const youtube = youtubeIcon(color)
-  const socialArr = [
-    { name: insta, url: "#" },
-    { name: fb, url: "#" },
-    { name: youtube, url: "#" },
-  ]
-  return (
-    <Flex
-    direction="row"
-    >
-      {socialArr.map(item => (
-        <a href={item.url}>
-          <Box
-          dangerouslySetInnerHTML={{__html: item.name}}
-          padding={2}
-          />
-        </a>
-      ))}
-    </Flex>
-  )
-}

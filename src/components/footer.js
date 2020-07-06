@@ -1,6 +1,8 @@
 import React from 'react'
 import { LogoV2 } from "./header/logo.js"
-import { navArr, SocialIcons } from './header/nav.js'
+import { navArr } from './header/nav.js'
+import { SocialIcons } from '../components/elements.js'
+
 import { 
     Box,
     Flex,

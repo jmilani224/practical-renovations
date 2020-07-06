@@ -1,6 +1,5 @@
 import React from 'react'
 import { Flex, Text } from '@chakra-ui/core'
-import { Link } from 'gatsby'
 
 const Phone = ({ display }) => {
     return (
@@ -15,7 +14,8 @@ const Phone = ({ display }) => {
                 <Text
                 fontFamily="'Roboto Mono', monospace"
                 fontSize="1.8em"
-                >xxx-xxx-xxxx</Text></a>
+                >xxx-xxx-xxxx</Text>
+            </a>
         </Flex>
     )
 }

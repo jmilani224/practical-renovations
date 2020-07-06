@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button, Heading, Flex } from '@chakra-ui/core'
+import { Button, Heading, Flex, Box } from '@chakra-ui/core'
 import theme from '../themes/theme.js'
 import { RichText } from 'prismic-reactjs'
 import { BackgroundImageHandler } from '../utils/imageHandlers.js'
+import { instagramIcon, facebookIcon, youtubeIcon } from '../images/svg.js';
 
 export const PrimaryButton = ({ CTA, ref, onClick }) => {
     return (
@@ -66,3 +67,27 @@ export const FullWidthImage = ({ headline, fontSize, headingTag, fluid, fallback
 
     )
 }
+
+export const SocialIcons = ({color}) => {
+
+    const insta = instagramIcon(color)
+    const fb = facebookIcon(color)
+    const socialArr = [
+      { name: insta, url: "#" },
+      { name: fb, url: "#" }
+    ]
+    return (
+      <Flex
+      direction="row"
+      >
+        {socialArr.map(item => (
+          <a href={item.url}>
+            <Box
+            dangerouslySetInnerHTML={{__html: item.name}}
+            m={2}
+            />
+          </a>
+        ))}
+      </Flex>
+    )
+  }
