@@ -78,6 +78,7 @@ export const SocialIcons = ({color, size}) => {
     return (
       <Flex
       direction="row"
+      justifyContent="center"
       >
         {socialArr.map(item => (
           <a href={item.url}>

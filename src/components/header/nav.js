@@ -114,24 +114,21 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
     }, [navOpen])
 
     return (    
-      <Box
+      <Flex
       display={toggleNav ? {base: "block", md: "none"} : "none"}
       backgroundColor={theme.mainGray}
       w="100vw"
       h="100%"
+      direction="column"
+      overflowY="scroll"
+      justifyContent="center"
+      alignItems="center"
       position="fixed"
       top="0"
       zIndex="2"
       pt={12}
       pb={6}
       >
-        <Flex
-        direction="column"
-        h="100%"
-        overflowY="scroll"
-        justifyContent="start"
-        alignItems="center"
-        >
           <Box
           position="absolute"
           top={4}
@@ -156,8 +153,7 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
             ))}
           </List>
           <SocialIcons color={theme.textColor} size="32px" />
-        </Flex> 
-    </Box>
+    </Flex>
     )
   }
 

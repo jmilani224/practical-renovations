@@ -7,7 +7,7 @@ const Phone = ({ display }) => {
         m={4}
         display={display}
         direction="column"
-        alignItems="flex-end"
+        alignItems="center"
         >
             <Text
             fontFamily="'Roboto Mono', monospace"
