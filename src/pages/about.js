@@ -47,7 +47,7 @@ const About = () => {
 
             <Box
             px={{base: 10, md: 24, lg: 48}}
-            py={10}
+            pb={10}
             >
                 <Box
                 float="left"
