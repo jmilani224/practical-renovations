@@ -93,12 +93,10 @@ export const Nav = () => {
         </List>
         <Box
         position="absolute"
-        right={20}
-        h={10}
-        w={10}
+        right={16}
         display={{base: "none", lg: "block"}}
         >
-          <SocialIcons color={theme.textColor}/>
+          <SocialIcons color={theme.textColor} size="28px" />
         </Box>
     </Flex>
     )
@@ -157,7 +155,7 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
               <MobileNavSection key={item.href} name={item.name} href={item.href} menuItems={item.menuItems} />
             ))}
           </List>
-          <SocialIcons color={theme.textColor} />
+          <SocialIcons color={theme.textColor} size="32px" />
         </Flex> 
     </Box>
     )

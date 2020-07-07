@@ -3,7 +3,7 @@ import { Button, Heading, Flex, Box } from '@chakra-ui/core'
 import theme from '../themes/theme.js'
 import { RichText } from 'prismic-reactjs'
 import { BackgroundImageHandler } from '../utils/imageHandlers.js'
-import { instagramIcon, facebookIcon, youtubeIcon } from '../images/svg.js';
+import { instagramIcon, facebookIcon } from '../images/svg.js';
 
 export const PrimaryButton = ({ CTA, ref, onClick }) => {
     return (
@@ -40,7 +40,7 @@ export const Heading1 = ({ children }) => {
 export const FullWidthImage = ({ headline, fontSize, headingTag, fluid, fallbackImage, height, accordianIconProp }) => {
     
     return (
-        <>
+      <>
         <BackgroundImageHandler
         fluid={fluid}
         fallbackImage={fallbackImage}
@@ -62,14 +62,13 @@ export const FullWidthImage = ({ headline, fontSize, headingTag, fluid, fallback
                         {accordianIconProp}
                 </Heading>
             </Flex>
-            </BackgroundImageHandler>
-        </>
+        </BackgroundImageHandler>
+      </>
 
     )
 }
 
-export const SocialIcons = ({color}) => {
-
+export const SocialIcons = ({color, size}) => {
     const insta = instagramIcon(color)
     const fb = facebookIcon(color)
     const socialArr = [
@@ -83,8 +82,10 @@ export const SocialIcons = ({color}) => {
         {socialArr.map(item => (
           <a href={item.url}>
             <Box
+            h={size}
+            w={size}
             dangerouslySetInnerHTML={{__html: item.name}}
-            m={2}
+            mx={2}
             />
           </a>
         ))}

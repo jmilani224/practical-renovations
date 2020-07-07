@@ -59,8 +59,10 @@ const Footer = () => {
                             </PseudoBox>
                         ))}
                     </Box>
-                    <SocialIcons color="white" />
-                    <DrawerForm />
+                    <SocialIcons color="white" size="30px" />
+                    <Box mt={2}>
+                        <DrawerForm />
+                    </Box>
                 </Flex> 
              </Flex>
               <Stack
