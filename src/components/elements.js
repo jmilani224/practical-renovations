@@ -22,15 +22,15 @@ export const PrimaryButton = ({ CTA, ref, onClick }) => {
     )
 }
 
-export const Heading1 = ({ children }) => {
+export const Heading1 = ({ children, align }) => {
     return (
         <Heading
           as="h1"
-          fontWeight="400"
-          fontSize="3.3rem"
-          textAlign="center"
-          color={theme.darkGray}
-          mt={6}
+          fontWeight="700"
+          fontSize="3rem"
+          color={theme.h1Color}
+          my={4}
+          textAlign={align}
           >
           {children}
           </Heading>

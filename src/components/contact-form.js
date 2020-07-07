@@ -19,11 +19,11 @@ const ContactForm = () => {
             w="100%"
             >
                 <Heading 
-                as="h3"
+                as="h2"
                 my={6}
                 mx={3}
                 fontSize="3xl"
-                fontWeight="500"
+                fontWeight="600"
                 >
                     Start Your Next Project
                 </Heading>

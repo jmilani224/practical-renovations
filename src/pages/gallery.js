@@ -52,7 +52,7 @@ const Gallery = () => {
     
     return (
         <Layout>
-            <Heading1>
+            <Heading1 align="center" >
                 Photo Gallery
             </Heading1>
 

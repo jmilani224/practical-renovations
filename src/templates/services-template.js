@@ -62,7 +62,7 @@ const ServicesIntro = ({ intro }) => {
     return (
         <Box
         px={{base: 10, md: 24, lg: 48}}
-        py={18}
+        pb={4}
         >
             <Text
             fontSize="xl"
@@ -102,6 +102,7 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i }) => {
                 fontSize="2xl"
                 mb={4}
                 mt={{base: 10, lg: 0}}
+                color={theme.h2Color}
                 >
                     {heading}
                 </Heading>

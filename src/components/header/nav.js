@@ -129,30 +129,30 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       pt={12}
       pb={6}
       >
-          <Box
-          position="absolute"
-          top={4}
-          right={4}
-          w={10}
-          >
-            <CloseButton
-            size="lg"
-            onClick={handleNavOpen}
-            />
-          </Box>
-          <Phone display="flex" />
-          <List
-          display="flex"
-          flexDirection="column"
-          justifyContent="start"
-          w="100%"
-          pt={8}
-          >
-            {navArr.map(item => (
-              <MobileNavSection key={item.href} name={item.name} href={item.href} menuItems={item.menuItems} />
-            ))}
-          </List>
-          <SocialIcons color={theme.textColor} size="32px" />
+        <Box
+        position="absolute"
+        top={4}
+        right={4}
+        w={10}
+        >
+          <CloseButton
+          size="lg"
+          onClick={handleNavOpen}
+          />
+        </Box>
+        <Phone display="flex" />
+        <List
+        display="flex"
+        flexDirection="column"
+        justifyContent="start"
+        w="100%"
+        pt={8}
+        >
+          {navArr.map(item => (
+            <MobileNavSection key={item.href} name={item.name} href={item.href} menuItems={item.menuItems} />
+          ))}
+        </List>
+        <SocialIcons color={theme.textColor} size="32px" />
     </Flex>
     )
   }

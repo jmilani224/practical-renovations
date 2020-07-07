@@ -4,6 +4,8 @@ const theme = {
     mainGray: "#e2e7e8",
     darkGray: "gray.600",
     mainDark: "#52665d",
+    h1Color: "#343a40",
+    h2Color: "#495057",
     textColor: "rgb(26, 32, 44)",
     backgroundColor: "#f7f8f7",
     buttonColor: "#eabe4f",

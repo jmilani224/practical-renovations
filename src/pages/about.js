@@ -41,8 +41,8 @@ const About = () => {
 
     return (
         <Layout>
-            <Heading1>
-            {RichText.asText(content.headline)}
+            <Heading1 align="center">
+              {RichText.asText(content.headline)}
             </Heading1>
 
             <Box

@@ -29,7 +29,7 @@ const Services = () => {
 
     return (
         <Layout>
-            <Heading1>
+            <Heading1 align="center">
                 Services
             </Heading1>
             {data.prismic.allServices_pages.edges.map(item => (
@@ -58,6 +58,7 @@ const Services = () => {
                 as="h2"
                 fontSize="2xl"
                 mb={4}
+                color={theme.h2Color}
                 >
                     <Link to={'services/' + item.node._meta.uid}>{item.node.page_name[0] && item.node.page_name[0].text}</Link>
                 </Heading>
