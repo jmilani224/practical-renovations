@@ -7,29 +7,34 @@ import { Heading2Alt } from "../elements"
 
 const BlogFeature = () => {
   const data = useStaticQuery(graphql`
-    {
-      allMarkdownRemark {
+  {
+    prismic {
+      allBlog_posts {
         edges {
           node {
-            html
-            frontmatter {
-              author
-              date
-              path
-              title
-              desc
-              main_image {
-                childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                  }
+            blog_post_title
+            _meta {
+              uid
+            }
+            hero_image
+            hero_imageSharp {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                  originalImg
+                  originalName
                 }
               }
             }
+            blog_post_content
           }
         }
       }
     }
+  }
   `)
 
   const arrLength = data.allMarkdownRemark.edges.length
