@@ -28,7 +28,7 @@ console.log(doc.node.tags)
                         {RichText.asText(doc.node.blog_post_title)}
                     </Heading1>
                     <Box mb={4}>
-                      <FluidImageHandler fluid={doc.node.hero_imageSharp && doc.node.hero_imageSharp.childImageSharp.fluid} fallbackImage={doc.node.hero_image && doc.node.hero_image.url} alt={doc.node.hero_image.alt} />
+                      <FluidImageHandler fluid={doc.node.hero_imageSharp ? doc.node.hero_imageSharp.childImageSharp.fluid : null} fallbackImage={doc.node.hero_image ? doc.node.hero_image.url : null} alt={doc.node.hero_image ? doc.node.hero_image.alt : null} />
                     </Box>
                     <LongFormText>
                     {RichText.render(doc.node.blog_post_content)}
