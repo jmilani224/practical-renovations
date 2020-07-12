@@ -1,7 +1,6 @@
 import React from 'react'
 import {
     Flex,
-    Heading,
     FormControl,
     FormLabel,
     Input,
@@ -9,7 +8,7 @@ import {
 } from '@chakra-ui/core'
 
 import theme from '../themes/theme.js'
-import { PrimaryButton } from './elements.js'
+import { Heading2, PrimaryButton, Heading2Alt } from './elements.js'
 
 const ContactForm = () => {
     return (
@@ -18,15 +17,9 @@ const ContactForm = () => {
             px={10}
             w="100%"
             >
-                <Heading 
-                as="h2"
-                my={6}
-                mx={3}
-                fontSize="3xl"
-                fontWeight="600"
-                >
+                <Heading2Alt>
                     Start Your Next Project
-                </Heading>
+                </Heading2Alt>
                 <FormControl m={3} isRequired>
                     <FormLabel htmlFor="fname">First Name</FormLabel>
                     <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />

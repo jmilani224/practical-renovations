@@ -61,7 +61,7 @@ const Footer = () => {
                     </Box>
                     <SocialIcons color="white" size="30px" />
                     <Box mt={2}>
-                        <DrawerForm />
+                        <DrawerForm buttonMargin={4}/>
                     </Box>
                 </Flex> 
              </Flex>

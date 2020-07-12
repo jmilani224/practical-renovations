@@ -9,7 +9,7 @@
 * Gallery page - collections: https://www.reliefproperties.com/portfolio 
 * Contact page
 * Blog
-  * Blog template - look at AV club for format - catagories???. ugh, maybe in v2
+  * Blog template - look at AV club for format - catagories???. ugh, maybe in v2 - also, look at Tania's blog overview
   * Blog roll
   * Programmatically generated w/ Prismic
 * Hook up form
@@ -19,9 +19,7 @@
 * Ensure alt text is in image attribues
 * Add helmet, include titles and metas
 * Add link handler to rich text areas (about, blog, services descriptions, etc)
-* Make sure mobile menu scrolls
 * Make sure full width background images load on mobile
-* Look into paragraph spacing on about page vs phone number in header
 
 
 known caching issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/162#issuecomment-600641723

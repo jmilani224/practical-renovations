@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Flex, Heading } from "@chakra-ui/core"
 import BlogCard from "./blog-card"
 import theme from '../../themes/theme.js'
+import { Heading2Alt } from "../elements"
 
 const BlogFeature = () => {
   const data = useStaticQuery(graphql`
@@ -38,16 +39,9 @@ const BlogFeature = () => {
 
   return (
     <>
-    <Heading
-    as="h2"
-    fontSize="4xl"
-    textAlign="center"
-    fontWeight="00"
-    mt={6}
-    color={theme.darkGray}
-    >
+    <Heading2Alt align="center">
       Featured Blog Posts
-    </Heading>
+    </Heading2Alt>
     <Flex
     my={{base: 6, lg: 10}}
     mx={4}

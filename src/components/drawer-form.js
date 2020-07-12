@@ -9,12 +9,13 @@ import {
 import { PrimaryButton } from './elements.js'
 import ContactForm from './contact-form.js'
 
-const DrawerForm = () => {
+const DrawerForm = ({ buttonMargin }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
     return (
         <>
             <PrimaryButton
+            buttonMargin={buttonMargin}
             CTA="Get an Estimate"
             ref={btnRef}
             onClick={onOpen}
@@ -32,7 +33,7 @@ const DrawerForm = () => {
                 alignItems="center"
                 >
                 <DrawerCloseButton />
-                        <ContactForm />
+                    <ContactForm />
                 </DrawerContent>
             </Drawer>
         </>

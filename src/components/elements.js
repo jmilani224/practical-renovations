@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button, Heading, Flex, Box } from '@chakra-ui/core'
+import { Button, Heading, Flex, Box, Text, Tag } from '@chakra-ui/core'
 import theme from '../themes/theme.js'
 import { RichText } from 'prismic-reactjs'
 import { BackgroundImageHandler } from '../utils/imageHandlers.js'
 import { instagramIcon, facebookIcon } from '../images/svg.js';
 
-export const PrimaryButton = ({ CTA, ref, onClick }) => {
+export const PrimaryButton = ({ CTA, ref, onClick, buttonMargin }) => {
     return (
         <Button
         h={10}
@@ -15,27 +15,73 @@ export const PrimaryButton = ({ CTA, ref, onClick }) => {
         type="submit"
         ref={ref}
         onClick={onClick}
-        m={3}
+        m={buttonMargin}
         >
             {CTA}
         </Button>
     )
 }
 
-export const Heading1 = ({ children, align }) => {
+export const Heading1 = ({ children, align, pt }) => {
     return (
         <Heading
           as="h1"
           fontWeight="700"
           fontSize="3rem"
           color={theme.h1Color}
-          my={4}
+          lineHeight="1.1"
+          mt={4}
+          mb={10}
+          pt={pt && 4}
           textAlign={align}
           >
           {children}
           </Heading>
     )
 }
+
+export const Heading2 = ({ children, align, pt }) => {
+  return (
+    <Heading
+    as="h2"
+    fontSize="2xl"
+    mb={4}
+    color={theme.h2Color}
+    pt={pt && 4}
+    textAlign={align}
+    >
+        {children}
+    </Heading>
+  )
+}
+
+export const Heading2Alt = ({ children, align }) => {
+  return (
+    <Heading
+    as="h2"
+    fontSize="4xl"
+    textAlign={align}
+    fontWeight="00"
+    mt={6}
+    color={theme.darkGray}
+    >
+      {children}
+    </Heading>
+  )
+}
+
+export const LongFormText = ({ children }) => {
+  return (
+    <Text
+    className="long-form-text"
+    fontSize="1.1rem"
+    lineHeight="1.6"
+    >
+      {children}
+    </Text>
+  )
+}
+
 
 export const FullWidthImage = ({ headline, fontSize, headingTag, fluid, fallbackImage, height, accordianIconProp }) => {
     
@@ -91,5 +137,47 @@ export const SocialIcons = ({color, size}) => {
           </a>
         ))}
       </Flex>
+    )
+  }
+
+export const BlogTags = ({ tag }) => {
+    let color
+    switch (tag) {
+      case 'Electrical':
+        color="red";
+        break;
+      case 'Plumbing':
+        color="orange";
+        break;
+      case 'Kitchens':
+        color="teal";
+        break;
+      case 'Decks':
+        color="purple";
+        break;
+      case 'Drywall':
+        color="pink";
+        break;
+      case 'Flooring':
+        color="yellow";
+        break;
+      case 'Bathrooms':
+        color="green";
+        break;
+      case 'Painting':
+        color="blue";
+        break;
+      case 'Drywall':
+        color="cyan";
+        break;
+      case 'DIY':
+        color="teal";
+        break;
+      case 'Old Home Tricks':
+        color="pink";
+        break;
+  }
+    return (
+      <Tag mr={2} mb={2} size="md" variantColor={color}>{tag}</Tag>
     )
   }

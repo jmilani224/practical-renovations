@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout.js'
-import { Heading1 } from '../components/elements.js'
+import { Heading1, LongFormText } from '../components/elements.js'
 import { Box, Text } from '@chakra-ui/core'
 import { FixedImageHandler } from '../utils/imageHandlers.js'
 import { useStaticQuery, graphql } from "gatsby"
@@ -41,7 +41,7 @@ const About = () => {
 
     return (
         <Layout>
-            <Heading1 align="center">
+            <Heading1 align="center" pt={true}>
               {RichText.asText(content.headline)}
             </Heading1>
 
@@ -53,7 +53,8 @@ const About = () => {
                 float="left"
                 h="500px"
                 w="440px"
-                m={8}
+                mr={6}
+                mb={6}
                 display={{base: "none", md: "block"}}
                 >
                     <FixedImageHandler
@@ -62,12 +63,9 @@ const About = () => {
                     alt={content.main_image.alt}
                     />
                 </Box>
-                <Text
-                lineHeight={2}
-                className="about"
-                >
+                <LongFormText>
                     {RichText.render(content.page_content)}
-                </Text>
+                </LongFormText>
             </Box>
         </Layout>
     )

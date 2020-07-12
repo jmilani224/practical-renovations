@@ -52,10 +52,9 @@ const Gallery = () => {
     
     return (
         <Layout>
-            <Heading1 align="center" >
+            <Heading1 align="center" pt={true}>
                 Photo Gallery
             </Heading1>
-
             <Accordion
             allowMultiple="false"
             w="100vw"

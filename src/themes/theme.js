@@ -7,6 +7,7 @@ const theme = {
     h1Color: "#343a40",
     h2Color: "#495057",
     textColor: "rgb(26, 32, 44)",
+    lightTextColor: "#868e96",
     backgroundColor: "#f7f8f7",
     buttonColor: "#eabe4f",
     buttonColorDark: "#ab8a37"

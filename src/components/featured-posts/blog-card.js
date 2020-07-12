@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex, Heading, Text, Box } from '@chakra-ui/core'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import theme from '../../themes/theme.js'
 
 const BlogCard = ({ data }) => {
     return (
@@ -30,7 +31,7 @@ const BlogCard = ({ data }) => {
             >
                 <Link to={data.href}>
                     <Heading
-                    as="h4"
+                    as="h3"
                     fontSize="2xl"
                     my={3}
                     fontWeight="500"
@@ -39,7 +40,7 @@ const BlogCard = ({ data }) => {
                     </Heading>
                 </Link>
                 <Text
-                color="gray.500"
+                color={theme.lightTextColor}
                 my={1}
                 >
                     {data.desc}

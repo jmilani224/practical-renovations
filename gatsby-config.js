@@ -64,12 +64,19 @@ module.exports = {
           path: '/preview', // (optional preview path. Default: /preview)
           previews: false, // (optional, activated Previews. Default: false)
           pages: [
-            { // (optional, builds pages dynamically)
-            type: 'Services_page',         // TypeName from prismic - capitalize
-            match: '/services/:uid',  // Pages will be generated under this pattern
-            path: '/services',        // Placeholder page for unpublished documents
-            component: require.resolve('./src/templates/services-template.js'),
-            }],
+              { // (optional, builds pages dynamically)
+              type: 'Services_page',         // TypeName from prismic - capitalize
+              match: '/services/:uid',  // Pages will be generated under this pattern
+              path: '/services',        // Placeholder page for unpublished documents
+              component: require.resolve('./src/templates/services-template.js'),
+              },
+              { // (optional, builds pages dynamically)
+                type: 'Blog_post',         // TypeName from prismic - capitalize
+                match: '/blog/:uid',  // Pages will be generated under this pattern
+                path: '/blog',        // Placeholder page for unpublished documents
+                component: require.resolve('./src/templates/blog-post-template.js'),
+              }
+            ],
             sharpKeys: [
               /image|photo|picture/, // (default)
               'services_detail_image',

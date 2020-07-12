@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
-import { Heading, Flex, Box, Text } from '@chakra-ui/core'
+import { Flex, Box, Text } from '@chakra-ui/core'
 import { FluidImageHandler } from '../utils/imageHandlers.js'
-import { Heading1, FullWidthImage } from '../components/elements.js'
+import { Heading1, Heading2, FullWidthImage } from '../components/elements.js'
 import DrawerForm from '../components/drawer-form.js'
 
 import Layout from '../components/layout.js'
@@ -29,12 +29,13 @@ const ServicesTemplate = ({ data }) => {
           direction="column"
           alignItems="center"
           mb={10}
+          mt={4}
           >
-            <Heading1>
+            <Heading1 align="center" pt={true}>
               {RichText.asText(doc.node.headline)}
             </Heading1>
             <ServicesIntro intro={doc.node.section_intro} />
-            <DrawerForm />
+            <DrawerForm buttonMargin={4}/>
           </Flex>
 
           {servicesArr.map((item, i, arr) => (
@@ -97,15 +98,9 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i }) => {
             w={{base: "100vw", lg: "50vw"}}
             minH={64}
             >
-                <Heading
-                as="h2"
-                fontSize="2xl"
-                mb={4}
-                mt={{base: 10, lg: 0}}
-                color={theme.h2Color}
-                >
+                <Heading2>
                     {heading}
-                </Heading>
+                </Heading2>
                 <Box
                 w="3em"
                 borderBottom="3px solid"
@@ -122,38 +117,39 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i }) => {
 }
 
 export const query = graphql`
-query ServicesPageQuery($uid: String) {
-  prismic {
-    allServices_pages(uid: $uid) {
-      edges {
-        node {
-          headline
-          section_intro
-          services_details {
-            services_detail_body
-            services_detail_heading
-            services_detail_image
-            services_detail_imageSharp {
-              childImageSharp {
-                fluid(quality: 100) {
-                  ...GatsbyImageSharpFluid
+  query ServicesPageQuery($uid: String) {
+    prismic {
+      allServices_pages(uid: $uid) {
+        edges {
+          node {
+            headline
+            section_intro
+            services_details {
+              services_detail_body
+              services_detail_heading
+              services_detail_image
+              services_detail_imageSharp {
+                childImageSharp {
+                  fluid(quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
-          }
-          
-          _meta {
-            uid
-          }
-          hero_background_image
-          hero_background_imageSharp {
-            childImageSharp {
-              fluid(quality: 100) {
-                base64
-                srcWebp
-                srcSetWebp
-                originalImg
-                originalName
+            
+            _meta {
+              uid
+            }
+            hero_background_image
+            hero_background_imageSharp {
+              childImageSharp {
+                fluid(quality: 100) {
+                  base64
+                  srcWebp
+                  srcSetWebp
+                  originalImg
+                  originalName
+                }
               }
             }
           }
@@ -161,5 +157,4 @@ query ServicesPageQuery($uid: String) {
       }
     }
   }
-}
-`
+  `
