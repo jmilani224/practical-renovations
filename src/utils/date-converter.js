@@ -38,6 +38,8 @@ export const dateConverter = (date) => {
         case '12':
         month = "December";
         break;
+        default:
+        month = '';
     }
 
     return `${month} ${dateArr[2]}, ${dateArr[0]}`

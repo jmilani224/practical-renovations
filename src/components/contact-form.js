@@ -13,6 +13,9 @@ import theme from '../themes/theme.js'
 import { PrimaryButton, Heading2Alt } from './elements.js'
 
 const ContactForm = () => {
+    const handleFormSubmission = (e) => {
+        e.preventDefault()
+    }
     const data = useStaticQuery(graphql`
     {
       prismic {
@@ -35,6 +38,7 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
+                    <form name="contact" netlify>
                     <FormControl m={3} isRequired>
                         <FormLabel htmlFor="fname">First Name</FormLabel>
                         <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
@@ -58,7 +62,8 @@ const ContactForm = () => {
                             ))}
                         </Select>
                     </FormControl>
-                    <PrimaryButton CTA="Submit" />
+                    <PrimaryButton CTA="Submit" onSubmit={handleFormSubmission}/>
+                    </form>
             </Flex>
     )
 }

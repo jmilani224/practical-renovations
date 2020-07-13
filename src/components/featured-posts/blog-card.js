@@ -17,7 +17,7 @@ const BlogCard = ({ data }) => {
         >
             <Box
             w={{base: "100vw", md: "15rem", lg: "100%"}}
-            h={{base: "15rem", md: "100%", lg: "12.5rem"}}
+            h={{base: "15rem", md: "100%", lg: "14rem"}}
             minW="15rem"
             >
                 <FluidImageHandler
@@ -28,11 +28,14 @@ const BlogCard = ({ data }) => {
                 />
             </Box>
             
-            <Box
+            <Flex
             ml={{base: 8, md: 6, lg: 4}}
             mr={{base: 0, lg: 2}}
-            minH={{base: "auto", lg: "9rem"}}
+            pb={4}
+            h="100%"
             overflow="hidden"
+            direction="column"
+            justifyContent="space-between"
             >
                 <Link to={'blog/' + data._meta.uid}>
                     <Heading
@@ -58,7 +61,7 @@ const BlogCard = ({ data }) => {
                         Read More
                     </Text>
                 </Link>
-            </Box>
+            </Flex>
         </Flex>
     )
 }

@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from '../components/layout'
 import { RichText } from 'prismic-reactjs'
 import { Heading1, LongFormText, Heading2, BlogTags } from '../components/elements'
-import { Box, Grid, Divider, Avatar, Flex, Text, Tag } from '@chakra-ui/core'
+import { Box, Grid, Divider, Avatar, Flex, Text } from '@chakra-ui/core'
 import theme from '../themes/theme'
 import DrawerForm from '../components/drawer-form'
 import { dateConverter } from '../utils/date-converter.js'
