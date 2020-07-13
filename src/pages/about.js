@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout.js'
 import { Heading1, LongFormText } from '../components/elements.js'
-import { Box, Text } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/core'
 import { FixedImageHandler } from '../utils/imageHandlers.js'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs';

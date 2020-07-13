@@ -35,7 +35,6 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
-                <form name="contact" netlify>
                     <FormControl m={3} isRequired>
                         <FormLabel htmlFor="fname">First Name</FormLabel>
                         <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
@@ -60,7 +59,6 @@ const ContactForm = () => {
                         </Select>
                     </FormControl>
                     <PrimaryButton CTA="Submit" />
-                </form>
             </Flex>
     )
 }
