@@ -97,6 +97,7 @@ const ServicesDetail = ({ fluid, fallbackImage, alt, heading, body, i }) => {
             pb={4}
             w={{base: "100vw", lg: "50vw"}}
             minH={64}
+            mt={{base: 4, lg: 0}}
             >
                 <Heading2>
                     {heading}

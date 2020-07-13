@@ -13,7 +13,7 @@ const BlogCard = ({ data }) => {
         w={{base: "100vw", md: "40rem", lg: "22rem"}}
         h={{base: "25rem", md: "10rem", lg: "26rem"}}
         mx={4}
-        my={{base: 4, lg: 0}}
+        my={{base: 0, md: 4, lg: 0}}
         backgroundColor="#fff"
         >
             <Box
