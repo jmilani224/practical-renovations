@@ -31,7 +31,7 @@ const Blog = () => {
   const postArr = data.prismic.allBlog_posts.edges
     return (
         <Layout>
-            <Heading1 align="center">
+            <Heading1 align="center" pt={true}>
                 Blog
             </Heading1>
 
