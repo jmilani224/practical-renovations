@@ -39,30 +39,30 @@ const ContactForm = () => {
                     Start Your Next Project
                 </Heading2Alt>
                     <form name="contact" netlify>
-                    <FormControl m={3} isRequired>
-                        <FormLabel htmlFor="fname">First Name</FormLabel>
-                        <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
-                    </FormControl>
-                    <FormControl m={3} isRequired>
-                        <FormLabel htmlFor="lname">Last Name</FormLabel>
-                        <Input focusBorderColor={theme.mainDark} id="lname" placeholder="Last Name" />
-                    </FormControl>
-                    <FormControl m={3} isRequired>
-                        <FormLabel htmlFor="phone">Phone Number</FormLabel>
-                        <Input focusBorderColor={theme.mainDark} id="phone" placeholder="Phone Number" />
-                    </FormControl>
-                    <FormControl m={3} isRequired>
-                        <FormLabel htmlFor="email">Email Address</FormLabel>
-                        <Input focusBorderColor={theme.mainDark} id="email" placeholder="Email Address" />
-                    </FormControl>
-                    <FormControl m={3} >
-                        <Select focusBorderColor={theme.mainDark} placeholder="How Can We Help?">
-                            {data.prismic.allServices_pages.edges.map(service => (
-                                <option value={RichText.asText(service.node.headline)}>{RichText.asText(service.node.headline)}</option>
-                            ))}
-                        </Select>
-                    </FormControl>
-                    <PrimaryButton CTA="Submit" onSubmit={handleFormSubmission}/>
+                        <FormControl m={3} isRequired>
+                            <FormLabel htmlFor="fname">First Name</FormLabel>
+                            <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
+                        </FormControl>
+                        <FormControl m={3} isRequired>
+                            <FormLabel htmlFor="lname">Last Name</FormLabel>
+                            <Input focusBorderColor={theme.mainDark} id="lname" placeholder="Last Name" />
+                        </FormControl>
+                        <FormControl m={3} isRequired>
+                            <FormLabel htmlFor="phone">Phone Number</FormLabel>
+                            <Input focusBorderColor={theme.mainDark} id="phone" placeholder="Phone Number" />
+                        </FormControl>
+                        <FormControl m={3} isRequired>
+                            <FormLabel htmlFor="email">Email Address</FormLabel>
+                            <Input focusBorderColor={theme.mainDark} id="email" placeholder="Email Address" />
+                        </FormControl>
+                        <FormControl m={3} >
+                            <Select focusBorderColor={theme.mainDark} placeholder="How Can We Help?">
+                                {data.prismic.allServices_pages.edges.map(service => (
+                                    <option value={RichText.asText(service.node.headline)}>{RichText.asText(service.node.headline)}</option>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <PrimaryButton CTA="Submit" onSubmit={handleFormSubmission}/>
                     </form>
             </Flex>
     )
