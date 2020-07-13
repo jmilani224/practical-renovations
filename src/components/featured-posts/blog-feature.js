@@ -2,7 +2,6 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Flex, Heading } from "@chakra-ui/core"
 import BlogCard from "./blog-card"
-import theme from '../../themes/theme.js'
 import { Heading2Alt } from "../elements"
 
 const BlogFeature = () => {
@@ -23,8 +22,8 @@ const BlogFeature = () => {
                   base64
                   tracedSVG
                   srcWebp
-                  srcSetWebp
                   originalImg
+                  srcSetWebp
                   originalName
                 }
               }
@@ -37,10 +36,10 @@ const BlogFeature = () => {
   }
   `)
 
-  const arrLength = data.allMarkdownRemark.edges.length
-  const blogPost1 = data.allMarkdownRemark.edges[arrLength - 3].node.frontmatter
-  const blogPost2 = data.allMarkdownRemark.edges[arrLength - 2].node.frontmatter
-  const blogPost3 = data.allMarkdownRemark.edges[arrLength - 1].node.frontmatter
+  const arrLength = data.prismic.allBlog_posts.edges.length
+  const blogPost1 = data.prismic.allBlog_posts.edges[arrLength - 3].node
+  const blogPost2 = data.prismic.allBlog_posts.edges[arrLength - 2].node
+  const blogPost3 = data.prismic.allBlog_posts.edges[arrLength - 1].node
 
   return (
     <>

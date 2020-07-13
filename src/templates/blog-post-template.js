@@ -7,13 +7,12 @@ import { Box, Grid, Divider, Avatar, Flex, Text, Tag } from '@chakra-ui/core'
 import theme from '../themes/theme'
 import DrawerForm from '../components/drawer-form'
 import { dateConverter } from '../utils/date-converter.js'
-import { FluidImageHandler } from '../utils/imageHandlers'
+import { FixedImageHandler } from '../utils/imageHandlers'
 
 const BlogTemplate = ({ data }) => {
     if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     const doc = data.prismic.allBlog_posts.edges.slice(0, 1).pop();
     if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
-console.log(doc.node.tags)
     return (
         <Layout>
             <Grid
@@ -27,8 +26,12 @@ console.log(doc.node.tags)
                     <Heading1 align="center" pt={true}>
                         {RichText.asText(doc.node.blog_post_title)}
                     </Heading1>
-                    <Box mb={4}>
-                      <FluidImageHandler fluid={doc.node.hero_imageSharp ? doc.node.hero_imageSharp.childImageSharp.fluid : null} fallbackImage={doc.node.hero_image ? doc.node.hero_image.url : null} alt={doc.node.hero_image ? doc.node.hero_image.alt : null} />
+                    <Box mb={4} w="100%" h="500px">
+                      <FixedImageHandler
+                      fixed={doc.node.hero_imageSharp ? doc.node.hero_imageSharp.childImageSharp.fixed : null}
+                      fallbackImage={doc.node.hero_image ? doc.node.hero_image.url : null}
+                      alt={doc.node.hero_image ? doc.node.hero_image.alt : null}
+                      />
                     </Box>
                     <LongFormText>
                     {RichText.render(doc.node.blog_post_content)}
@@ -140,12 +143,11 @@ export const query = graphql`
             hero_image
             hero_imageSharp {
               childImageSharp {
-                fluid {
+                fixed {
                 base64
                 tracedSVG
                 srcWebp
                 srcSetWebp
-                originalImg
                 originalName
               }
               }

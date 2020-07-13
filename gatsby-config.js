@@ -81,7 +81,8 @@ module.exports = {
               /image|photo|picture/, // (default)
               'services_detail_image',
               'hero_background_image',
-              'banner_image'
+              'banner_image',
+              'hero_image',
             ],
       },
     },
