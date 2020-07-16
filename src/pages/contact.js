@@ -12,7 +12,7 @@ const Contact = () => {
             </Heading1>
             <Flex justifyContent="center">
                 <Box
-                m="0 4rem 4rem 4rem"
+                m={{base: "0 0.5rem 1rem 0.5rem", md: "0 4rem 4rem 4rem"}}
                 w="80vw"
                 maxW="50rem"
                 >

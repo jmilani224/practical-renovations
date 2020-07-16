@@ -88,7 +88,9 @@ const ContactForm = () => {
                                 ))}
                             </Select>
                         </FormControl>
-                        <PrimaryButton CTA="Submit" type="submit" onClick={handleFormClick} w="calc(100% - 34px)" />
+                        <Flex justifyContent="center" mt={4} mx={3}>
+                            <PrimaryButton CTA="Submit" type="submit" onClick={handleFormClick} w="100%" />
+                        </Flex>
                     </form>
             </Flex>
 
