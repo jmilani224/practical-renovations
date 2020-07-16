@@ -58,7 +58,7 @@ const ContactForm = () => {
                     Start Your Next Project
                 </Heading2Alt>
                     <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-                        <input type="hidden" name="contact" value="contact" />
+                        <input type="hidden" name="form-name" value="contact" />
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="fname">First Name</FormLabel>
                             <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
