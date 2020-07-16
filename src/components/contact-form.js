@@ -26,13 +26,10 @@ const ContactForm = () => {
         setThankYou(!thankYou)
     }
 
-    const handleFormClick = () => {
-        
+    const handleFormClick = (e) => {
         handleFormVisible();
         handleThankYou();
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
+        //e.preventDefault()
     }
 
     console.log(formVisible)
@@ -60,7 +57,7 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
-                    <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+                    <form name="contact" action="#" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact" />
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="fname">First Name</FormLabel>
