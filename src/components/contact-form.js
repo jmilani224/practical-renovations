@@ -57,26 +57,26 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
-                    <form name="contact" action="#" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <form name="contact" action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact" />
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="fname">First Name</FormLabel>
-                            <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
+                            <Input name="First Name" focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
                         </FormControl>
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="lname">Last Name</FormLabel>
-                            <Input focusBorderColor={theme.mainDark} id="lname" placeholder="Last Name" />
+                            <Input name="Last Name" focusBorderColor={theme.mainDark} id="lname" placeholder="Last Name" />
                         </FormControl>
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="phone">Phone Number</FormLabel>
-                            <Input focusBorderColor={theme.mainDark} id="phone" placeholder="Phone Number" />
+                            <Input name="Phone Number" focusBorderColor={theme.mainDark} id="phone" placeholder="Phone Number" />
                         </FormControl>
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="email">Email Address</FormLabel>
-                            <Input focusBorderColor={theme.mainDark} id="email" placeholder="Email Address" />
+                            <Input name="Email Address" focusBorderColor={theme.mainDark} id="email" placeholder="Email Address" />
                         </FormControl>
                         <FormControl m={3} >
-                            <Select focusBorderColor={theme.mainDark} placeholder="How Can We Help?">
+                            <Select name="How Can We Help?" focusBorderColor={theme.mainDark} placeholder="How Can We Help?">
                                 {data.prismic.allServices_pages.edges.map(service => (
                                     <option value={RichText.asText(service.node.headline)}>{RichText.asText(service.node.headline)}</option>
                                 ))}

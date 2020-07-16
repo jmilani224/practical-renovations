@@ -10,23 +10,25 @@ const BlogCard = ({ data }) => {
         <Flex
         direction={{base: "column", md: "row", lg: "column"}}
         w={{base: "100vw", md: "40rem", lg: "22rem"}}
-        h={{base: "25rem", md: "10rem", lg: "26rem"}}
+        h={{base: "25rem", md: "10rem", lg: "27rem"}}
         mx={4}
         my={{base: 0, md: 4, lg: 0}}
         backgroundColor="#fff"
         >
-            <Box
-            w={{base: "100vw", md: "15rem", lg: "100%"}}
-            h={{base: "15rem", md: "100%", lg: "14rem"}}
-            minW="15rem"
-            >
-                <FluidImageHandler
-                fluid={data.hero_imageSharp.childImageSharp.fluid}
-                fallbackImage={data.hero_image.url}
-                alt={data.hero_image.alt}
-                h="100%"
-                />
-            </Box>
+            <Link to={'blog/' + data._meta.uid}>
+                <Box
+                w={{base: "100vw", md: "15rem", lg: "100%"}}
+                h={{base: "15rem", md: "100%", lg: "15rem"}}
+                minW="15rem"
+                >
+                    <FluidImageHandler
+                    fluid={data.hero_imageSharp.childImageSharp.fluid}
+                    fallbackImage={data.hero_image.url}
+                    alt={data.hero_image.alt}
+                    h="100%"
+                    />
+                </Box>
+            </Link>
             
             <Flex
             ml={{base: 8, md: 6, lg: 4}}
