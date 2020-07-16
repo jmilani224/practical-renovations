@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import {
@@ -6,16 +6,38 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Select
+    Select,
+    Icon,
+    Text
 } from '@chakra-ui/core'
 
 import theme from '../themes/theme.js'
 import { PrimaryButton, Heading2Alt } from './elements.js'
 
 const ContactForm = () => {
-    const handleFormSubmission = (e) => {
-        e.preventDefault()
+    const [formVisible, setFormVisible] = useState(true)
+    const [loading, setLoading] = useState(false)
+    const [thankYou, setThankYou] = useState(false)
+
+    const handleFormVisible = () => {
+        setFormVisible(!formVisible)
     }
+
+    const handleLoading = () => {
+        setLoading(!loading)
+    }
+
+    const handleThankYou = () => {
+        setThankYou(!thankYou)
+    }
+
+    const handleFormSubmission = (e) => {
+        e.preventDefault();
+        handleFormVisible();
+        handleThankYou();
+    }
+
+    console.log(formVisible)
     const data = useStaticQuery(graphql`
     {
       prismic {
@@ -30,7 +52,9 @@ const ContactForm = () => {
     }
   `)
     return (
+            <>
             <Flex
+            display={formVisible ? "flex" : "none"}
             direction="column"
             px={10}
             w="100%"
@@ -38,7 +62,8 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
-                    <form name="contact" netlify>
+                    <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact" />
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="fname">First Name</FormLabel>
                             <Input focusBorderColor={theme.mainDark} id="fname" placeholder="First Name" />
@@ -62,9 +87,29 @@ const ContactForm = () => {
                                 ))}
                             </Select>
                         </FormControl>
-                        <PrimaryButton CTA="Submit" onSubmit={handleFormSubmission}/>
+                        <PrimaryButton CTA="Submit" onClick={handleFormSubmission} w="calc(100% - 34px)" />
                     </form>
             </Flex>
+
+            {thankYou &&
+            <Flex
+            h="100%"
+            w="100%"
+            justifyContent="center"
+            alignItems="center"
+            direction="column"
+            >
+                <Icon mb="2rem" name="check-circle" size="4rem" color="green.500"/>
+                <Text
+                color={theme.lightTextColor}
+                fontWeight="600"
+                textAlign="center"
+                >
+                    Thanks for reaching out. We'll be in touch soon!
+                </Text>
+            </Flex>}
+
+            </>
     )
 }
 

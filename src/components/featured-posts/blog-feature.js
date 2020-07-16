@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Flex, Heading } from "@chakra-ui/core"
+import { Flex } from "@chakra-ui/core"
 import BlogCard from "./blog-card"
 import { Heading2Alt } from "../elements"
 

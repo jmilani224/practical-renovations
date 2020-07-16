@@ -5,18 +5,19 @@ import { RichText } from 'prismic-reactjs'
 import { BackgroundImageHandler } from '../utils/imageHandlers.js'
 import { instagramIcon, facebookIcon } from '../images/svg.js';
 
-export const PrimaryButton = ({ CTA, ref, onSubmit, buttonMargin }) => {
+export const PrimaryButton = ({ CTA, ref, onSubmit, buttonMargin, onClick, type, w }) => {
     return (
         <Button
         h={10}
         color="#fff"
         backgroundColor={theme.buttonColor}
         _hover={{ bg: theme.buttonColorDark }}
-        type="submit"
+        type={type}
         ref={ref}
         onSubmit={onSubmit}
+        onClick={onClick}
         m={buttonMargin}
-        w="100%"
+        w={w}
         >
             {CTA}
         </Button>
