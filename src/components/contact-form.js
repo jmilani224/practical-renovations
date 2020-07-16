@@ -16,15 +16,10 @@ import { PrimaryButton, Heading2Alt } from './elements.js'
 
 const ContactForm = () => {
     const [formVisible, setFormVisible] = useState(true)
-    const [loading, setLoading] = useState(false)
     const [thankYou, setThankYou] = useState(false)
 
     const handleFormVisible = () => {
         setFormVisible(!formVisible)
-    }
-
-    const handleLoading = () => {
-        setLoading(!loading)
     }
 
     const handleThankYou = () => {
@@ -87,7 +82,7 @@ const ContactForm = () => {
                                 ))}
                             </Select>
                         </FormControl>
-                        <PrimaryButton CTA="Submit" onClick={handleFormSubmission} w="calc(100% - 34px)" />
+                        <PrimaryButton CTA="Submit" type="submit" onClick={handleFormSubmission} w="calc(100% - 34px)" />
                     </form>
             </Flex>
 
