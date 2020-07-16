@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import {
@@ -29,8 +29,14 @@ const ContactForm = () => {
     const handleFormClick = (e) => {
         handleFormVisible();
         handleThankYou();
-        //e.preventDefault()
     }
+
+    useEffect(() => {
+        if (window.location.search.includes('thanks=true')) {
+            handleFormVisible()
+            handleThankYou()
+        }
+    }, [])
 
     console.log(formVisible)
     const data = useStaticQuery(graphql`
@@ -57,7 +63,7 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
-                    <form name="contact" action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <form name="contact" action="?thanks=true" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact" />
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="fname">First Name</FormLabel>
@@ -93,6 +99,7 @@ const ContactForm = () => {
             justifyContent="center"
             alignItems="center"
             direction="column"
+            pt={10}
             >
                 <Icon mb="2rem" name="check-circle" size="4rem" color="green.500"/>
                 <Text

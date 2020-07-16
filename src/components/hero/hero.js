@@ -35,6 +35,7 @@ const Hero = () => {
                 <Flex
                 h="auto"
                 w="100vw"
+                minH="100vh"
                 pt={{base: 0, lg: 16}}
                 pb={{base: 0, md: 4}}
                 px={{base: 0, lg: 4}}
@@ -45,12 +46,13 @@ const Hero = () => {
                     <HeroCopy />
                     <Flex
                     w={{base: "100vw", md: "35rem", lg: "28rem"}}
-                    h="40rem"
+                    h="auto"
                     borderTop="8px solid"
                     borderColor="#fff"
                     borderTopColor={theme.mainColor}
                     backgroundColor="#fff"
                     justifyContent="center"
+                    pb={10}
                     >
                       <ContactForm />
                     </Flex>
