@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import theme from '../../themes/theme.js'
 import { FluidImageHandler } from '../../utils/imageHandlers.js'
+import { Heading2 } from '../elements.js'
 
 const BlogCard = ({ data }) => {
     return (
@@ -40,14 +41,9 @@ const BlogCard = ({ data }) => {
             justifyContent="space-between"
             >
                 <Link to={'blog/' + data._meta.uid}>
-                    <Heading
-                    as="h3"
-                    fontSize="2xl"
-                    my={3}
-                    fontWeight="500"
-                    >
+                    <Heading2 pt={true}>
                         {RichText.asText(data.blog_post_title)}
-                    </Heading>
+                    </Heading2>
                 </Link>
                 <Text
                 color={theme.lightTextColor}

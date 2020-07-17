@@ -11,7 +11,7 @@ const Blog = () => {
     const data = useStaticQuery(graphql`
     {
       prismic {
-        allBlog_posts {
+        allBlog_posts(sortBy: meta_lastPublicationDate_DESC) {
           edges {
             node {
               blog_post_title
