@@ -8,12 +8,18 @@ import theme from '../themes/theme'
 import DrawerForm from '../components/drawer-form'
 import { dateConverter } from '../utils/date-converter.js'
 import { FixedImageHandler } from '../utils/imageHandlers'
+import MetaData from '../components/meta-data.js'
 
 const BlogTemplate = ({ data }) => {
     if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     const doc = data.prismic.allBlog_posts.edges.slice(0, 1).pop();
     if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
     return (
+        <>
+        <MetaData
+        title={doc.node.page_title ? RichText.asText(doc.node.page_title) : null}
+        description={doc.node.meta_description ? RichText.asText(doc.node.meta_description) : null}
+        />
         <Layout>
             <Grid
             gridTemplateColumns={{base: "100%",lg: "1fr 0fr minmax(200px, 25%)"}}
@@ -110,6 +116,7 @@ const BlogTemplate = ({ data }) => {
                 </Flex>
             </Grid>
         </Layout>
+      </>
     )
 }
 

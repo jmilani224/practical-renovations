@@ -5,6 +5,7 @@ import { Box } from '@chakra-ui/core'
 import { FixedImageHandler } from '../utils/imageHandlers.js'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs';
+import MetaData from '../components/meta-data.js'
 
 
 const About = () => {
@@ -29,6 +30,7 @@ const About = () => {
                 }
               }
               page_content
+              meta_description
             }
           }
         }
@@ -36,10 +38,13 @@ const About = () => {
     }
   `)
     const content = data.prismic.allAbouts.edges[0].node
-    console.log(content.main_imageSharp.childImageSharp.fixed)
-    console.log(content.main_image.url)
 
     return (
+        <>
+        <MetaData
+        title={content.headline ? RichText.asText(content.headline) : null}
+        description={content.meta_description ? RichText.asText(content.meta_description) : null}
+        />
         <Layout>
             <Heading1 align="center" pt={true}>
               {RichText.asText(content.headline)}
@@ -68,6 +73,7 @@ const About = () => {
                 </LongFormText>
             </Box>
         </Layout>
+        </>
     )
 }
 

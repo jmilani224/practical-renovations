@@ -50,7 +50,6 @@ const BlogFeature = () => {
     my={{base: 6, lg: 10}}
     mx={4}
     justifyContent="center"
-    alignItems="center"
     direction={{base: "column", lg: "row"}}
     >
       <BlogCard data={blogPost3} />

@@ -142,43 +142,19 @@ export const SocialIcons = ({color, size}) => {
   }
 
 export const BlogTags = ({ tag }) => {
-    let color
-    switch (tag) {
-      case 'Electrical':
-        color="red";
-        break;
-      case 'Plumbing':
-        color="orange";
-        break;
-      case 'Kitchens':
-        color="teal";
-        break;
-      case 'Decks':
-        color="purple";
-        break;
-      case 'Drywall':
-        color="pink";
-        break;
-      case 'Flooring':
-        color="yellow";
-        break;
-      case 'Bathrooms':
-        color="green";
-        break;
-      case 'Painting':
-        color="blue";
-        break;
-      case 'Drywall':
-        color="cyan";
-        break;
-      case 'DIY':
-        color="teal";
-        break;
-      case 'Old Home Tricks':
-        color="pink";
-        break;
-  }
-    return (
-      <Tag mr={2} mb={2} size="md" variantColor={color}>{tag}</Tag>
-    )
+
+    const tagColors = {
+      'Electrical': "red",
+      'Plumbing': "orange",
+      'Kitchens': "teal",
+      'Decks': "purple",
+      'Drywall': "pink",
+      'Flooring': "yellow",
+      'Bathrooms': "green",
+      'Painting': "blue",
+      'Drywall': "cyan",
+      'DIY': "teal",
+      'Old Home Tricks': "pink"
+    }
+    return (<Tag mr={2} mb={2} size="md" variantColor={tagColors.tag}>{tag}</Tag>)
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Heading, Text, Box } from '@chakra-ui/core'
+import { Flex, Text, Box } from '@chakra-ui/core'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import theme from '../../themes/theme.js'
@@ -11,7 +11,7 @@ const BlogCard = ({ data }) => {
         <Flex
         direction={{base: "column", md: "row", lg: "column"}}
         w={{base: "100vw", md: "40rem", lg: "22rem"}}
-        h={{base: "25rem", md: "10rem", lg: "27rem"}}
+        h={{base: "25rem", md: "10rem", lg: "28rem"}}
         mx={4}
         my={{base: 0, md: 4, lg: 0}}
         backgroundColor="#fff"

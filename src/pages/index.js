@@ -1,26 +1,47 @@
 import React from "react"
-
 import './index.css'
-
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Hero from '../components/hero/hero.js'
 import BlogFeature from '../components/featured-posts/blog-feature.js'
 import { Flex } from "@chakra-ui/core"
+import MetaData from '../components/meta-data.js'
+import { RichText } from 'prismic-reactjs'
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      prismic {
+        homepage(uid: "homepage", lang: "en-us") {
+          meta_description
+          page_title
+        }
+      }
+    }
+  `)
 
-    <Flex
-    direction="column"
-    >
+    return (
+    <>
+    <MetaData
+    title={data.prismic.homepage.page_title ? RichText.asText(data.prismic.homepage.page_title) : null}
+    description={data.prismic.homepage.meta_description ? RichText.asText(data.prismic.homepage.meta_description) : null}
+    />
+    <Layout>
 
-      <Hero />
+      <Flex
+      direction="column"
+      >
 
-      <BlogFeature />
+        <Hero />
 
-    </Flex>
-    
-  </Layout>
-)
+        <BlogFeature />
+
+      </Flex>
+      
+    </Layout>
+    </>
+  )
+
+}
 
 export default IndexPage
