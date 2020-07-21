@@ -18,7 +18,7 @@ const BlogCard = ({ data }) => {
         >
             <Link to={'blog/' + data._meta.uid}>
                 <Box
-                w={{base: "100vw", md: "15rem", lg: "100%"}}
+                w={{base: "100%", md: "15rem", lg: "100%"}}
                 h={{base: "15rem", md: "100%", lg: "15rem"}}
                 minW="15rem"
                 >

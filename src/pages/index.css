@@ -8,3 +8,11 @@
 .long-form-text p {
     margin-bottom: 1.5rem;
 }
+
+.long-form-text a {
+    text-decoration-line: underline;
+}
+
+.long-form-text li {
+    margin-left: 2rem;
+}

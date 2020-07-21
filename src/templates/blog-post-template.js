@@ -25,7 +25,7 @@ const BlogTemplate = ({ data }) => {
             gridTemplateColumns={{base: "100%",lg: "1fr 0fr minmax(200px, 25%)"}}
             >
                 <Box
-                px={{base: 10, md: 24}}
+                px={{base: 4, md: 24}}
                 pb={10}
                 >
                 
@@ -40,7 +40,7 @@ const BlogTemplate = ({ data }) => {
                       />
                     </Box>
                     <LongFormText>
-                    {RichText.render(doc.node.blog_post_content)}
+                      {RichText.render(doc.node.blog_post_content)}
                     </LongFormText>
                 </Box>
                 <Divider
@@ -152,7 +152,6 @@ export const query = graphql`
               childImageSharp {
                 fixed {
                 base64
-                tracedSVG
                 srcWebp
                 srcSetWebp
                 originalName
