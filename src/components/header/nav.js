@@ -201,11 +201,11 @@ const MobileNavSection = ({ name, href, menuItems }) => {
             mb={6}
             >
               <Link to={menuItems[0] ? null : href} onClick={menuItems[0] && toggleDrop}>
-                <Flex alignItems="center">
+                <Flex alignItems="center" >
                   <Box>
                     {name}
                   </Box>
-                  {menuItems[0] && <MenuArrow drop={drop} />}
+                  {menuItems[0] && <Box pt={2}><MenuArrow drop={drop} /></Box>}
                 </Flex>
               </Link>
               <List>
@@ -275,15 +275,6 @@ const MenuArrow = ({ drop }) => {
             start={{ transform: "rotate(0deg)" }}
             end={{ transform: "rotate(180deg)" }}
             >
-
-                {/*<Box
-                w={2}
-                h={2}
-                borderBottom="2px solid"
-                borderRight="2px solid"
-                borderColor={theme.textColor}
-                transform="rotate(45deg)"
-                />*/}
                 <Box
                 h="1.4rem"
                 w="1.4rem"
