@@ -28,6 +28,8 @@ const Gallery = () => {
                                 fluid(quality:100) {
                                     base64
                                     tracedSVG
+                                    srcWebp
+                                    srcSetWebp
                                     originalImg
                                     originalName
                                 }

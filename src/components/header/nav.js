@@ -183,7 +183,12 @@ const NavSection = ({ name, href, menuItems}) => {
 }
 
 const MobileNavSection = ({ name, href, menuItems }) => {
+  const [drop, setDrop] = useState(false)
 
+    const toggleDrop = (e) => {
+      e.preventDefault()
+      setDrop(!drop)
+    }
   return (
     <ListItem
             display="flex"
@@ -192,11 +197,12 @@ const MobileNavSection = ({ name, href, menuItems }) => {
             fontSize="2xl"
             mb={6}
             >
-              <Link to={href}>
+              <Link to={href} onClick={toggleDrop}>
                   {name}
+                  {menuItems[0] && <MenuArrow drop={drop} />}
               </Link>
               <List>
-                  {menuItems[0] && menuItems.map((item) => (
+                  {menuItems[0] && drop && menuItems.map((item) => (
                     
                     <ListItem
                     key={item.href}
