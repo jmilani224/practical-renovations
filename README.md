@@ -13,13 +13,14 @@
   * Blog roll
   * Programmatically generated w/ Prismic
 * Hook up form
-* Client login - Auth
 
 ## Odds and ends
 * Ensure alt text is in image attribues
 * Add helmet, include titles and metas
 * Add link handler to rich text areas (about, blog, services descriptions, etc)
 * Make sure full width background images load on mobile
+* Blog styles (richtext - so p, list, links, etc.)
+* Google Analytics
 
 
 known caching issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/162#issuecomment-600641723

@@ -119,7 +119,7 @@ export const SocialIcons = ({color, size}) => {
     const insta = instagramIcon(color)
     const fb = facebookIcon(color)
     const socialArr = [
-      { name: insta, url: "#" },
+      { name: insta, url: "https://www.instagram.com/practicalrenovations/" },
       { name: fb, url: "https://www.facebook.com/practicalrenovationsllc/" }
     ]
     return (
