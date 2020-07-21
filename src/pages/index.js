@@ -23,8 +23,8 @@ const IndexPage = () => {
     return (
     <>
     <MetaData
-    title={data.prismic.homepage.page_title ? RichText.asText(data.prismic.homepage.page_title) : null}
-    description={data.prismic.homepage.meta_description ? RichText.asText(data.prismic.homepage.meta_description) : null}
+    title={data.prismic.homepage.page_title ? RichText.asText(data.prismic.homepage.page_title) : ''}
+    description={data.prismic.homepage.meta_description ? RichText.asText(data.prismic.homepage.meta_description) : ''}
     />
     <Layout>
 

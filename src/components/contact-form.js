@@ -32,9 +32,9 @@ const ContactForm = () => {
     }
 
     useEffect(() => {
-        if (window.location.search.includes('thanks=true')) {
-            handleFormVisible()
-            handleThankYou()
+        if (window.location.search.includes('thanks')) {
+            handleFormVisible();
+            handleThankYou();
         }
     }, [])
 
@@ -62,7 +62,7 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
-                    <form name="contact" action="?thanks=true" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <form name="contact" action="?thanks" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact" />
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="fname">First Name</FormLabel>

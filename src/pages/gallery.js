@@ -12,6 +12,8 @@ import Layout from '../components/layout'
 import { FullWidthImage, Heading1 } from '../components/elements.js'
 import ImgGallery from '../components/imggallery.js'
 import theme from '../themes/theme'
+import MetaData from '../components/meta-data.js'
+
 
 const Gallery = () => {
     const data = useStaticQuery(graphql`
@@ -51,6 +53,11 @@ const Gallery = () => {
     const accordianIconProp = (<AccordionIcon />)
     
     return (
+        <>
+        <MetaData
+        title="Gallery"
+        description="Find inspiration in the custom renovation projects we've completed in Northeast Ohio."
+        />
         <Layout>
             <Heading1 align="center" pt={true}>
                 Photo Gallery
@@ -129,8 +136,8 @@ const Gallery = () => {
             )})}
             </Accordion>
             
-            
         </Layout>
+        </>
     )
 }
 

@@ -4,8 +4,7 @@ import Layout from '../components/layout'
 import { Heading1, Heading2 } from '../components/elements'
 import { Flex, Box, Image, Text } from '@chakra-ui/core'
 import theme from '../themes/theme.js'
-
-
+import MetaData from '../components/meta-data.js'
 
 const Services = () => {
     const data = useStaticQuery(graphql`
@@ -28,6 +27,11 @@ const Services = () => {
     `)
 
     return (
+        <>
+        <MetaData
+        title="Services"
+        description="Start your next custom renovation project in Northeast Ohio."
+        />
         <Layout>
               <Heading1 align="center" pt={true}>
                   Services
@@ -76,6 +80,7 @@ const Services = () => {
             </Flex>
              ))}
         </Layout>
+        </>
     )
 }
 

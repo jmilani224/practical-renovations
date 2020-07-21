@@ -156,5 +156,5 @@ export const BlogTags = ({ tag }) => {
       'DIY': "teal",
       'Old Home Tricks': "pink"
     }
-    return (<Tag mr={2} mb={2} size="md" variantColor={tagColors.tag}>{tag}</Tag>)
+    return (<Tag mr={2} mb={2} size="md" variantColor={tagColors[tag]}>{tag}</Tag>)
   }

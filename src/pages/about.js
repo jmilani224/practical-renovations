@@ -31,6 +31,7 @@ const About = () => {
               }
               page_content
               meta_description
+              page_title
             }
           }
         }
@@ -38,12 +39,11 @@ const About = () => {
     }
   `)
     const content = data.prismic.allAbouts.edges[0].node
-
     return (
         <>
         <MetaData
-        title={content.headline ? RichText.asText(content.headline) : null}
-        description={content.meta_description ? RichText.asText(content.meta_description) : null}
+        title={content.page_title ? RichText.asText(content.page_title) : ''}
+        description={content.meta_description ? RichText.asText(content.meta_description) : ''}
         />
         <Layout>
             <Heading1 align="center" pt={true}>

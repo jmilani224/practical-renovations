@@ -6,6 +6,7 @@ import { Flex, Text, PseudoBox } from '@chakra-ui/core'
 import theme from '../themes/theme.js'
 import { dateConverter } from '../utils/date-converter.js'
 import { RichText } from 'prismic-reactjs'
+import MetaData from '../components/meta-data.js'
 
 const Blog = () => {
     const data = useStaticQuery(graphql`
@@ -30,6 +31,11 @@ const Blog = () => {
   `)
   const postArr = data.prismic.allBlog_posts.edges
     return (
+        <>
+        <MetaData
+        title="Blog"
+        description="Find tips, tricks, and DIY guides to home renovation projects in Cleveland, Ohio."
+        />
         <Layout>
             <Heading1 align="center" pt={true}>
                 Blog
@@ -46,6 +52,7 @@ const Blog = () => {
                 ))}
             </Flex>
         </Layout>
+        </>
     )
 }
 

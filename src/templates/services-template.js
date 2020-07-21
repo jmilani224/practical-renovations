@@ -17,8 +17,8 @@ const ServicesTemplate = ({ data }) => {
     return (
       <>
       <MetaData
-        title={doc.node.headline ? RichText.asText(doc.node.headline) : null}
-        description={doc.node.section_intro ? RichText.asText(doc.node.section_intro) : null}
+        title={doc.node.headline ? RichText.asText(doc.node.headline) : ''}
+        description={doc.node.section_intro ? RichText.asText(doc.node.section_intro) : ''}
         />
       <Layout>
 

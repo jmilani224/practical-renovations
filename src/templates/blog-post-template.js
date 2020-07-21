@@ -17,8 +17,8 @@ const BlogTemplate = ({ data }) => {
     return (
         <>
         <MetaData
-        title={doc.node.page_title ? RichText.asText(doc.node.page_title) : null}
-        description={doc.node.meta_description ? RichText.asText(doc.node.meta_description) : null}
+        title={doc.node.page_title ? RichText.asText(doc.node.page_title) : ''}
+        description={doc.node.meta_description ? RichText.asText(doc.node.meta_description) : ''}
         />
         <Layout>
             <Grid
