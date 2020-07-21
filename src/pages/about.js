@@ -12,33 +12,32 @@ const About = () => {
     const data = useStaticQuery(graphql`
     {
       prismic {
-        allAbouts {
-          edges {
-            node {
-              headline
-              main_image
-              main_imageSharp {
-                childImageSharp {
-                  fixed (width: 440, height: 500) {
-                    base64
-                    tracedSVG
-                    aspectRatio
-                    srcWebp
-                    srcSetWebp
-                    originalName
-                  }
-                }
+        about(lang: "en-us", uid: "about") {
+          meta_description
+          page_title
+          headline
+          _meta {
+            uid
+          }
+          main_image
+          main_imageSharp {
+            childImageSharp {
+              fixed(width: 880, height: 1000) {
+                base64
+                tracedSVG
+                aspectRatio
+                srcWebp
+                srcSetWebp
+                originalName
               }
-              page_content
-              meta_description
-              page_title
             }
           }
+          page_content
         }
       }
     }
   `)
-    const content = data.prismic.allAbouts.edges[0].node
+    const content = data.prismic.about
     return (
         <>
         <MetaData
