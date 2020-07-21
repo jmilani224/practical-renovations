@@ -14,6 +14,7 @@ import { Animate } from 'react-simple-animate';
 import theme from '../../themes/theme.js'
 import Phone from './phone.js'
 import { SocialIcons } from '../elements.js'
+import { chevronDown } from '../../images/svg.js'
 
 export const navArr = [
     {
@@ -173,9 +174,12 @@ const NavSection = ({ name, href, menuItems}) => {
             onMouseLeave={toggleDrop}
             >
               <Link to={href}>
-                  {name}
-
-                  {menuItems[0] && <MenuArrow drop={drop} />}
+                <Flex alignItems="center">
+                    <Box>
+                      {name}
+                    </Box>
+                    {menuItems[0] && <MenuArrow drop={drop} />}
+                  </Flex>
               </Link>
                 {menuItems[0] && drop && <Dropdown menuItems={menuItems} /> /*if menuItems array is not empty (has dropdown items) and 'drop' is true, show Dropdown*/}
             </ListItem>
@@ -186,7 +190,6 @@ const MobileNavSection = ({ name, href, menuItems }) => {
   const [drop, setDrop] = useState(false)
 
     const toggleDrop = (e) => {
-      e.preventDefault()
       setDrop(!drop)
     }
   return (
@@ -197,9 +200,13 @@ const MobileNavSection = ({ name, href, menuItems }) => {
             fontSize="2xl"
             mb={6}
             >
-              <Link to={href} onClick={toggleDrop}>
-                  {name}
+              <Link to={menuItems[0] ? null : href} onClick={menuItems[0] && toggleDrop}>
+                <Flex alignItems="center">
+                  <Box>
+                    {name}
+                  </Box>
                   {menuItems[0] && <MenuArrow drop={drop} />}
+                </Flex>
               </Link>
               <List>
                   {menuItems[0] && drop && menuItems.map((item) => (
@@ -252,13 +259,15 @@ const MenuArrow = ({ drop }) => {
         drop ? setPlay(true) : setPlay(false)
         
     }, [drop])
+
+    const arrow = chevronDown(theme.textColor)
     
     return (
         <Flex
-        ml={2}
-        mb="2px"
+        ml={1}
         display="inline-block"
         alignItems="center"
+        pt="1px"
         >
             <Animate
             play={play}
@@ -267,13 +276,18 @@ const MenuArrow = ({ drop }) => {
             end={{ transform: "rotate(180deg)" }}
             >
 
-                <Box
+                {/*<Box
                 w={2}
                 h={2}
                 borderBottom="2px solid"
                 borderRight="2px solid"
                 borderColor={theme.textColor}
                 transform="rotate(45deg)"
+                />*/}
+                <Box
+                h="1.4rem"
+                w="1.4rem"
+                dangerouslySetInnerHTML={{ __html: arrow }}
                 />
             </Animate>
         </Flex>
