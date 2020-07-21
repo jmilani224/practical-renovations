@@ -153,6 +153,7 @@ export const query = graphql`
                 fixed {
                 base64
                 tracedSVG
+
                 originalName
               }
               }
