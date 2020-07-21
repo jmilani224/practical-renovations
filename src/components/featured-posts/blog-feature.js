@@ -21,9 +21,7 @@ const BlogFeature = () => {
                 fluid {
                   base64
                   tracedSVG
-                  srcWebp
                   originalImg
-                  srcSetWebp
                   originalName
                 }
               }
