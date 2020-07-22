@@ -51,10 +51,9 @@ const About = () => {
                 <Box
                 float="left"
                 h="500px"
-                w="440px"
+                w={{base: "100%", md: "440px"}}
                 mr={6}
                 mb={6}
-                display={{base: "none", md: "block"}}
                 >
                     <FixedImageHandler
                     fixed={content.main_imageSharp.childImageSharp.fixed}

@@ -19,12 +19,7 @@ const BlogFeature = () => {
             hero_imageSharp {
               childImageSharp {
                 fluid {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  originalImg
-                  srcSetWebp
-                  originalName
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
