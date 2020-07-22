@@ -26,12 +26,7 @@ const Gallery = () => {
                         banner_imageSharp {
                             childImageSharp {
                                 fluid(quality:100) {
-                                    base64
-                                    tracedSVG
-                                    srcWebp
-                                    srcSetWebp
-                                    originalImg
-                                    originalName
+                                    ...GatsbyImageSharpFluid
                                 }
                             }
                         }

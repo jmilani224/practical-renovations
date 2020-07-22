@@ -23,12 +23,7 @@ const About = () => {
           main_imageSharp {
             childImageSharp {
               fixed(width: 880, height: 1000) {
-                base64
-                tracedSVG
-                aspectRatio
-                srcWebp
-                srcSetWebp
-                originalName
+                ...GatsbyImageSharpFixed
               }
             }
           }

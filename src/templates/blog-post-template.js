@@ -158,11 +158,7 @@ export const query = graphql`
             hero_imageSharp {
               childImageSharp {
                 fixed {
-                base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
-                originalName
+                  ...GatsbyImageSharpFixed
               }
               }
             }
