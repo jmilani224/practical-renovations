@@ -8,15 +8,57 @@ import {
     Input,
     Select,
     Icon,
-    Text
+    Text,
+    Spinner
 } from '@chakra-ui/core'
 
 import theme from '../themes/theme.js'
 import { PrimaryButton, Heading2Alt } from './elements.js'
 
+const onSubmit = async (event, setSubmitSatus) => {
+    event.preventDefault();
+    setSubmitSatus("spinner");
+    const formElements = [...event.currentTarget.elements];
+    const isValid = true
+      //formElements.filter(elem => elem.name === "bot-field")[0].value === "";
+  
+    const validFormElements = isValid ? formElements : [];
+  
+    if (validFormElements.length < 1) {
+      //or some other cheeky error message
+      setSubmitSatus("bot");
+    } else {
+      const filledOutElements = validFormElements
+        .filter(elem => !!elem.value)
+        .map(
+          element =>
+            encodeURIComponent(element.name) +
+            "=" +
+            encodeURIComponent(element.value)
+        )
+        .join("&");
+  
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: filledOutElements
+      })
+        .then(() => {
+          setSubmitSatus("check");
+        })
+        .catch(_ => {
+          setSubmitSatus(
+            "error"
+          );
+        });
+    }
+  };
+
 const ContactForm = () => {
     const [formVisible, setFormVisible] = useState(true)
     const [thankYou, setThankYou] = useState(false)
+    const [submitStatus, setSubmitStatus] = useState(null);
+
 
     const handleFormVisible = () => {
         setFormVisible(!formVisible)
@@ -54,7 +96,7 @@ const ContactForm = () => {
     return (
             <>
             <Flex
-            display={formVisible ? "flex" : "none"}
+            display={submitStatus ? "none" : "flex"}
             direction="column"
             px={10}
             w="100%"
@@ -62,7 +104,13 @@ const ContactForm = () => {
                 <Heading2Alt>
                     Start Your Next Project
                 </Heading2Alt>
-                    <form name="contact" action="?thanks" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <form
+                    name="contact"
+                    onSubmit={e => onSubmit(e, setSubmitStatus)}
+                    //action="?thanks"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact" />
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="fname">First Name</FormLabel>
@@ -93,8 +141,41 @@ const ContactForm = () => {
                     </form>
             </Flex>
 
-            {thankYou &&
-            <Flex
+            {submitStatus === "spinner" &&
+            <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+            />
+            }
+            
+            {submitStatus === "check" &&
+            <FormFeedback
+            icon="check-circle"
+            color="green.500"
+            message="Thanks for reaching out. We'll be in touch soon!"
+            />
+            }
+
+            {submitStatus === "error" &&
+            <FormFeedback
+            icon="warning"
+            color="red.500"
+            message="Uh oh, something went wrong. Please reload the page and try again."
+            />
+            }
+
+            </>
+    )
+}
+
+export default ContactForm
+
+
+const FormFeedback = ({ icon, color, message }) => (
+    <Flex
             h="100%"
             w="100%"
             justifyContent="center"
@@ -102,18 +183,13 @@ const ContactForm = () => {
             direction="column"
             pt={10}
             >
-                <Icon mb="2rem" name="check-circle" size="4rem" color="green.500"/>
+                <Icon mb="2rem" name={icon} size="4rem" color={color}/>
                 <Text
                 color={theme.lightTextColor}
                 fontWeight="600"
                 textAlign="center"
                 >
-                    Thanks for reaching out. We'll be in touch soon!
+                    {message}
                 </Text>
-            </Flex>}
-
-            </>
-    )
-}
-
-export default ContactForm
+            </Flex>
+)
