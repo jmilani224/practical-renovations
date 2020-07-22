@@ -21,6 +21,7 @@
 * Make sure full width background images load on mobile
 * Blog styles (richtext - so p, list, links, etc.)
 * Google Analytics
+* Services icons? :(
 
 
 known caching issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/162#issuecomment-600641723

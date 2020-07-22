@@ -151,11 +151,7 @@ export const query = graphql`
             hero_background_imageSharp {
               childImageSharp {
                 fluid(quality: 100) {
-                  base64
-                  srcWebp
-                  srcSetWebp
-                  originalImg
-                  originalName
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
