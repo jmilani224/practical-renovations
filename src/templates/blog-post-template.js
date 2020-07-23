@@ -74,7 +74,7 @@ const BlogTemplate = ({ data }) => {
                                 maxW="25rem"
                                 mt={4}
                                 >
-                                Hi, I'm Jesse Carter, owner and operator of Practical Renovations LLC. Here's a little bit about what I want to do with this blog: write Twilight fan fiction, make grocery lists, and invent a new kind of math but instead of numbers it's all emojis. 🧮
+                                {RichText.render(data.prismic.allFragmentss.edges[0].node.blog_bio_blurb)}
                                 </Box>
                             </SidebarText>
                         </SideBarVerticalSpace>
@@ -168,6 +168,13 @@ export const query = graphql`
               select_a_tag
             }
             blog_post_content
+          }
+        }
+      }
+      allFragmentss {
+        edges {
+          node {
+            blog_bio_blurb
           }
         }
       }

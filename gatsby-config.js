@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Practical Renovation LLC`,
     description: `Description goes here.`,
-    author: `Joel Milani`,
+    author: `Jesse Carter`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -37,7 +37,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.svg`, // This path is relative to the root of the site.
       },
     },
     {
@@ -74,7 +74,7 @@ module.exports = {
                 type: 'Blog_post',         // TypeName from prismic - capitalize
                 match: '/blog/:uid',  // Pages will be generated under this pattern
                 path: '/blog',        // Placeholder page for unpublished documents
-                component: require.resolve('./src/templates/blog-post-template.js'),
+                component: require.resolve('./src/images/favicon.svg'),
               }
             ],
             sharpKeys: [

@@ -200,7 +200,7 @@ const MobileNavSection = ({ name, href, menuItems }) => {
             fontSize="2xl"
             mb={6}
             >
-              <Link to={menuItems[0] ? null : href} onClick={menuItems[0] && toggleDrop}>
+              <Link to={menuItems[0] ? '#' : href} onClick={menuItems[0] && toggleDrop}>
                 <Flex alignItems="center" >
                   <Box>
                     {name}

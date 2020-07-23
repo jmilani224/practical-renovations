@@ -5,8 +5,9 @@ import { Box } from "@chakra-ui/core"
 import Header from "./header/header.js"
 import theme from '../themes/theme.js'
 import Footer from "./footer.js"
+import MetaData from "./meta-data.js"
 
-const Layout = ({ children }) => {
+const Layout = ({ title, description, children }) => {
 
   const [navOpen, isNavOpen] = useState(false)
 
@@ -16,6 +17,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+        <MetaData title={title} description={description} />
         <Box
         position={navOpen ? "fixed" : "static"}
         backgroundColor={theme.backgroundColor}

@@ -141,32 +141,42 @@ const ContactForm = () => {
                     </form>
             </Flex>
 
-            {submitStatus === "spinner" &&
-            <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="blue.500"
-            size="xl"
-            />
-            }
-            
-            {submitStatus === "check" &&
-            <FormFeedback
-            icon="check-circle"
-            color="green.500"
-            message="Thanks for reaching out. We'll be in touch soon!"
-            />
-            }
+                <Flex
+                display={submitStatus ? "flex" : "none"}
+                h="100%"
+                w="100%"
+                justifyContent="center"
+                alignItems="center"
+                direction="column"
+                pt={10}
+                >
 
-            {submitStatus === "error" &&
-            <FormFeedback
-            icon="warning"
-            color="red.500"
-            message="Uh oh, something went wrong. Please reload the page and try again."
-            />
-            }
+                    {submitStatus === "spinner" &&
+                    <Spinner
+                    thickness="4px"
+                    speed="0.65s"
+                    emptyColor="gray.200"
+                    color="blue.500"
+                    size="xl"
+                    />
+                    }
+                    
+                    {submitStatus === "check" &&
+                    <FormFeedback
+                    icon="check-circle"
+                    color="green.500"
+                    message="Thanks for reaching out. We'll be in touch soon!"
+                    />
+                    }
 
+                    {submitStatus === "error" &&
+                    <FormFeedback
+                    icon="warning"
+                    color="red.500"
+                    message="Uh oh, something went wrong. Please reload the page and try again."
+                    />
+                    }
+                </Flex>
             </>
     )
 }
@@ -175,21 +185,14 @@ export default ContactForm
 
 
 const FormFeedback = ({ icon, color, message }) => (
-    <Flex
-            h="100%"
-            w="100%"
-            justifyContent="center"
-            alignItems="center"
-            direction="column"
-            pt={10}
-            >
-                <Icon mb="2rem" name={icon} size="4rem" color={color}/>
-                <Text
-                color={theme.lightTextColor}
-                fontWeight="600"
-                textAlign="center"
-                >
-                    {message}
-                </Text>
-            </Flex>
+    <>
+        <Icon mb="2rem" name={icon} size="4rem" color={color}/>
+        <Text
+        color={theme.lightTextColor}
+        fontWeight="600"
+        textAlign="center"
+        >
+            {message}
+        </Text>
+    </>
 )

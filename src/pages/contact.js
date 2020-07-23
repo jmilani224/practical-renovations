@@ -3,17 +3,15 @@ import Layout from '../components/layout'
 import ContactForm from '../components/contact-form'
 import { Heading1 } from '../components/elements.js'
 import { Flex, Box } from '@chakra-ui/core'
-import MetaData from '../components/meta-data.js'
 
 
 const Contact = () => {
     return (
         <>
-        <MetaData
+        <Layout
         title="Contact"
         description="Let's start your next custom renovation project in Northeast Ohio."
-        />
-        <Layout>
+        >
             <Heading1 align="center" pt={true}>
                 Contact
             </Heading1>

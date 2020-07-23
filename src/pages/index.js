@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import Hero from '../components/hero/hero.js'
 import BlogFeature from '../components/featured-posts/blog-feature.js'
 import { Flex } from "@chakra-ui/core"
-import MetaData from '../components/meta-data.js'
 import { RichText } from 'prismic-reactjs'
 
 const IndexPage = () => {
@@ -22,11 +21,10 @@ const IndexPage = () => {
 
     return (
     <>
-    <MetaData
+    <Layout
     title={data.prismic.homepage.page_title ? RichText.asText(data.prismic.homepage.page_title) : ''}
     description={data.prismic.homepage.meta_description ? RichText.asText(data.prismic.homepage.meta_description) : ''}
-    />
-    <Layout>
+    >
 
       <Flex
       direction="column"

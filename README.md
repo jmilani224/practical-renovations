@@ -22,6 +22,7 @@
 * Blog styles (richtext - so p, list, links, etc.)
 * Google Analytics
 * Services icons? :(
+* Add form validation https://www.jamessimone.net/blog/netlify-forms-prevent-redirects-react/
 
 
 known caching issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/162#issuecomment-600641723

@@ -152,7 +152,6 @@ export const BlogTags = ({ tag }) => {
       'Flooring': "yellow",
       'Bathrooms': "green",
       'Painting': "blue",
-      'Drywall': "cyan",
       'DIY': "teal",
       'Old Home Tricks': "pink"
     }
