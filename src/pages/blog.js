@@ -45,9 +45,9 @@ const Blog = () => {
             mb={10}
             direction="column"
             >
-                {postArr.map(post => (
+                {postArr[0] ? postArr.map(post => (
                     <BlogDateAndTitle post={post} />
-                ))}
+                )) : 'No posts are published yet.'}
             </Flex>
         </Layout>
         </>
