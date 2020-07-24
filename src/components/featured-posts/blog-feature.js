@@ -36,7 +36,7 @@ const BlogFeature = () => {
 
   return (
     <>
-    {featuredPostArr.length > 0 &&
+    {featuredPostArr[0] &&
     <Heading2Alt align="center">
       Featured Blog Posts
     </Heading2Alt>
@@ -48,7 +48,7 @@ const BlogFeature = () => {
     alignItems="center"
     direction={{base: "column", lg: "row"}}
     >
-      {featuredPostArr.map(data => (
+      {featuredPostArr[0] && featuredPostArr.map(data => (
         <BlogCard data={data} />
       ))}
     </Flex>
