@@ -31,16 +31,16 @@ const BlogFeature = () => {
   }
   `)
 
-  const arrLength = data.prismic.allBlog_posts.edges.length
-  const blogPost1 = data.prismic.allBlog_posts.edges[arrLength - 3].node
-  const blogPost2 = data.prismic.allBlog_posts.edges[arrLength - 2].node
-  const blogPost3 = data.prismic.allBlog_posts.edges[arrLength - 1].node
+  const chooseFeaturedPosts = (arr) => arr.slice(-3).reverse()
+  const featuredPostArr = chooseFeaturedPosts(data.prismic.allBlog_posts.edges)
 
   return (
     <>
+    {featuredPostArr.length > 0 &&
     <Heading2Alt align="center">
       Featured Blog Posts
     </Heading2Alt>
+    }
     <Flex
     my={{base: 6, lg: 10}}
     mx={{base: 0, lg: 4}}
@@ -48,9 +48,9 @@ const BlogFeature = () => {
     alignItems="center"
     direction={{base: "column", lg: "row"}}
     >
-      <BlogCard data={blogPost3} />
-      <BlogCard data={blogPost2} />
-      <BlogCard data={blogPost1} />
+      {featuredPostArr.map(data => (
+        <BlogCard data={data} />
+      ))}
     </Flex>
     </>
   )
