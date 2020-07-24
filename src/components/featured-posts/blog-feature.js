@@ -49,7 +49,7 @@ const BlogFeature = () => {
     direction={{base: "column", lg: "row"}}
     >
       {featuredPostArr[0] && featuredPostArr.map(data => (
-        <BlogCard data={data} />
+        <BlogCard data={data.node} />
       ))}
     </Flex>
     </>

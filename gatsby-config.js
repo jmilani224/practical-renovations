@@ -74,7 +74,7 @@ module.exports = {
                 type: 'Blog_post',         // TypeName from prismic - capitalize
                 match: '/blog/:uid',  // Pages will be generated under this pattern
                 path: '/blog',        // Placeholder page for unpublished documents
-                component: require.resolve('./src/images/favicon.svg'),
+                component: require.resolve('./src/templates/blog-post-template.js'),
               }
             ],
             sharpKeys: [

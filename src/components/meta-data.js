@@ -7,7 +7,7 @@ const MetaData = ({ title, description }) => {
         <Helmet>
             <title>{title} | Practical Renovations LLC</title>
             <meta name="description" content={description} />
-            <link rel="icon" href={favicon} />
+            <link rel="icon" href={null} />
         </Helmet>
     )
 }
