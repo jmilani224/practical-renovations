@@ -47,7 +47,7 @@ const Blog = () => {
             >
                 {postArr[0] ? postArr.map(post => (
                     <BlogDateAndTitle post={post} />
-                )) : <Text textAlign="center" >No posts are published yet.</Text>}
+                )) : <Text textAlign="center" >Nothing to read yet, check back soon.</Text>}
             </Flex>
         </Layout>
         </>
