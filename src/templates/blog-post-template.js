@@ -20,7 +20,6 @@ import MetaData from '../components/meta-data.js'
 const BlogTemplate = ({ data }) => {
     if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     const doc = data.prismic.allBlog_posts.edges[0];
-    console.log(RichText.asText(doc.node.page_title))
     if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
     return (
         <>
