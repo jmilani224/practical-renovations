@@ -1,6 +1,5 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
-import favicon from '../images/favicon.svg'
 
 const MetaData = ({ title, description }) => {
     return (

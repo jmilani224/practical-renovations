@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import {
@@ -73,13 +73,6 @@ const ContactForm = () => {
         handleThankYou();
     }
 
-    useEffect(() => {
-        if (window.location.search.includes('thanks')) {
-            handleFormVisible();
-            handleThankYou();
-        }
-    }, [])
-
     const data = useStaticQuery(graphql`
     {
       prismic {
@@ -107,7 +100,6 @@ const ContactForm = () => {
                     <form
                     name="contact"
                     onSubmit={e => onSubmit(e, setSubmitStatus)}
-                    //action="?thanks"
                     method="POST"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field">
