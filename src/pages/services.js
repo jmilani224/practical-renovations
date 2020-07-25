@@ -1,9 +1,11 @@
 import React from 'react'
-import {useStaticQuery, graphql, Link} from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
-import { Heading1, Heading2 } from '../components/elements'
-import { Flex, Box, Image, Text } from '@chakra-ui/core'
-import theme from '../themes/theme.js'
+import { Heading1 } from '../components/elements'
+import { Flex, Grid } from '@chakra-ui/core'
+import { Heading2Alt } from '../components/elements.js'
+import { RichText } from 'prismic-reactjs'
+import { BackgroundImageHandler } from '../utils/imageHandlers'
 
 const Services = () => {
     const data = useStaticQuery(graphql`
@@ -12,11 +14,17 @@ const Services = () => {
         allServices_pages {
           edges {
             node {
-              icon
               page_name
-              section_intro
               _meta {
                 uid
+              }
+              hero_background_image
+              hero_background_imageSharp {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
             }
           }
@@ -34,49 +42,31 @@ const Services = () => {
               <Heading1 align="center" pt={true}>
                   Services
               </Heading1>
-            {data.prismic.allServices_pages.edges.map(item => (
-            <Flex
-            direction={{base: "column", md: "row"}}
-            alignItems="center"
-            justifyContent="center"
-            mt={{base: 10, md: 0}}
-            >
-              <Box
-              m={{base: 5, md: 15}}
-              >
-                  <Link to={'services/' + item.node._meta.uid}>
-                    <Image
-                    src={item.node.icon && item.node.icon.url}
-                    h={{base: "17rem", md:"13rem"}}
-                    w={{base: "17rem", md:"13rem"}}
-                    />
-                  </Link>
-              </Box>
-              <Box
-              m={{base:5, md: 20}}
-              w={{base: "60vw", md:"35vw"}}
-              >
-                <Heading2>
-                    <Link to={'services/' + item.node._meta.uid}>{item.node.page_name[0] && item.node.page_name[0].text}</Link>
-                </Heading2>
-                <Box
-                w="3em"
-                borderBottom="3px solid"
-                borderColor={theme.buttonColor}
-                mb={4}
-                />
-                <Text>
-                    {item.node.section_intro[0] && item.node.section_intro[0].text}
-                </Text>
-                <br />
-                <Text
-                textDecor="underline"
-                >
-                  <Link to={'services/' + item.node._meta.uid}>Continue to {item.node.page_name[0] && item.node.page_name[0].text}</Link>
-                </Text>
-              </Box>             
-            </Flex>
-             ))}
+              <Grid
+              templateColumns={{base: "repeat(1, 1fr)", md: "repeat(2, 1fr)"}}
+              gap={2}
+              > 
+                {data.prismic.allServices_pages.edges.map(item => (
+
+                    <Link to={'services/' + item.node._meta.uid}>
+                        <BackgroundImageHandler
+                        fluid={item.node.hero_background_imageSharp.childImageSharp.fluid}
+                        fallbackImage={item.node.hero_background_imageSharp}
+                        >
+                          <Flex
+                          backgroundColor="#00000040"
+                          h="20rem"
+                          alignItems="center"
+                          justifyContent="center"
+                          >
+                            <Heading2Alt color="#fff">
+                              {RichText.asText(item.node.page_name)}
+                            </Heading2Alt>
+                          </Flex>                          
+                        </BackgroundImageHandler>
+                      </Link>
+                ))}
+             </Grid>
         </Layout>
         </>
     )

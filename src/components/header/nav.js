@@ -190,6 +190,7 @@ const MobileNavSection = ({ name, href, menuItems }) => {
   const [drop, setDrop] = useState(false)
 
     const toggleDrop = (e) => {
+      e.preventDefault()
       setDrop(!drop)
     }
   return (

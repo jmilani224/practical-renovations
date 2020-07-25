@@ -56,7 +56,7 @@ export const Heading2 = ({ children, align, pt }) => {
   )
 }
 
-export const Heading2Alt = ({ children, align }) => {
+export const Heading2Alt = ({ children, align, color }) => {
   return (
     <Heading
     as="h2"
@@ -64,7 +64,7 @@ export const Heading2Alt = ({ children, align }) => {
     textAlign={align}
     fontWeight="00"
     mt={6}
-    color={theme.darkGray}
+    color={color || theme.darkGray}
     >
       {children}
     </Heading>
