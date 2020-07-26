@@ -45,6 +45,7 @@ const Footer = () => {
                     >
                         {navArr.map((item, i, arr) => (
                             <PseudoBox
+                                key={i}
                                 as="span"
                                 color="#fff"
                                 fontWeight="500"

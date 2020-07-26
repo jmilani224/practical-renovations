@@ -48,7 +48,7 @@ const Services = () => {
               > 
                 {data.prismic.allServices_pages.edges.map(item => (
 
-                    <Link to={'services/' + item.node._meta.uid}>
+                    <Link key={item.node._meta.uid} to={'services/' + item.node._meta.uid}>
                         <BackgroundImageHandler
                         fluid={item.node.hero_background_imageSharp.childImageSharp.fluid}
                         fallbackImage={item.node.hero_background_imageSharp}

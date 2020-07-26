@@ -46,7 +46,7 @@ const Blog = () => {
             direction="column"
             >
                 {postArr[0] ? postArr.map(post => (
-                    <BlogDateAndTitle post={post} />
+                    <BlogDateAndTitle key={post} post={post} />
                 )) : <Text textAlign="center" >Nothing to read yet, check back soon.</Text>}
             </Flex>
         </Layout>

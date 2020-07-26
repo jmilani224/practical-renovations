@@ -128,7 +128,7 @@ export const SocialIcons = ({color, size}) => {
       justifyContent="center"
       >
         {socialArr.map(item => (
-          <a href={item.url}>
+          <a key={item.url} href={item.url}>
             <Box
             h={size}
             w={size}

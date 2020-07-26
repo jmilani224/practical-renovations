@@ -104,7 +104,7 @@ const BlogTemplate = ({ data }) => {
                                 Tags
                             </Heading2>
                             {doc.node.tags.map(tag => (
-                              <BlogTags tag={tag.select_a_tag} />
+                              <BlogTags key={tag.select_a_tag} tag={tag.select_a_tag} />
                             ))}
                             
                         </SideBarVerticalSpace>
