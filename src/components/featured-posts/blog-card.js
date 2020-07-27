@@ -11,7 +11,7 @@ const BlogCard = ({ data }) => {
         <Flex
         direction={{base: "column", md: "row", lg: "column"}}
         w={{base: "100vw", md: "40rem", lg: "22rem"}}
-        h={{base: "25rem", md: "10rem", lg: "28rem"}}
+        h={{base: "25rem", md: "12rem", lg: "29rem"}}
         mx={4}
         my={{base: 0, md: 4, lg: 0}}
         backgroundColor="#fff"

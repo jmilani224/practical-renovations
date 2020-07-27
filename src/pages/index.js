@@ -7,6 +7,7 @@ import BlogFeature from '../components/featured-posts/blog-feature.js'
 import { Flex, Box } from "@chakra-ui/core"
 import { RichText } from 'prismic-reactjs'
 import AboutJesse from "../components/about-jesse"
+import { Heading2Alt } from "../components/elements"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -38,8 +39,13 @@ const IndexPage = () => {
 
         <Box
         backgroundColor="#fff"
-        py={8}
+        py={7}
         >
+          <Box mb={4}>
+            <Heading2Alt align="center">
+              Let's Work Together
+            </Heading2Alt>
+          </Box>
           <AboutJesse />
         </Box>
       </Flex>
