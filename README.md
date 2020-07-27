@@ -13,6 +13,8 @@
   * Blog roll
   * Programmatically generated w/ Prismic
 * Hook up form
+* Blog comments
+* FB reviews
 
 ## Odds and ends
 * Ensure alt text is in image attribues

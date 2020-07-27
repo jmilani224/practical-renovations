@@ -1,8 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Layout from '../components/layout'
-import { Heading1, Heading2 } from '../components/elements.js'
-import { Flex, Text, PseudoBox } from '@chakra-ui/core'
+import { Heading1, Heading2, BlogTags } from '../components/elements.js'
+import { Flex, Text, PseudoBox, Box } from '@chakra-ui/core'
 import theme from '../themes/theme.js'
 import { dateConverter } from '../utils/date-converter.js'
 import { RichText } from 'prismic-reactjs'
@@ -63,18 +63,35 @@ const BlogDateAndTitle = ({ post }) => {
             _hover={{background: theme.mainGray}}
             >
                 <Flex
-                direction="column"
-                p={4}
+                direction={{base: "column", md: "row"}}
                 >
-                    <Text
-                    color={theme.lightTextColor}
-                    fontWeight="600"
-                    >
-                        {dateConverter(post.node.publish_date)}
-                    </Text>
-                    <Heading2>
-                        {RichText.asText(post.node.blog_post_title)}
-                    </Heading2>
+                  <Flex
+                  direction="column"
+                  px={4}
+                  pt={4}
+                  pb={{base: 0, md: 4}}
+                  >
+                      <Text
+                      color={theme.lightTextColor}
+                      fontWeight="600"
+                      >
+                          {dateConverter(post.node.publish_date)}
+                      </Text>
+                      <Heading2>
+                          {RichText.asText(post.node.blog_post_title)}
+                      </Heading2>
+                  </Flex>
+                  <Flex
+                  alignItems={{base: "flex-start", md: "center"}}
+                  justifyContent={{base: "flex-start", md: "flex-end"}}
+                  flexGrow="2"
+                  mr={10}
+                  pl={{base: 4, md: 0}}
+                  >
+                    {post.node.tags.map(tag => (
+                      <BlogTags key={tag.select_a_tag} tag={tag.select_a_tag} />
+                    ))}
+                  </Flex>
                 </Flex>
             </PseudoBox>
         </Link>
