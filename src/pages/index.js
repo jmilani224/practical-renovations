@@ -4,8 +4,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Hero from '../components/hero/hero.js'
 import BlogFeature from '../components/featured-posts/blog-feature.js'
-import { Flex } from "@chakra-ui/core"
+import { Flex, Box } from "@chakra-ui/core"
 import { RichText } from 'prismic-reactjs'
+import AboutJesse from "../components/about-jesse"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -32,8 +33,15 @@ const IndexPage = () => {
 
         <Hero />
 
+
         <BlogFeature />
 
+        <Box
+        backgroundColor="#fff"
+        py={8}
+        >
+          <AboutJesse />
+        </Box>
       </Flex>
       
     </Layout>

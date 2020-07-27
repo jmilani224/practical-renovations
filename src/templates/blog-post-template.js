@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from "gatsby"
 import Layout from '../components/layout'
 import { RichText } from 'prismic-reactjs'
@@ -7,7 +7,6 @@ import {
   Box,
   Grid,
   Divider,
-  Avatar,
   Flex,
   Text
 } from '@chakra-ui/core'
@@ -16,16 +15,31 @@ import DrawerForm from '../components/drawer-form'
 import { dateConverter } from '../utils/date-converter.js'
 import { FixedImageHandler } from '../utils/imageHandlers'
 import MetaData from '../components/meta-data.js'
+import AboutJesse from '../components/about-jesse.js'
 
 const BlogTemplate = ({ data }) => {
+  const [meta, setMeta] = useState({
+    title: '',
+    desc: ''
+  })
+  
+  useEffect(() => {
+    setMeta({
+      title: doc.node.page_title && RichText.asText(doc.node.page_title),
+      desc: doc.node.meta_description && RichText.asText(doc.node.meta_description)
+    })
+  }, [])
+
     if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     const doc = data.prismic.allBlog_posts.edges[0];
     if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
+
+    console.log(meta.desc)
     return (
         <>
         <MetaData
-        title={doc.node.page_title ? RichText.asText(doc.node.page_title) : ''}
-        description={doc.node.meta_description ? RichText.asText(doc.node.meta_description) : ''}
+        title={meta.title}
+        description={meta.desc}
         />
         <Layout>
             <Grid
@@ -61,24 +75,7 @@ const BlogTemplate = ({ data }) => {
                     <SideBarVerticalSpace />
                     
 
-                    <Flex
-                    direction="column"
-                    w="100%"
-                    alignItems="center"
-                    >
-                        <Avatar name="Jesse Carter" src="https://scontent-mia3-1.cdninstagram.com/v/t51.2885-19/s320x320/109026022_578692232814312_5935269997174878413_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com&_nc_ohc=JtbO3LaiWEMAX86moSF&oh=93a3141164ca934381384fb10e5a74b2&oe=5F41A6F7" size="2xl" />
-                        <SideBarVerticalSpace>
-                            <SidebarText>
-                                <Box
-                                pl={6}
-                                maxW="25rem"
-                                mt={4}
-                                >
-                                {RichText.render(data.prismic.allFragmentss.edges[0].node.blog_bio_blurb)}
-                                </Box>
-                            </SidebarText>
-                        </SideBarVerticalSpace>
-                    </Flex>
+                    <AboutJesse />
                     <Flex
                     direction="column"
                     pl={6}
@@ -130,7 +127,7 @@ const BlogTemplate = ({ data }) => {
 export default BlogTemplate
 
 
-const SidebarText = ({ children }) => {
+export const SidebarText = ({ children }) => {
     return (
         <Text
         fontSize="0.9rem"
@@ -141,7 +138,7 @@ const SidebarText = ({ children }) => {
     )
 }
 
-const SideBarVerticalSpace = ({ children }) => ( <Box mb={10}>{children}</Box> )
+export const SideBarVerticalSpace = ({ children }) => ( <Box mb={10}>{children}</Box> )
 
 export const query = graphql`
   query BlogPageQuery($uid: String) {
@@ -168,13 +165,6 @@ export const query = graphql`
               select_a_tag
             }
             blog_post_content
-          }
-        }
-      }
-      allFragmentss {
-        edges {
-          node {
-            blog_bio_blurb
           }
         }
       }
