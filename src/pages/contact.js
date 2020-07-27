@@ -18,7 +18,7 @@ const Contact = () => {
             <Flex justifyContent="center">
                 <Box
                 m={{base: "0 0.5rem 1rem 0.5rem", md: "0 4rem 4rem 4rem"}}
-                w="80vw"
+                w={{base: "95vw", md: "80vw"}}
                 maxW="50rem"
                 >
                     <ContactForm />

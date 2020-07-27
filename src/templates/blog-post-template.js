@@ -33,8 +33,6 @@ const BlogTemplate = ({ data }) => {
     if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     const doc = data.prismic.allBlog_posts.edges[0];
     if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
-
-    console.log(meta.desc)
     return (
         <>
         <MetaData
@@ -64,10 +62,24 @@ const BlogTemplate = ({ data }) => {
                       {RichText.render(doc.node.blog_post_content)}
                     </LongFormText>
                 </Box>
-                <Divider
-                orientation="vertical"
-                my={8}
-                />
+
+                <Box
+                display={{base: "none", lg: "flex"}}
+                >
+                  <Divider
+                  orientation="vertical"
+                  my={8}
+                  />
+                </Box>
+                <Flex
+                display={{base: "flex", lg: "none"}}
+                justifyContent="center"
+                >
+                  <Divider
+                  orientation="horizontal"
+                  w="90%"
+                  />
+                </Flex>
                 <Flex
                 direction="column"
                 >

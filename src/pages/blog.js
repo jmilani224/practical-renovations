@@ -41,7 +41,7 @@ const Blog = () => {
 
             <Flex
             justifyContent="flex-start"
-            mx={24}
+            mx={{base: 10, md: 24}}
             mb={10}
             direction="column"
             >
