@@ -47,7 +47,7 @@ const Hero = ({ handleNavOpen, navOpen }) => {
                   pt={4}
                   display={{base: "flex", md: "none"}}
                   >
-                    <LogoV2 color={theme.textColor}/>
+                    <LogoV2 color={theme.h1Color}/>
                   </Flex>
                   <HeroCopy />
                   <HeroForm display={{base: "none", md: "flex"}} />
