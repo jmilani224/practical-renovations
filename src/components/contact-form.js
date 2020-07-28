@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import {
@@ -9,7 +9,8 @@ import {
     Select,
     Icon,
     Text,
-    Spinner
+    Spinner,
+    Textarea
 } from '@chakra-ui/core'
 
 import theme from '../themes/theme.js'
@@ -73,9 +74,7 @@ const ContactForm = () => {
         handleThankYou();
     }
 
-    const handleAskQuestion = (e) => {
-      e.target.value === "Ask a Home Renovation Question" ? setAskQuestion(true) : setAskQuestion(false)
-    }
+    const handleAskQuestion = e => e.target.value === "Ask a Home Renovation Question" ? setAskQuestion(true) : setAskQuestion(false)
 
     const data = useStaticQuery(graphql`
     {
@@ -134,7 +133,7 @@ const ContactForm = () => {
                         </FormControl>
                         <FormControl display={askQuestion ? "block" : "none"} m={3}>
                             <FormLabel htmlFor="question">What's Your Question?</FormLabel>
-                            <Input name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type your question here." />
+                            <Textarea name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type your question here." />
                         </FormControl>
                         <Flex justifyContent="center" mt={4} mx={3}>
                             <PrimaryButton CTA="Submit" type="submit" onClick={handleFormClick} w="100%" />
