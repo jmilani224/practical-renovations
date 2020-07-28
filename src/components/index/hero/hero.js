@@ -12,12 +12,7 @@ const Hero = () => {
       file(relativePath: {eq: "hero/stair-hero-rt.jpg"}) {
         childImageSharp {
           fluid(quality: 100) {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
-            originalImg
-            originalName
+            ...GatsbyImageSharpFluid
           }
         }
       }
