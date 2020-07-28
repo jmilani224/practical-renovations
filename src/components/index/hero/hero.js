@@ -5,8 +5,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import ContactForm from '../../contact-form'
 import HeroCopy from './hero-copy.js'
 import theme from '../../../themes/theme.js'
+import { MobileMenuIcon } from '../../header/mobile-menu-icon'
+import { MobileNav } from '../../header/nav'
+import { LogoV2 } from '../../header/logo'
 
-const Hero = () => {
+const Hero = ({ handleNavOpen, navOpen }) => {
     const bgImage = useStaticQuery(graphql`
     {
       file(relativePath: {eq: "hero/stair-hero-rt.jpg"}) {
@@ -23,9 +26,12 @@ const Hero = () => {
   return (
     <>
             <BackgroundImage
-            Tag="div"
+            tag="div"
             fluid={fluidImage}
             >
+              <MobileMenuIcon handleNavOpen={handleNavOpen} />
+              <MobileNav navOpen={navOpen} handleNavOpen={handleNavOpen} />
+              
                 <Flex
                 h="auto"
                 w="100vw"
@@ -37,6 +43,13 @@ const Hero = () => {
                 alignItems={{base: "center", lg: "start"}}
                 justifyContent={{base: "flex-end", md: "flex-start", lg: "space-evenly"}}
                 >
+                  <Flex
+                  justifyContent="center"
+                  pt={4}
+                  display={{base: "flex", md: "none"}}
+                  >
+                    <LogoV2 color={theme.h1Color}/>
+                  </Flex>
                   <HeroCopy />
                   <HeroForm display={{base: "none", md: "flex"}} />
                 </Flex>

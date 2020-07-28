@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import './index.css'
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -19,18 +19,28 @@ const IndexPage = () => {
     }
   `)
 
+  const [navOpen, isNavOpen] = useState(false)
+
+  const handleNavOpen = () => {
+    isNavOpen(!navOpen);
+  }
+
     return (
     <>
     <Layout
     title={data.prismic.homepage.page_title ? RichText.asText(data.prismic.homepage.page_title) : ''}
     description={data.prismic.homepage.meta_description ? RichText.asText(data.prismic.homepage.meta_description) : ''}
+    navOpen={navOpen}
     >
 
       <Flex
       direction="column"
       >
 
-        <Hero />
+        <Hero
+        handleNavOpen={handleNavOpen}
+        navOpen={navOpen}
+        />
 
         <BlogFeature />
 
