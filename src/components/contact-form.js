@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 import {
@@ -58,7 +58,7 @@ const ContactForm = () => {
     const [formVisible, setFormVisible] = useState(true)
     const [thankYou, setThankYou] = useState(false)
     const [submitStatus, setSubmitStatus] = useState(null);
-
+    const [askQuestion, setAskQuestion] = useState(false)
 
     const handleFormVisible = () => {
         setFormVisible(!formVisible)
@@ -73,13 +73,17 @@ const ContactForm = () => {
         handleThankYou();
     }
 
+    const handleAskQuestion = (e) => {
+      e.target.value === "Ask a Home Renovation Question" ? setAskQuestion(true) : setAskQuestion(false)
+    }
+
     const data = useStaticQuery(graphql`
     {
       prismic {
         allServices_pages {
           edges {
             node {
-              headline
+              page_name
             }
           }
         }
@@ -121,11 +125,16 @@ const ContactForm = () => {
                             <Input name="Email Address" focusBorderColor={theme.mainDark} id="email" placeholder="Email Address" />
                         </FormControl>
                         <FormControl m={3} >
-                            <Select name="How Can We Help?" focusBorderColor={theme.mainDark} placeholder="How Can We Help?">
+                            <Select name="How Can We Help?" focusBorderColor={theme.mainDark} id="dropdown" placeholder="How Can We Help?" onChange={handleAskQuestion}>
                                 {data.prismic.allServices_pages.edges.map(service => (
-                                    <option value={RichText.asText(service.node.headline)}>{RichText.asText(service.node.headline)}</option>
+                                    <option value={RichText.asText(service.node.page_name)}>{RichText.asText(service.node.page_name)}</option>
                                 ))}
+                                <option value="Ask a Home Renovation Question">Ask a Home Renovation Question</option>
                             </Select>
+                        </FormControl>
+                        <FormControl display={askQuestion ? "block" : "none"} m={3}>
+                            <FormLabel htmlFor="question">What's Your Question?</FormLabel>
+                            <Input name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type your question here." />
                         </FormControl>
                         <Flex justifyContent="center" mt={4} mx={3}>
                             <PrimaryButton CTA="Submit" type="submit" onClick={handleFormClick} w="100%" />
