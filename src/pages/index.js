@@ -6,7 +6,6 @@ import Hero from '../components/index/hero/hero.js'
 import BlogFeature from '../components/index/featured-posts/blog-feature.js'
 import { Flex } from "@chakra-ui/core"
 import { RichText } from 'prismic-reactjs'
-import AboutJesseHomepage from "../components/index/about-jesse-homepage"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -32,8 +31,6 @@ const IndexPage = () => {
       >
 
         <Hero />
-
-        <AboutJesseHomepage />
 
         <BlogFeature />
 

@@ -26,6 +26,7 @@ const Hero = () => {
   const fluidImage = bgImage.file.childImageSharp.fluid
 
   return (
+    <>
             <BackgroundImage
             Tag="div"
             fluid={fluidImage}
@@ -41,24 +42,31 @@ const Hero = () => {
                 alignItems={{base: "center", lg: "start"}}
                 justifyContent="space-evenly"
                 >
-                    <HeroCopy />
-                    <Flex
-                    w={{base: "100vw", md: "35rem", lg: "28rem"}}
-                    h="auto"
-                    borderTop="8px solid"
-                    borderColor="#fff"
-                    borderTopColor={theme.mainColor}
-                    backgroundColor="#fff"
-                    justifyContent="center"
-                    pb={10}
-                    >
-                      <ContactForm />
-                    </Flex>
+                  <HeroCopy />
+                  <HeroForm display={{base: "none", md: "flex"}} />
                 </Flex>
-
             </BackgroundImage>
-
+            <HeroForm display={{base: "flex", md: "none"}} />
+          
+      </>
     )
 }
 
 export default Hero
+
+
+const HeroForm = ({ display }) => (
+  <Flex
+            display={display}
+            w={{base: "100vw", md: "35rem", lg: "28rem"}}
+            h="auto"
+            borderTop="8px solid"
+            borderColor="#fff"
+            borderTopColor={theme.mainColor}
+            backgroundColor="#fff"
+            justifyContent="center"
+            pb={10}
+            >
+              <ContactForm />
+            </Flex>
+)

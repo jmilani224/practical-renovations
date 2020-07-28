@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
-
 import { Flex, Heading, Text } from '@chakra-ui/core'
 import { Heading1 } from '../../elements'
 
@@ -16,12 +15,7 @@ const HeroCopy = () => {
               hero_imageSharp {
                 childImageSharp {
                   fluid {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    originalImg
-                    originalName
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
@@ -51,15 +45,14 @@ const HeroCopy = () => {
             <Heading
             as="h3"
             fontSize="xl"
-            fontStyle="italic"
             fontWeight="500"
             mb={2}
             >
                 {content.node.sub_headline[0].text}
             </Heading>
-            {/*<Text>
+            <Text>
                 {RichText.render(content.node.body_copy)}
-            </Text>*/}
+            </Text>
         </Flex>
     )
 }
