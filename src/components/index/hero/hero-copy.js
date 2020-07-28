@@ -37,7 +37,7 @@ const HeroCopy = () => {
     return (
         <Flex
         direction="column"
-        backgroundColor={{base: "#e8e6e6", md: "#e8e6e687"}}
+        backgroundColor={{base: "#e8e6e687", md: "#e8e6e687"}}
         px={{base: 10, md: 16}}
         pt={4}
         pb={8}
