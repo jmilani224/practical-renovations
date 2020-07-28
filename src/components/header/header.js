@@ -9,8 +9,7 @@ import { MobileMenuIcon } from "./mobile-menu-icon.js"
 import BackgroundImage from 'gatsby-background-image'
 
 
-const Header = () => {
-    
+const Header = ({ navOpen, handleNavOpen, navDisplay }) => {
   const bgImage = useStaticQuery(graphql`
     {
       file(relativePath: {eq: "floor-plan.png"}) {
@@ -47,7 +46,7 @@ const Header = () => {
               w="100vw"
               justifyContent={{base: "center", md: "space-between"}}
               backgroundColor={{base: theme.backgroundColor, lg: "rgba(255, 255, 255, 0);"}}
-              display={{base: "none", md: "flex"}}
+              display={navDisplay || "flex"}
               >
                 <LogoV2 color={theme.mainColor}/>
                 <Box
@@ -56,9 +55,12 @@ const Header = () => {
                 >
                   <Phone display={{base: "none", md: "flex"}} />
                 </Box>
+                <MobileMenuIcon handleNavOpen={handleNavOpen} />
 
             </Flex>
           </BackgroundImage>
+
+      <MobileNav navOpen={navOpen} handleNavOpen={handleNavOpen} />
 
       <Nav />
       

@@ -24,13 +24,13 @@ const IndexPage = () => {
   const handleNavOpen = () => {
     isNavOpen(!navOpen);
   }
-
+  
     return (
     <>
     <Layout
     title={data.prismic.homepage.page_title ? RichText.asText(data.prismic.homepage.page_title) : ''}
     description={data.prismic.homepage.meta_description ? RichText.asText(data.prismic.homepage.meta_description) : ''}
-    navOpen={navOpen}
+    navDisplay={{base: "none", md: "flex"}}
     >
 
       <Flex
@@ -38,8 +38,8 @@ const IndexPage = () => {
       >
 
         <Hero
-        handleNavOpen={handleNavOpen}
         navOpen={navOpen}
+        handleNavOpen={handleNavOpen}
         />
 
         <BlogFeature />

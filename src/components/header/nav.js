@@ -44,7 +44,7 @@ export const navArr = [
     }
   ]
   
-export const Nav = () => {
+export const Nav = ({ }) => {
   const data = useStaticQuery(graphql`
     {
       prismic {

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { Box } from "@chakra-ui/core"
 
@@ -7,10 +7,12 @@ import theme from '../themes/theme.js'
 import Footer from "./footer.js"
 import MetaData from "./meta-data.js"
 
-const Layout = ({ title, description, children, navOpen }) => {
+const Layout = ({ title, description, children, navDisplay }) => {
+  const [navOpen, isNavOpen] = useState(false)
 
- 
-
+  const handleNavOpen = () => {
+    isNavOpen(!navOpen);
+  }
   return (
     <>
         <MetaData title={title} description={description} />
@@ -18,7 +20,11 @@ const Layout = ({ title, description, children, navOpen }) => {
         position={navOpen ? "fixed" : "static"}
         backgroundColor={theme.backgroundColor}
         >
-          <Header />
+          <Header
+          navOpen={navOpen}
+          handleNavOpen={handleNavOpen}
+          navDisplay={navDisplay}
+          />
 
           <main>
             {children}

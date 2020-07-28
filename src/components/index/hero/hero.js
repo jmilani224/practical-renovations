@@ -45,7 +45,7 @@ const Hero = ({ handleNavOpen, navOpen }) => {
                 >
                   <Flex
                   justifyContent="center"
-                  pt={4}
+                  pt={8}
                   display={{base: "flex", md: "none"}}
                   >
                     <LogoV2 color={theme.h1Color}/>
@@ -65,16 +65,16 @@ export default Hero
 
 const HeroForm = ({ display }) => (
   <Flex
-            display={display}
-            w={{base: "100vw", md: "35rem", lg: "28rem"}}
-            h="auto"
-            borderTop="8px solid"
-            borderColor="#fff"
-            borderTopColor={theme.mainColor}
-            backgroundColor="#fff"
-            justifyContent="center"
-            pb={10}
-            >
-              <ContactForm />
-            </Flex>
+  display={display}
+  w={{base: "100vw", md: "35rem", lg: "28rem"}}
+  h="auto"
+  borderTop="8px solid"
+  borderColor="#fff"
+  borderTopColor={theme.mainColor}
+  backgroundColor="#fff"
+  justifyContent="center"
+  pb={10}
+  >
+    <ContactForm />
+  </Flex>
 )
