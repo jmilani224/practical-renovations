@@ -57,9 +57,9 @@ const HeroCopy = () => {
             >
                 {content.node.sub_headline[0].text}
             </Heading>
-            <Text>
+            {/*<Text>
                 {RichText.render(content.node.body_copy)}
-            </Text>
+            </Text>*/}
         </Flex>
     )
 }
