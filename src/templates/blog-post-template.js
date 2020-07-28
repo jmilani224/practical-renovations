@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { graphql } from "gatsby"
 import Layout from '../components/layout'
 import { RichText } from 'prismic-reactjs'
@@ -18,26 +18,21 @@ import MetaData from '../components/meta-data.js'
 import AboutJesse from '../components/about-jesse.js'
 
 const BlogTemplate = ({ data }) => {
-  const [meta, setMeta] = useState({
-    title: '',
-    desc: ''
-  })
   
-  useEffect(() => {
-    setMeta({
-      title: doc.node.page_title && RichText.asText(doc.node.page_title),
-      desc: doc.node.meta_description && RichText.asText(doc.node.meta_description)
-    })
-  }, [])
-
     if (!data) return null //validation check - without this, the build was failing on a /test/ path, who can say why?
     const doc = data.prismic.allBlog_posts.edges[0];
     if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
+    
+    const metaData = {
+      title: doc.node.page_title && RichText.asText(doc.node.page_title),
+      desc: doc.node.meta_description && RichText.asText(doc.node.meta_description),
+    }
+
     return (
         <>
         <MetaData
-        title={meta.title}
-        description={meta.desc}
+        title={metaData.title}
+        description={metaData.desc}
         />
         <Layout>
             <Grid
