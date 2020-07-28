@@ -31,7 +31,7 @@ const AboutJesse = () => {
             <SidebarText>
                 <Box
                 pl={6}
-                maxW="25rem"
+                maxW="30rem"
                 mt={4}
                 >
                 {RichText.render(data.prismic.allFragmentss.edges[0].node.blog_bio_blurb)}
