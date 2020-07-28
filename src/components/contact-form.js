@@ -94,7 +94,7 @@ const ContactForm = () => {
             <Flex
             display={submitStatus ? "none" : "flex"}
             direction="column"
-            px={10}
+            px={{base: 5, md: 10}}
             w="100%"
             >
                 <Heading2Alt>
