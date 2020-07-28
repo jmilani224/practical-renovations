@@ -35,7 +35,7 @@ const Hero = () => {
                 px={{base: 0, lg: 4}}
                 direction={{base: "column", lg: "row"}}
                 alignItems={{base: "center", lg: "start"}}
-                justifyContent={{base: "flex-start", lg: "space-evenly"}}
+                justifyContent={{base: "flex-end", md: "flex-start", lg: "space-evenly"}}
                 >
                   <HeroCopy />
                   <HeroForm display={{base: "none", md: "flex"}} />
