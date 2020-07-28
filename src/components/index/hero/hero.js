@@ -41,6 +41,7 @@ const Hero = ({ handleNavOpen, navOpen }) => {
                 px={{base: 0, lg: 4}}
                 direction={{base: "column", lg: "row"}}
                 alignItems={{base: "center", lg: "start"}}
+                justifyContent={{base: "flex-end", md: "flex-start", lg: "space-evenly"}}
                 >
                   <Flex
                   justifyContent="center"
