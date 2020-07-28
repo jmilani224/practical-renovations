@@ -7,6 +7,7 @@
 
 .long-form-text p {
     margin-bottom: 1.5rem;
+    overflow-wrap: break-word;
 }
 
 .long-form-text a {
