@@ -2,9 +2,9 @@ import React from 'react'
 import { Flex, Text, Box } from '@chakra-ui/core'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import theme from '../../themes/theme.js'
-import { FluidImageHandler } from '../../utils/imageHandlers.js'
-import { Heading2 } from '../elements.js'
+import theme from '../../../themes/theme.js'
+import { FluidImageHandler } from '../../../utils/imageHandlers.js'
+import { Heading2 } from '../../elements.js'
 
 const BlogCard = ({ data }) => {
     return (

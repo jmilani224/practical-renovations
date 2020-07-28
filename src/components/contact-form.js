@@ -69,7 +69,7 @@ const ContactForm = () => {
         setThankYou(!thankYou)
     }
 
-    const handleFormClick = (e) => {
+    const handleFormClick = () => {
         handleFormVisible();
         handleThankYou();
     }

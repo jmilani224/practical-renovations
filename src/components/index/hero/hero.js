@@ -1,12 +1,10 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/core'
-
 import BackgroundImage from 'gatsby-background-image'
-
 import { useStaticQuery, graphql } from "gatsby"
-import ContactForm from '../contact-form'
+import ContactForm from '../../contact-form'
 import HeroCopy from './hero-copy.js'
-import theme from '../../themes/theme.js'
+import theme from '../../../themes/theme.js'
 
 const Hero = () => {
     const bgImage = useStaticQuery(graphql`

@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { SideBarVerticalSpace, SidebarText } from '../templates/blog-post-template.js'
 import { RichText } from 'prismic-reactjs'
 
-const AboutJesse = () => {
+const AboutJesse = ({ textAlign }) => {
 
     const data = useStaticQuery(graphql`
         {
@@ -33,6 +33,7 @@ const AboutJesse = () => {
                 pl={6}
                 maxW="30rem"
                 mt={4}
+                textAlign={textAlign}
                 >
                 {RichText.render(data.prismic.allFragmentss.edges[0].node.blog_bio_blurb)}
                 </Box>

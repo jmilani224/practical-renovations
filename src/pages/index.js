@@ -2,12 +2,11 @@ import React from "react"
 import './index.css'
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
-import Hero from '../components/hero/hero.js'
-import BlogFeature from '../components/featured-posts/blog-feature.js'
-import { Flex, Box } from "@chakra-ui/core"
+import Hero from '../components/index/hero/hero.js'
+import BlogFeature from '../components/index/featured-posts/blog-feature.js'
+import { Flex } from "@chakra-ui/core"
 import { RichText } from 'prismic-reactjs'
-import AboutJesse from "../components/about-jesse"
-import { Heading2Alt } from "../components/elements"
+import AboutJesseHomepage from "../components/index/about-jesse-homepage"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -37,17 +36,8 @@ const IndexPage = () => {
 
         <BlogFeature />
 
-        <Box
-        backgroundColor="#fff"
-        py={7}
-        >
-          <Box mb={4}>
-            <Heading2Alt align="center">
-              Let's Work Together
-            </Heading2Alt>
-          </Box>
-          <AboutJesse />
-        </Box>
+        <AboutJesseHomepage />
+
       </Flex>
       
     </Layout>

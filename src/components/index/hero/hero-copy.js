@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { RichText } from 'prismic-reactjs'
 
 import { Flex, Heading, Text } from '@chakra-ui/core'
-import { Heading1 } from '../elements'
+import { Heading1 } from '../../elements'
 
 const HeroCopy = () => {
     const data = useStaticQuery(graphql`
