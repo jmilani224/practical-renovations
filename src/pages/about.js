@@ -42,7 +42,7 @@ const About = () => {
             </Heading1>
 
             <Box
-            px={{base: 10, md: 24, lg: 48}}
+            px={{base: 5, md: 24, lg: 48}}
             pb={10}
             >
                 <Box
