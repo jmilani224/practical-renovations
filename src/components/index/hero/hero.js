@@ -41,14 +41,13 @@ const Hero = ({ handleNavOpen, navOpen }) => {
                 px={{base: 0, lg: 4}}
                 direction={{base: "column", lg: "row"}}
                 alignItems={{base: "center", lg: "start"}}
-                justifyContent={{base: "flex-end", md: "flex-start", lg: "space-evenly"}}
                 >
                   <Flex
                   justifyContent="center"
                   pt={4}
                   display={{base: "flex", md: "none"}}
                   >
-                    <LogoV2 color={theme.h1Color}/>
+                    <LogoV2 color={theme.textColor}/>
                   </Flex>
                   <HeroCopy />
                   <HeroForm display={{base: "none", md: "flex"}} />
