@@ -33,10 +33,10 @@ const IndexPage = () => {
 
         <Hero />
 
+        <AboutJesseHomepage />
 
         <BlogFeature />
 
-        <AboutJesseHomepage />
 
       </Flex>
       
