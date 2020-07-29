@@ -44,7 +44,7 @@ export const navArr = [
     }
   ]
   
-export const Nav = ({ }) => {
+export const Nav = () => {
   const data = useStaticQuery(graphql`
     {
       prismic {
@@ -104,19 +104,10 @@ export const Nav = ({ }) => {
   }
 
 export const MobileNav = ({ navOpen, handleNavOpen }) => {
-    const [toggleNav, setToggleNav] = useState(false)
     
-    useEffect(() => {
-      if (navOpen) {
-        setToggleNav(true)
-      } else {
-        setToggleNav(false);
-      }
-    }, [navOpen])
-
     return (    
       <Flex
-      display={toggleNav ? {base: "block", md: "none"} : "none"}
+      display={navOpen ? {base: "block", md: "none"} : "none"}
       backgroundColor={theme.mainGray}
       w="100vw"
       h="100%"

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import './index.css'
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -19,11 +19,6 @@ const IndexPage = () => {
     }
   `)
 
-  const [navOpen, isNavOpen] = useState(false)
-
-  const handleNavOpen = () => {
-    isNavOpen(!navOpen);
-  }
   
     return (
     <>
@@ -37,10 +32,7 @@ const IndexPage = () => {
       direction="column"
       >
 
-        <Hero
-        navOpen={navOpen}
-        handleNavOpen={handleNavOpen}
-        />
+        <Hero />
 
         <BlogFeature />
 

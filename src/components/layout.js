@@ -1,18 +1,15 @@
-import React, { useState } from "react"
-
+import React from "react"
 import { Box } from "@chakra-ui/core"
-
+import useMobileMenuControl from '../hooks/useMobileMenuControl.js'
 import Header from "./header/header.js"
 import theme from '../themes/theme.js'
 import Footer from "./footer.js"
 import MetaData from "./meta-data.js"
 
 const Layout = ({ title, description, children, navDisplay }) => {
-  const [navOpen, isNavOpen] = useState(false)
 
-  const handleNavOpen = () => {
-    isNavOpen(!navOpen);
-  }
+  const [navOpen, handleNavOpen] = useMobileMenuControl()
+
   return (
     <>
         <MetaData title={title} description={description} />

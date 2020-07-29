@@ -1,7 +1,13 @@
-import React from 'react'
+import { useState } from 'react'
 
-export const useMobileMenuControl = () => {
-    return {
-        
+const useMobileMenuControl = () => {
+    const [navOpen, isNavOpen] = useState(false)
+
+    const handleNavOpen = () => {
+      isNavOpen(!navOpen);
     }
+
+    return [navOpen, handleNavOpen]
 }
+
+export default useMobileMenuControl

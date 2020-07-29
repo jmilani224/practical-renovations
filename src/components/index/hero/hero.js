@@ -8,8 +8,9 @@ import theme from '../../../themes/theme.js'
 import { MobileMenuIcon } from '../../header/mobile-menu-icon'
 import { MobileNav } from '../../header/nav'
 import { LogoV2 } from '../../header/logo'
+import useMobileMenuControl from '../../../hooks/useMobileMenuControl.js'
 
-const Hero = ({ handleNavOpen, navOpen }) => {
+const Hero = () => {
     const bgImage = useStaticQuery(graphql`
     {
       file(relativePath: {eq: "hero/stair-hero-rt.jpg"}) {
@@ -22,6 +23,8 @@ const Hero = ({ handleNavOpen, navOpen }) => {
     }
   `)
   const fluidImage = bgImage.file.childImageSharp.fluid
+
+  const [navOpen, handleNavOpen] = useMobileMenuControl()
 
   return (
     <>

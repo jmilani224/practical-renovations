@@ -7,9 +7,10 @@ import { Flex, Box } from "@chakra-ui/core"
 import theme from "../../themes/theme.js"
 import { MobileMenuIcon } from "./mobile-menu-icon.js"
 import BackgroundImage from 'gatsby-background-image'
+import useMobileMenuControl from '../../hooks/useMobileMenuControl.js'
 
 
-const Header = ({ navOpen, handleNavOpen, navDisplay }) => {
+const Header = ({ navDisplay }) => {
   const bgImage = useStaticQuery(graphql`
     {
       file(relativePath: {eq: "floor-plan.png"}) {
@@ -29,7 +30,8 @@ const Header = ({ navOpen, handleNavOpen, navDisplay }) => {
   `)
 
   const fluidImage = bgImage.file.childImageSharp.fluid
-  
+  const [navOpen, handleNavOpen] = useMobileMenuControl()
+
   return (
 
     <header>
