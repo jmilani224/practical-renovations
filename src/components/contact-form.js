@@ -95,6 +95,7 @@ const ContactForm = () => {
             display={submitStatus ? "none" : "flex"}
             direction="column"
             px={{base: 5, md: 10}}
+            pt={4}
             w="100%"
             >
                 <Heading2Alt>
