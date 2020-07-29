@@ -40,8 +40,8 @@ const HeroCopy = () => {
         maxW={{base: "100vw", lg: "35rem"}}
         mr={{base: 0, lg: 4}}
         mb={{base: 0, md: 4, lg: 0}}
-        justifyContent={{base: "space-between", md: "center"}}
-        minH={{base: "90vh", md: 0}}
+        justifyContent={{base: "flex-end", md: "center"}}
+        minH={{base: "85vh", md: 0}}
         >
             <Heading1>{RichText.render(content.node.main_headline)}</Heading1>
             

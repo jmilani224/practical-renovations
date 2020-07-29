@@ -48,6 +48,7 @@ const Hero = () => {
                 >
                   <Flex
                   justifyContent="center"
+                  alignItems="flex-start"
                   pt={8}
                   display={{base: "flex", md: "none"}}
                   >
