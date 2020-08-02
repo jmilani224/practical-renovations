@@ -59,7 +59,6 @@ const Hero = () => {
                 </Flex>
             </BackgroundImage>
             <HeroForm display={{base: "flex", md: "none"}} />
-          
       </>
     )
 }

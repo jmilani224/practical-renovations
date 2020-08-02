@@ -14,7 +14,6 @@ import theme from '../themes/theme'
 import DrawerForm from '../components/drawer-form'
 import { dateConverter } from '../utils/date-converter.js'
 import { FixedImageHandler } from '../utils/imageHandlers'
-import MetaData from '../components/meta-data.js'
 import AboutJesse from '../components/about-jesse.js'
 
 const BlogTemplate = ({ data }) => {
@@ -30,11 +29,10 @@ const BlogTemplate = ({ data }) => {
 
     return (
         <>
-        <MetaData
+        <Layout
         title={metaData.title}
         description={metaData.desc}
-        />
-        <Layout>
+        >
             <Grid
             gridTemplateColumns={{base: "100%",lg: "1fr 0fr minmax(200px, 25%)"}}
             >

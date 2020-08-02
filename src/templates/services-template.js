@@ -5,7 +5,6 @@ import { Flex, Box, Text } from '@chakra-ui/core'
 import { FluidImageHandler } from '../utils/imageHandlers.js'
 import { Heading1, Heading2, FullWidthImage } from '../components/elements.js'
 import DrawerForm from '../components/drawer-form.js'
-import MetaData from '../components/meta-data.js'
 import Layout from '../components/layout.js'
 import theme from '../themes/theme.js'
 
@@ -14,13 +13,13 @@ const ServicesTemplate = ({ data }) => {
   const doc = data.prismic.allServices_pages.edges.slice(0, 1).pop();
   if (!doc) return null //validation check - recommended by Prismic to prevent a build error when previews are on
   const servicesArr = doc.node.services_details
+
     return (
       <>
-      <MetaData
-        title={doc.node.headline ? RichText.asText(doc.node.headline) : ''}
-        description={doc.node.section_intro ? RichText.asText(doc.node.section_intro) : ''}
-        />
-      <Layout>
+      <Layout
+      title={RichText.asText(doc.node.headline)}
+      description={doc.node.section_intro ? RichText.asText(doc.node.section_intro) : ''}
+      >
 
           <FullWidthImage
           headingTag="h1"

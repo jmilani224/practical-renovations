@@ -9,7 +9,6 @@ import MetaData from "./meta-data.js"
 const Layout = ({ title, description, children, navDisplay }) => {
 
   const [navOpen, handleNavOpen] = useMobileMenuControl()
-
   return (
     <>
         <MetaData title={title} description={description} />
