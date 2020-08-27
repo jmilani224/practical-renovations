@@ -1,5 +1,4 @@
 import React from "react"
-import './index.css'
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Hero from '../components/index/hero/hero.js'

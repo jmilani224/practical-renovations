@@ -5,6 +5,7 @@ import Header from "./header/header.js"
 import theme from '../themes/theme.js'
 import Footer from "./footer.js"
 import MetaData from "./meta-data.js"
+import './layout.css'
 
 const Layout = ({ title, description, children, navDisplay }) => {
 
