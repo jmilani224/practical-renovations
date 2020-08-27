@@ -36,7 +36,6 @@ const IndexPage = () => {
 
         <BlogFeature />
 
-
       </Flex>
       
     </Layout>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Layout from '../components/layout'
 import { Heading1, Heading2, BlogTags } from '../components/elements.js'
-import { Flex, Text, PseudoBox, Box } from '@chakra-ui/core'
+import { Flex, Text, PseudoBox } from '@chakra-ui/core'
 import theme from '../themes/theme.js'
 import { dateConverter } from '../utils/date-converter.js'
 import { RichText } from 'prismic-reactjs'

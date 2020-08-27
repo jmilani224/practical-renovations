@@ -117,7 +117,7 @@ export const MobileNav = ({ navOpen, handleNavOpen }) => {
       alignItems="center"
       position="fixed"
       top="0"
-      zIndex="2"
+      zIndex="99999 !important"
       pt={12}
       pb={6}
       >
