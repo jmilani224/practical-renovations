@@ -9,7 +9,8 @@ import {
     PseudoBox,
     Divider,
     Text,
-    Stack
+    Stack,
+    Link as ChakraLink,
 } from "@chakra-ui/core"
 import { Link } from "gatsby"
 import theme from '../themes/theme.js'
@@ -76,7 +77,8 @@ const Footer = () => {
               fontSize="sm"
               mr={{base: 0, md: 5}}
               >
-                  Copyright &#169; 2020 Practical Renovations, LLC. All Rights Reserved.
+                  Copyright &#169; 2020 Practical Renovations, LLC. All Rights Reserved.<br />
+                  Website design and development by <ChakraLink textDecoration="underline" target="blank" href="https://joelmilani.dev">Joel Milani</ChakraLink>.
               </Text>
               </Stack>
             </Flex>
