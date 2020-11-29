@@ -15,6 +15,7 @@ import DrawerForm from '../components/drawer-form'
 import { dateConverter } from '../utils/date-converter.js'
 import { FixedImageHandler } from '../utils/imageHandlers'
 import AboutJesse from '../components/about-jesse.js'
+import { Disqus } from 'gatsby-plugin-disqus';
 
 const BlogTemplate = ({ data }) => {
   
@@ -54,6 +55,13 @@ const BlogTemplate = ({ data }) => {
                     <LongFormText>
                       {RichText.render(doc.node.blog_post_content)}
                     </LongFormText>
+                    <Disqus
+                      config={{
+                          url: `https://practicalreno.com/blog/${doc.node._meta.uid}`,
+                          identifier: doc.node._meta.uid,
+                          title: doc.node.blog_post_title,
+                      }}
+                    />
                 </Box>
 
                 <Box
