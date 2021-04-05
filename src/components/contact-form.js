@@ -20,7 +20,7 @@ const onSubmit = async (event, setSubmitSatus) => {
     event.preventDefault();
     setSubmitSatus("spinner");
     const formElements = [...event.currentTarget.elements];
-    const isValid = true
+    const isValid = true;
       //formElements.filter(elem => elem.name === "bot-field")[0].value === "";
   
     const validFormElements = isValid ? formElements : [];
