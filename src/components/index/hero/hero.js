@@ -13,16 +13,26 @@ import useMobileMenuControl from '../../../hooks/useMobileMenuControl.js'
 const Hero = () => {
     const bgImage = useStaticQuery(graphql`
     {
-      file(relativePath: {eq: "hero/stair-hero-rt.jpg"}) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid
+      prismic {
+        homepage(lang: "en-us", uid: "homepage") {
+          hero_image
+          hero_imageSharp {
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+                originalImg
+                originalName
+              }
+            }
           }
         }
       }
     }
   `)
-  const fluidImage = bgImage.file.childImageSharp.fluid
+  const fluidImage = bgImage.prismic.homepage.hero_imageSharp.childImageSharp.fluid
 
   const [navOpen, handleNavOpen] = useMobileMenuControl()
 

@@ -9,8 +9,10 @@ const theme = {
     textColor: "rgb(26, 32, 44)",
     lightTextColor: "#868e96",
     backgroundColor: "#f7f8f7",
-    buttonColor: "#eabe4f",
-    buttonColorDark: "#ab8a37"
+    //buttonColor: "#eabe4f", yellow button
+    buttonColor: "#4459bf",
+    //buttonColorDark: "#ab8a37", dark yellow button hover
+    buttonColorDark: "#324391"
 }
 
 export default theme
