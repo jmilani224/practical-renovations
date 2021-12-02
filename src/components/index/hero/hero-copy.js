@@ -31,7 +31,7 @@ const HeroCopy = () => {
     return (
         <Flex
         direction="column"
-        background={{base: "linear-gradient(0deg, rgba(232,230,230,0.8687850140056023) 0%, rgba(232,230,230,0.6110819327731092) 35%, rgba(232,230,230,0) 100%);", md: "#e8e6e6c9"}}
+        background={{base: "transparent", md: "#e8e6e6c9"}}
         px={{base: 5, md: 16}}
         pt={{base: "4rem", md: 4}}
         pb={8}

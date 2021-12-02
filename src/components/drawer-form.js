@@ -9,7 +9,7 @@ import {
 import { PrimaryButton } from './elements.js'
 import ContactForm from './contact-form.js'
 
-const DrawerForm = ({ buttonMargin }) => {
+const DrawerForm = ({ buttonMargin, colorTheme }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
     return (
@@ -19,6 +19,7 @@ const DrawerForm = ({ buttonMargin }) => {
             CTA="Get an Estimate"
             ref={btnRef}
             onClick={onOpen}
+            colorTheme={colorTheme}
             />
 
             <Drawer

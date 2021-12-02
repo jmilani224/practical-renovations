@@ -55,6 +55,7 @@ const Hero = () => {
                 direction={{base: "column", lg: "row"}}
                 alignItems={{base: "center", lg: "start"}}
                 justifyContent={{base: "flex-end", md: "flex-start", lg: "space-evenly"}}
+                backgroundColor={{base: "white", lg: "transparent"}}
                 >
                   <Flex
                   justifyContent="center"
