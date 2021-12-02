@@ -45,7 +45,7 @@ const About = () => {
             px={{base: 5, md: 24, lg: 48}}
             pb={10}
             >
-                <Box
+                {content.main_imageSharp && <Box
                 float="left"
                 h="500px"
                 w={{base: "100%", md: "440px"}}
@@ -57,7 +57,7 @@ const About = () => {
                     fallback={content.main_image.url}
                     alt={content.main_image.alt}
                     />
-                </Box>
+                </Box>}
                 <LongFormText>
                     {RichText.render(content.page_content)}
                 </LongFormText>
