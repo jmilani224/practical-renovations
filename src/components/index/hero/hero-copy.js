@@ -43,7 +43,9 @@ const HeroCopy = () => {
         justifyContent={{base: "flex-end", md: "center"}}
         minH={{base: "85vh", md: 0}}
         >
-            <Heading1>{RichText.render(content.node.main_headline)}</Heading1>
+            <Heading1
+              fontSize={{base: "2.5rem", md: "3rem"}}
+            >{RichText.render(content.node.main_headline)}</Heading1>
             
             <Box>
               <Heading

@@ -63,7 +63,7 @@ const Hero = () => {
                   pt={8}
                   display={{base: "flex", md: "none"}}
                   >
-                    <LogoV2 color={theme.h1Color}/>
+                    <LogoV2 color={theme.mainColor}/>
                   </Flex>
                   <HeroCopy />
                   <HeroForm display={{base: "none", md: "flex"}} />

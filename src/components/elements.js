@@ -23,12 +23,12 @@ export const PrimaryButton = ({ CTA, ref, buttonMargin, onClick, type, w, colorT
     )
 }
 
-export const Heading1 = ({ children, align, pt }) => {
+export const Heading1 = ({ children, align, pt, fontSize }) => {
     return (
         <Heading
           as="h1"
           fontWeight="700"
-          fontSize="3rem"
+          fontSize={fontSize || "3rem"}
           color={theme.h1Color}
           lineHeight="1.1"
           mt={4}
