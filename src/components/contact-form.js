@@ -130,6 +130,7 @@ const ContactForm = () => {
                                     <option value={RichText.asText(service.node.page_name)}>{RichText.asText(service.node.page_name)}</option>
                                 ))}
                                 <option value="Ask a Home Renovation Question">Ask a Home Renovation Question</option>
+                                <option value="Remove Walls / Structural">Remove Walls / Structural</option>
                             </Select>
                         </FormControl>
                         {askQuestion && <FormControl m={3}>
