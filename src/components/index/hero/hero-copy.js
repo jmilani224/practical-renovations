@@ -40,7 +40,8 @@ const HeroCopy = () => {
         maxW={{base: "100vw", lg: "35rem"}}
         mr={{base: 0, lg: 4}}
         mb={{base: 0, md: 4, lg: 0}}
-        justifyContent={{base: "flex-end", md: "center"}}
+        // justifyContent={{base: "flex-end", md: "center"}}
+        justifyContent="center"
         minH={{base: "85vh", md: 0}}
         >
             <Heading1
