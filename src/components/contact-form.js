@@ -20,6 +20,7 @@ const onSubmit = async (event, setSubmitSatus) => {
     event.preventDefault();
     setSubmitSatus("spinner");
     const formElements = [...event.currentTarget.elements];
+    console.log(formElements)
     const isValid = true;
       //formElements.filter(elem => elem.name === "bot-field")[0].value === "";
   
@@ -38,6 +39,8 @@ const onSubmit = async (event, setSubmitSatus) => {
             encodeURIComponent(element.value)
         )
         .join("&");
+
+
   
       await fetch("/", {
         method: "POST",
@@ -58,7 +61,7 @@ const onSubmit = async (event, setSubmitSatus) => {
 const ContactForm = () => {
     const [formVisible, setFormVisible] = useState(true)
     const [thankYou, setThankYou] = useState(false)
-    const [submitStatus, setSubmitStatus] = useState(null);
+    const [submitStatus, setSubmitStatus] = useState(null)
     const [askQuestion, setAskQuestion] = useState(false)
 
     const handleFormVisible = () => {
@@ -134,7 +137,7 @@ const ContactForm = () => {
                         </FormControl>
                         {askQuestion && <FormControl m={3}>
                             <FormLabel htmlFor="question">Home Renovation Question</FormLabel>
-                            <Textarea name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type Your Question" />
+                            <Textarea name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type Your Question" required />
                         </FormControl>}
                         <Flex justifyContent="center" mt={4} mx={3}>
                             <PrimaryButton CTA="Submit" type="submit" onClick={handleFormClick} w="100%" />
