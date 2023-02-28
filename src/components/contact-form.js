@@ -127,7 +127,7 @@ const ContactForm = () => {
                             <FormLabel htmlFor="email">Email Address</FormLabel>
                             <Input name="Email Address" focusBorderColor={theme.mainDark} id="email" placeholder="Email Address" />
                         </FormControl>
-                        <FormControl m={3} >
+                        <FormControl m={3} isRequired>
                             <Select name="Select a Service" focusBorderColor={theme.mainDark} id="dropdown" placeholder="Select a Service" onChange={handleAskQuestion}>
                                 {data.prismic.allServices_pages.edges.map(service => (
                                     <option value={RichText.asText(service.node.page_name)}>{RichText.asText(service.node.page_name)}</option>
