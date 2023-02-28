@@ -135,9 +135,9 @@ const ContactForm = () => {
                                 <option value="Ask a Home Renovation Question">Ask a Home Renovation Question</option>
                             </Select>
                         </FormControl>
-                        {askQuestion && <FormControl m={3}>
+                        {askQuestion && <FormControl m={3} isRequired>
                             <FormLabel htmlFor="question">Home Renovation Question</FormLabel>
-                            <Textarea name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type Your Question" required />
+                            <Textarea name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type Your Question" />
                         </FormControl>}
                         <Flex justifyContent="center" mt={4} mx={3}>
                             <PrimaryButton CTA="Submit" type="submit" onClick={handleFormClick} w="100%" />
