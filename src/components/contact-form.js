@@ -138,7 +138,7 @@ const ContactForm = () => {
                         </FormControl>
                         <FormControl m={3} isRequired>
                             <FormLabel htmlFor="question">Project Summary or Home Renovation Question</FormLabel>
-                            <Textarea name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="Type Your Question" />
+                            <Textarea name="Home Renovation Question" focusBorderColor={theme.mainDark} id="question" placeholder="How can we help?" />
                         </FormControl>
                         <Flex justifyContent="center" mt={4} mx={3}>
                             <PrimaryButton CTA="Submit" type="submit" onClick={handleFormClick} w="100%" />
